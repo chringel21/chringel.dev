@@ -1,0 +1,3 @@
+[submodule "themes/chringel"]
+	path = themes/chringel
+	url = https://github.com/chringel21/chringel-hugo-theme.git
