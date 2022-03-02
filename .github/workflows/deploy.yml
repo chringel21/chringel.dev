@@ -1,6 +1,6 @@
-# This is a basic workflow to help you get started with Actions
+# Github Action to generate a Hugo blog and deploy to webserver
 
-name: CI
+name: Continuous Deployment
 
 # Controls when the workflow will run
 on:
@@ -24,9 +24,34 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs the Hugo command to build public directory
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.90.1'
+          extended: true
+
+      # Clone the theme as a submodule
+      - name: Clone theme
+        run: git submodule update --init --recursive
+
+      # Setup node and npm
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+
+      # Install dependencies for the theme
+      - name: Install theme
+        run: |
+          npm install -g postcss-cli
+          npm install -g autoprefixer
+          cd themes/chringel
+          npm install
+
+      # Build the Hugo web site
       - name: Hugo build
-        uses: kevvurs/action-hugo@v1.0-rc2
-        
+        run: |
+          cd $GITHUB_WORKSPACE
+          hugo -v
 
       # Copy build folder to remote using rsync
       - name: Rsync Deployments Action
@@ -38,5 +63,3 @@ jobs:
           remote_host: arcturus.uberspace.de
           remote_user: chringel
           remote_key: ${{ secrets.UBERSPACE_PRIVATE_SSH_KEY }}
-
-
