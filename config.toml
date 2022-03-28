@@ -67,3 +67,10 @@ enableRobotsTXT = true
 
 [build]
   writeStats = true
+
+[module]
+  [[module.imports]]
+    path = "github.com/schnerring/hugo-mod-json-resume"
+  [[module.mounts]]
+    source = "node_modules/simple-icons/icons"
+    target = "assets/simple-icons"
