@@ -7,6 +7,7 @@ featured_image: images/blog/2022/inline-svg-icons-for-hugo.png
 draft: false
 categories:
   - Coding
+  - Tutorials
 tags:
   - Hugo
   - Partial

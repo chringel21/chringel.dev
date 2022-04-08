@@ -6,6 +6,7 @@ date:  2022-03-17
 featured_image: images/blog/2022/isso-comments-hugo.png
 categories:
   - Coding
+  - Tutorials
 tags:
   - Hugo
   - Comments
