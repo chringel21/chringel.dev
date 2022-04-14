@@ -2,7 +2,7 @@
 <IfModule mod_deflate.c>
  <FilesMatch "\.(js|jpg|jpeg|gif|png|css|ttf|webp)$">
   ExpiresActive on
-  ExpiresDefault "access plus 1 month"
+  ExpiresDefault "access plus 1 year"
   SetOutputFilter DEFLATE
  </FilesMatch>
 </IfModule>
