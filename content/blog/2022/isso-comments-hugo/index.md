@@ -3,7 +3,9 @@ title: "Isso - An Alternative Commenting System For Hugo"
 author: Christian Engel
 type: post
 date:  2022-03-17
-featured_image: images/blog/2022/isso-comments-hugo.png
+cover:
+  src: images/isso-comments-hugo.png
+  caption: Comments for Hugo - no Disqus required
 categories:
   - Coding
   - Tutorials

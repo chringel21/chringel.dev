@@ -3,7 +3,9 @@ title: "Hello World - Part II: The Return of Hugo"
 author: Christian Engel
 type: post
 date:  2022-01-03
-featured_image: images/blog/2022/hello-world.jpg
+cover:
+  src: images/hello-world.jpg
+  caption: Hello World!
 categories:
   - Non-Coding
   - Thoughts

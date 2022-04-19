@@ -3,7 +3,9 @@ title: "Inline SVG Icons For Hugo"
 author: Christian Engel
 type: post
 date:  2022-03-08
-featured_image: images/blog/2022/inline-svg-icons-for-hugo.png
+cover:
+  src: images/inline-svg-icons-for-hugo.png
+  caption: SVG icons partials are no problem
 draft: false
 categories:
   - Coding

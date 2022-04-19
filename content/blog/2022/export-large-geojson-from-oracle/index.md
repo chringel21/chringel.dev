@@ -4,6 +4,9 @@ author: Christian Engel
 type: post
 date:  2022-04-07
 featured_image: images/blog/2022/export-large-geojson-from-oracle.png
+cover:
+  src: images/export-large-geojson-from-oracle.png
+  caption: SQL Developer can be your friend
 categories:
   - Coding
   - Tutorials
