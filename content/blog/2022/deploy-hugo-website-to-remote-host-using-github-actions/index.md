@@ -6,7 +6,6 @@ date: 2022-05-02
 cover:
   src: images/hugo-deployment.png
   caption: \"I love it when a plan comes together" - Every DevOps engineer, ever.
-draft: true
 categories:
   - Coding
   - Tutorials
