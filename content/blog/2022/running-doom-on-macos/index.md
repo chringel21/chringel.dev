@@ -2,11 +2,10 @@
 title: "Run Doom on MacOS"
 author: Christian Engel
 type: post
-date: 2022-05-09
+date: 2022-05-11
 cover:
   src: images/doom-on-macos.png
   caption: Running Doom on MacOS is not that hard!
-draft: true
 categories:
   - Gaming
 tags:
@@ -22,6 +21,7 @@ tags:
   - GOG
   - Steam
   - Windows
+  - Sigil
 description: This post will explain how to run Doom on MacOS using a source port called GZDoom.
 ---
 
@@ -46,22 +46,18 @@ brew install innoextract
 - Extract files from Doom installer
 
 ```shell
-innoextract -d ~/Doom ~/Downloads/setup_the_ultimate_doom_1.9_\(28044\).exe
-```
-
-- Copy `DOOM.WAD` to config folder
-
-```shell
-cp ~/Doom/DOOM.WAD ~/Library/Application\ Support/gzdoom/DOOM.WAD
+innoextract -I DOOM.WAD -d ~/doomwads ~/Downloads/setup_the_ultimate_doom_1.9_\(28044\).exe
 ```
 
 - Run GZDoom with `DOOM.WAD`
 
 ```shell
-/Applications/GZDoom.app/Contents/MacOS/gzdoom -f ~/Doom/DOOM.WAD
+/Applications/GZDoom.app/Contents/MacOS/gzdoom -f ~/doomwads/DOOM.WAD
 ```
 
 ## My Background With Doom
+
+**Skip this part if you don't want to read personal background stories**
 
 It must have been like 2000-2001-ish when I first played Doom. I was too young to experience it when it first released, and when I played it for the first time, **I didn't like it**. Yes, I admit it. I didn't get what everyone else was seeing in this game. The enemies' sprite design didn't appeal to me, controls where clunky. Every shooter I had played up to this point (Half-Life, Unreal Tournament, Thief, ...) seemed far more superior to me.
 
@@ -135,12 +131,34 @@ Looking at the file `~/Library/Preferences/gzdoom.ini` will show us all the dire
 [IWADSearch.Directories]
 Path=.
 Path=$DOOMWADDIR
-Path=/Users/cengel-wg/Documents/GZDoom
-Path=/Users/cengel-wg/Library/Application Support/GZDoom
+Path=/Users/my_user/Documents/GZDoom
+Path=/Users/my_user/Library/Application Support/GZDoom
 Path=$PROGDIR
 Path=/Library/Application Support/GZDoom
 ```
 
----
+Add the path we created earlier when extracting the `DOOM.WAD`. Make sure to use the **long form**, without the `~/` as a shortcut for your user's directory, and **replace your username**.
 
-Source: xyz
+```ini
+[IWADSearch.Directories]
+Path=/Users/my_user/doomwads
+...
+```
+
+Now run GZDoom from Spotlight or the Applications window. It should load up Doom. **Great!**
+
+### Running Mods or Custom WADs
+
+OK, cool, Doom is running. What about mods and custom WADs? For example the super cool campain [SIGIL](https://romero.com/sigil), created by **John Romero** himself to celebrate Doom's 25 anniversary.
+
+Download SIGIL, it's free. Place the WADs in your custom folder `~/doomwads`. Now run GZDoom and enter the file's location as an optional parameter down below using the flag `-file`.
+
+![GZDoom Additional Parameters](images/gzdoom-additional-parameters.png "Use the custom WAD's location as an additional parameter")
+
+You can also do that from the terminal, using this command:
+
+```shell
+/Applications/GZDoom.app/Contents/MacOS/gzdoom -file ~/doomwads/SIGIL_v1_21.WAD
+```
+
+That's it. **Rip and tear!**
