@@ -46,6 +46,10 @@ enableRobotsTXT = true
   name = "Twitter"
   url = "https://twitter.com/DeEgge"
 
+[[menu.social]]
+  name = "Mastodon"
+  url = "https://fosstodon.org/@chringel"
+
 [privacy]
   [privacy.disqus]
     disable = true
