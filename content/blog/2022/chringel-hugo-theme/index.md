@@ -2,9 +2,9 @@
 title: "Chringel Hugo Theme"
 author: Christian Engel
 type: post
-date:  2022-02-28
+date: 2022-02-28
 cover:
-  src: images/chringel-hugo-theme.png
+  src: feature-chringel-hugo-theme.png
   caption: chringel - A custom Hugo theme
 categories:
   - Coding
@@ -22,7 +22,7 @@ It's finally out there! My first custom Hugo theme made (nearly) from scratch. I
 
 You can find it on [GitHub](https://github.com/chringel21/chringel-hugo-theme), obviously!
 
-### Tailwind CSS 
+### Tailwind CSS
 
 As the title suggests, it uses the [tailwindcss](https://tailwindcss.com) framework. I've been using Bootstrap almost exclusively for almost always and wanted to try something new. [There are a lot of frameworks](https://github.com/troxler/awesome-css-frameworks) to choose from, ranging from [minimal](https://purecss.io), to [general purpose](https://bulma.io) to down right [weird](https://nostalgic-css.github.io/NES.css/).
 
@@ -36,9 +36,9 @@ Hugo is a static site generator written in Go. This means once you create conten
 
 Hugo's templating structure can be reduced to three "components":
 
-* **layouts** (basic skeleton templates i.e. a single blog post or your index page)
-* **partials** (small context aware components i.e. the footer or the header of a page, or how the comments section should look like)
-* **shortcode** (basically templates that you can use directly inside you content files i.e. for displaying a specific tweet, or a Youtube video)
+- **layouts** (basic skeleton templates i.e. a single blog post or your index page)
+- **partials** (small context aware components i.e. the footer or the header of a page, or how the comments section should look like)
+- **shortcode** (basically templates that you can use directly inside you content files i.e. for displaying a specific tweet, or a Youtube video)
 
 There is a really good blog series that basically covers everything from creating layouts and partials to deploying your Hugo web site. [Check it out here](https://pakstech.com/series/blog-with-hugo/).
 
@@ -78,7 +78,7 @@ I'm still not done. From time to time I find some quirks here and there, make so
 
 Here's what's still on my to-do list:
 
-* A **GDPR conform banner** to inform the user about the use of cookies
-* A custom CV layout that's also **ready to print** so I don't have to keep my old TeX-based CV updated
-* Publish the theme to Hugo's theme list
-* Shortcodes for Leaflet/MapLibre GL maps (?)
+- A **GDPR conform banner** to inform the user about the use of cookies
+- A custom CV layout that's also **ready to print** so I don't have to keep my old TeX-based CV updated
+- Publish the theme to Hugo's theme list
+- Shortcodes for Leaflet/MapLibre GL maps (?)

@@ -4,7 +4,7 @@ author: Christian Engel
 type: post
 date: 2022-04-28
 cover:
-  src: images/umami.jpg
+  src: feature-umami.jpg
   caption: Free and privacy focused analytics for Hugo. [Source](https://umami.is/)
 categories:
   - Coding

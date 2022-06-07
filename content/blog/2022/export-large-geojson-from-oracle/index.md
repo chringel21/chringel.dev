@@ -2,10 +2,10 @@
 title: "Export Large Geojson From Oracle"
 author: Christian Engel
 type: post
-date:  2022-04-07
+date: 2022-04-07
 featured_image: images/blog/2022/export-large-geojson-from-oracle.png
 cover:
-  src: images/export-large-geojson-from-oracle.png
+  src: feature-export-large-geojson-from-oracle.png
   caption: SQL Developer can be your friend
 categories:
   - Coding
@@ -29,7 +29,7 @@ description: How to export large Geojson objects from a Oracle Spatial database 
 
 Recently I found myself in a tricky situation: I was tasked to export spatial data from an Oracle database for importing into PostgreSQL with PostGIS extentsion.
 
-You might think *"Easy, just use a command line tool like `ogr2ogr`"*. But here's the catch: There was no direct connection between the two database systems. It was even more complicated, because I had to use a Remote Desktop connection to access the Oracle database via SQL Developer, but that's not the point of this post.
+You might think _"Easy, just use a command line tool like `ogr2ogr`"_. But here's the catch: There was no direct connection between the two database systems. It was even more complicated, because I had to use a Remote Desktop connection to access the Oracle database via SQL Developer, but that's not the point of this post.
 
 **So what do you do, if you have to move large amounts of spatial data between two isolated systems?**
 
@@ -38,7 +38,7 @@ You might think *"Easy, just use a command line tool like `ogr2ogr`"*. But here'
 [Geojson](https://geojson.org/) can be used as an exchange format between databases. Oracle 12.2 introduced the function `get_geojson()` for spatial data types like `SDO_GEOMETRY`. This will produce **geojson features**. Suppose the spatial data lies in a column called `SHAPE`, we can do:
 
 ```sql
-SELECT 
+SELECT
   c.SHAPE.get_geojson() AS JSON
 FROM MY_TABLE c
 -------------------------------
@@ -64,8 +64,8 @@ SELECT
   )
 FROM MY_TABLE c
 -------------------------------
--- { 
---    "type": "Feature", 
+-- {
+--    "type": "Feature",
 --    "properties": { "column_1": "value", "column_2": "value", ... , "column_n" : "value" },
 --    "geometry": { "type": "Point", "coordinates": [6.768617, 51.195687] }
 -- }
@@ -104,8 +104,8 @@ Unfortunately, exporting the data at this stage to a text based format like JSON
 
 Note the second box:
 
-* Select **Save As: Seperate Files**
-* Tick **Compressed**
+- Select **Save As: Seperate Files**
+- Tick **Compressed**
 
 Unzip the archive on your target machine (with a connection to the PostgreSQL database). Now you'll have some data cleanup to do.
 
@@ -162,6 +162,6 @@ Image: [Ludriff](https://commons.wikimedia.org/w/index.php?title=User:Ludriff&ac
 
 Sources:
 
-* https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/JSON_OBJECT.html#GUID-1EF347AE-7FDA-4B41-AFE0-DD5A49E8B370
-* https://www.thatjeffsmith.com/archive/2014/05/exporting-multiple-blobs-with-oracle-sql-developer/
-* [Using_GeoJSON_in_Oracle_Database](https://download.oracle.com/otndocs/products/spatial/pdf/biwa2018/BIWA18_Using_GeoJSON_in_Oracle_Database.pdf)
+- https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/JSON_OBJECT.html#GUID-1EF347AE-7FDA-4B41-AFE0-DD5A49E8B370
+- https://www.thatjeffsmith.com/archive/2014/05/exporting-multiple-blobs-with-oracle-sql-developer/
+- [Using_GeoJSON_in_Oracle_Database](https://download.oracle.com/otndocs/products/spatial/pdf/biwa2018/BIWA18_Using_GeoJSON_in_Oracle_Database.pdf)

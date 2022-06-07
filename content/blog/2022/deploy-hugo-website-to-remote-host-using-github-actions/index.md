@@ -4,7 +4,7 @@ author: Christian Engel
 type: post
 date: 2022-05-02
 cover:
-  src: images/hugo-deployment.png
+  src: feature-hugo-deployment.png
   caption: \"I love it when a plan comes together" - Every DevOps engineer, ever.
 categories:
   - Coding

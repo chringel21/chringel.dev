@@ -2,9 +2,9 @@
 title: "Isso - An Alternative Commenting System For Hugo"
 author: Christian Engel
 type: post
-date:  2022-03-17
+date: 2022-03-17
 cover:
-  src: images/isso-comments-hugo.png
+  src: feature-isso-comments-hugo.png
   caption: Comments for Hugo - no Disqus required
 categories:
   - Coding
@@ -28,7 +28,7 @@ By default, Hugo comes with an option to enable [Disqus comments](https://disqus
 
 This blog is [hosted on ateroids :rocket:](https://uberspace.de/en/). They have an extensive library of tools to install (well, you have to do it yourself, but the [user contributed guides](https://lab.uberspace.de/guide_isso.html?highlight=isso) will help you along), and **Isso** is one of them.
 
-I won't replicate the install instructions here, but it basically boils down to the following steps (*which you might want to adapt to your specific setup!*):
+I won't replicate the install instructions here, but it basically boils down to the following steps (_which you might want to adapt to your specific setup!_):
 
 1. Install **Isso** via the Python package manager `pip`
 2. Add a server configuration - for a full list, please see the [official server documentation](https://posativ.org/isso/docs/configuration/server/)
@@ -41,6 +41,7 @@ Once you've got **Isso** up and running, you'll need a partial to display your n
 
 Create one for your blog at `layouts/partials/comments.html`. For this theme, I gave users the option to choose from either Disqus or Isso, based on their configuration.
 
+<!-- prettier-ignore -->
 ```html
 {{ if and .Site.DisqusShortname (index .Params "comments" | default "true") (not .Site.IsServer) }}
 <section class="comments">
@@ -96,7 +97,8 @@ That's it. You're done. Now you've got a comment system under your control.
 
 Image: [BiologeXY](https://pokemon.fandom.com/de/wiki/Benutzer:BiologeXY) on [pokemon.fandom.com](https://pokemon.fandom.com/de/wiki/Isso)
 
-Sources: 
-* https://stanislas.blog/2018/02/add-comments-to-your-blog-with-isso/
-* https://lab.uberspace.de/guide_isso.html?highlight=isso
-* https://gohugo.io/content-management/comments/#configure-disqus
+Sources:
+
+- https://stanislas.blog/2018/02/add-comments-to-your-blog-with-isso/
+- https://lab.uberspace.de/guide_isso.html?highlight=isso
+- https://gohugo.io/content-management/comments/#configure-disqus

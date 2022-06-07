@@ -2,9 +2,9 @@
 title: "Inline SVG Icons For Hugo"
 author: Christian Engel
 type: post
-date:  2022-03-08
+date: 2022-03-08
 cover:
-  src: images/inline-svg-icons-for-hugo.png
+  src: feature-inline-svg-icons-for-hugo.png
   caption: SVG icons partials are no problem
 draft: false
 categories:
@@ -48,8 +48,8 @@ done
 
 Ionicons follow a straight forward naming convention:
 
-* `{icon-name}-ouline`
-* `logo-{platform}`
+- `{icon-name}-ouline`
+- `logo-{platform}`
 
 The variable `icons` contains all icons we want to download. Save the script to a folder of your choice, i.e. `~/download.sh`, make it executable and run it.
 
@@ -66,6 +66,7 @@ In the `layouts` folder of your Hugo site, create a `partial` folder, if you don
 
 Here's the content of the partial called `ionicons.html`:
 
+<!-- prettier-ignore -->
 ```html
 {{ $svg := resources.Get (print "ionicons/" . ".svg") }}
   <span class="inline-svg">
@@ -78,6 +79,7 @@ Here's the content of the partial called `ionicons.html`:
 
 If you want to make the logos look different from your standard icons, i.e. use a different size or color, just look for the string `logo` in the filename:
 
+<!-- prettier-ignore -->
 ```html
 {{ $svg := resources.Get (print "svg/ionicons/" . ".svg") }}
 {{ if in $svg "logo" }}
