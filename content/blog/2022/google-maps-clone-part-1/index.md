@@ -3,6 +3,7 @@ title: "Creating a Google Maps Clone - Part 1 - Tiles and Styles"
 author: Christian Engel
 type: post
 date: 2022-06-20
+lastmod: 2022-06-21
 cover:
   src: feature.png
   caption: Vector tiles with different styles
@@ -41,7 +42,7 @@ Before we start, let's dive into some of the basics for web mapping. Displaying 
 
 There is a whole database of free geographic information available, called [OpenStreetMap](https://www.openstreetmap.org/). You can get either the world as a whole, or download extracts at different scales, for continents, countries, states and (if they are big enough) cities from [Geofabrik](https://download.geofabrik.de/) and other sources.
 
-OpenStreetMap data (`*.osm`) is actually plain XML, but rendering these files from a server or even client is not really efficient, because it contains a lot of obsolete information. That's why the folks over at [Mapbox](https://www.mapbox.com/) came up with the [de-facto standard specification](https://github.com/mapbox/vector-tile-spec) for encoding tiled vector data.
+OpenStreetMap data (`*.osm`) is actually plain XML, but rendering these files from a server or even client is not really efficient, because it contains "because it contains far more information than can be reasonably used in a map" ([Simon Poole](https://twitter.com/sp8962/status/1539149356166696962)). That's why the folks over at [Mapbox](https://www.mapbox.com/) came up with the [de-facto standard specification](https://github.com/mapbox/vector-tile-spec) for encoding tiled vector data.
 
 A common way to serve vector tiles from OpenStreetMap data is storing them in a single SQLite database, called [MBTiles](https://docs.mapbox.com/help/glossary/mbtiles/). A [tile server](https://github.com/mapbox/awesome-vector-tiles#servers) will serve protobuf files with gridded vector data based on longitude, latitude and zoom level (translates to scale).
 
@@ -197,6 +198,12 @@ It is quite possible to create background imagery for a Google Maps clone solely
 !["OpenStreetMap Vector Tiles compared to Google Maps"](images/vector-tiles-google-maps-comparison.png "OpenStreetMap Vector Tiles compared to Google Maps")
 
 Of course, creating background imagery is not enough, you need some interaction with the data. The next part will cover setting up a custom search tool for our map, also called **geocoder**.
+
+---
+
+**Update 2022-06-21**
+
+In a previous version of this post I wrote OSM files contained "obsolete information" for web map rendering. As [Simon Poole](https://twitter.com/sp8962/status/1539149356166696962) correctly pointed out, my intention was to say OSM files contain more information than is reasonable for usage in a web map.
 
 ---
 
