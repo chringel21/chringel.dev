@@ -33,6 +33,16 @@ enableRobotsTXT = true
   websiteId = "59e2e93a-9a05-4d4c-b671-33eaec1b46f7"
   jsLocation = "https://analytics.chringel.dev/umami.js"
 
+[Params.hcard]
+  avatar = "images/index.png"
+  fullName = "Christian Engel"
+  pronouns = [ "he", "him" ]
+  nickname = "chringel"
+  showLocation = true
+  city = "Potsdam"
+  region = "Brandenburg"
+  country = "Germany"
+
 [permalinks]
   posts = "/:year/:month/:slug/"
   blog = "/:year/:month/:slug/"
