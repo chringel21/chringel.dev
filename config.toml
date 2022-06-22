@@ -34,7 +34,7 @@ enableRobotsTXT = true
   jsLocation = "https://analytics.chringel.dev/umami.js"
 
 [Params.hcard]
-  avatar = "images/index.png"
+  avatar = "/images/index.png"
   fullName = "Christian Engel"
   pronouns = [ "he", "him" ]
   nickname = "chringel"
