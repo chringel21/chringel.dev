@@ -11,7 +11,7 @@ enableRobotsTXT = true
   description = 'My personal blog about coding, spatial stuff and everything else'
   keywords = ['blog','geo','spatial','geospatial','coding']
   headerTitle = 'chringel@dev: ~/$'
-  footerCopyrightText = 'Christian Engel 2022'
+  footerCopyrightText = 'CC BY 4.0 Christian Engel 2022'
   titleImage = 'images/index.png'
   recentPostsOnIndex = true
 
