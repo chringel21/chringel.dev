@@ -20,4 +20,4 @@ Lifelong learner and **open-source enthusiast**, mainly working on web based **s
 
 Also a [hobby photographer](https://pixelfed.de/i/web/profile/382484911250793335).
 
-Find me on [GitHub](https://github.com/chringel21) or [Twitter](https://twitter.com/DeEgge).
+Find me on [GitHub](https://github.com/chringel21), [Twitter](https://twitter.com/DeEgge) or [Mastodon](https://fosstodon.org/@chringel).
