@@ -9,7 +9,7 @@ enableRobotsTXT = true
 
 [Params]
   description = 'My personal blog about coding, spatial stuff and everything else'
-  keywords = ['blog','geo','spatial','geospatial','coding']
+  keywords = ['blog','geo','spatial','geospatial','coding', 'web development', 'gaming', 'hugo']
   headerTitle = 'chringel@dev: ~/$'
   footerCopyrightText = 'CC BY 4.0 Christian Engel 2022'
   titleImage = 'images/index.png'
@@ -59,6 +59,10 @@ enableRobotsTXT = true
 [[menu.social]]
   name = "Mastodon"
   url = "https://fosstodon.org/@chringel"
+
+[[menu.social]]
+  name = "RSS"
+  url = "https://chringel.dev/index.xml"
 
 [privacy]
   [privacy.disqus]
