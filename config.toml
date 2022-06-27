@@ -49,6 +49,10 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
   authorizationEndpoint = "https://indieauth.com/auth"
   tokenEndpoint = "https://tokens.indieauth.com/token"
 
+[Params.webmention]
+  webmentionEndpoint = "https://jam.chringel.dev/webmention"
+  webmentionPingbackEndpoint = "https://jam.chringel.dev/pingback"
+
 [permalinks]
   posts = "/:year/:month/:slug/"
   blog = "/:year/:month/:slug/"
