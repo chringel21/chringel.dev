@@ -45,6 +45,10 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
   region = "Brandenburg"
   country = "Germany"
 
+[Params.indieweb]
+  authorizationEndpoint = "https://indieauth.com/auth"
+  tokenEndpoint = "https://tokens.indieauth.com/token"
+
 [permalinks]
   posts = "/:year/:month/:slug/"
   blog = "/:year/:month/:slug/"
