@@ -3,7 +3,7 @@ title: "Creating a Google Maps Clone - Part 1 - Tiles and Styles"
 author: Christian Engel
 type: post
 date: 2022-06-20
-lastmod: 2022-06-21
+lastmod: 2022-07-15
 cover:
   src: feature.png
   caption: Vector tiles with different styles
@@ -35,7 +35,7 @@ syndication:
   twitter: https://twitter.com/DeEgge/status/1538902082698231808
 ---
 
-This is a multipart series on how to create a **full stack Google Maps Clone**. It covers every step in the process: How to create **vector tiles** from OpenStreetMap data, serving them using a **tile server**, setting up a simple **geocoder** for searching places and street names, implementing a **routing API** und finally, building a **frontend GUI** to wire everything together. This Google Maps Clone will cover only a small spatial extent. Building the whole world is beyond the scope of this implementation.
+This is a multipart series on how to create a **full stack Google Maps Clone**. It covers every step in the process: How to create **vector tiles** from OpenStreetMap data, serving them using a **tile server**, [setting up a simple **geocoder** for searching places and street names](/2022/07/creating-a-google-maps-clone-part-2-geocoding-or-wheres-that-place/), implementing a **routing API** und finally, building a **frontend GUI** to wire everything together. This Google Maps Clone will cover only a small spatial extent. Building the whole world is beyond the scope of this implementation.
 
 ## Basics
 
