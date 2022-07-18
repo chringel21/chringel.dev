@@ -59,6 +59,11 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
   blog = "/:year/:month/:slug/"
   page = "/:slug/"
 
+[taxonomies]
+  categories = "categories"
+  tags = "tags"
+  series = "series"
+
 [[menu.social]]
   name = "GitHub"
   url = "https://github.com/chringel21"
