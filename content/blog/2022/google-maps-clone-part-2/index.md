@@ -20,13 +20,13 @@ tags:
   - Komoot photon
   - Docker
   - Java
+series:
+  - Creating a Google Maps Clone
 description: A multipart series on how to create a full stack Google Maps Clone, covering everything from background imagery, geocoding and routing APIs and frontend GUI. Part 2 covers getting street and location data that will be used for a geocoding service.
 syndication:
   twitter: https://twitter.com/DeEgge/status/1547910404105416704
   mastodon: https://fosstodon.org/web/@chringel/108651195887171266
 ---
-
-This is a multipart series on how to create a **full stack Google Maps Clone**. It covers every step in the process: [How to create **vector tiles** from OpenStreetMap data, serving them using a **tile server**](/2022/06/creating-a-google-maps-clone-part-1-tiles-and-styles/), setting up a simple **geocoder** for searching places and street names, implementing a **routing API** und finally, building a **frontend GUI** to wire everything together. This Google Maps Clone will cover only a small spatial extent. Building the whole world is beyond the scope of this implementation.
 
 ## Basics
 

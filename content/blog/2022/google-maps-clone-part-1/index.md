@@ -29,13 +29,13 @@ tags:
   - Java
   - Open data
   - Open source
+series:
+  - Creating a Google Maps Clone
 description: A multipart series on how to create a full stack Google Maps Clone, covering everything from background imagery, geocoding and routing APIs and frontend GUI. Part 1 covers getting background imagery using a vector tile creation tool and a tile server.
 syndication:
   mastodon: https://fosstodon.org/web/@chringel/108509957933937437
   twitter: https://twitter.com/DeEgge/status/1538902082698231808
 ---
-
-This is a multipart series on how to create a **full stack Google Maps Clone**. It covers every step in the process: How to create **vector tiles** from OpenStreetMap data, serving them using a **tile server**, [setting up a simple **geocoder** for searching places and street names](/2022/07/creating-a-google-maps-clone-part-2-geocoding-or-wheres-that-place/), implementing a **routing API** und finally, building a **frontend GUI** to wire everything together. This Google Maps Clone will cover only a small spatial extent. Building the whole world is beyond the scope of this implementation.
 
 ## Basics
 
