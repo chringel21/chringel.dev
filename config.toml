@@ -39,6 +39,7 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
 [Params.hcard]
   avatar = "/images/index.png"
   fullName = "Christian Engel"
+  biography = "Hi, I'm Christian Engel, software engineer by profession, blogger, photographer and open-source enthusiast by passion."
   pronouns = [ "he", "him" ]
   nickname = "chringel"
   showLocation = true
