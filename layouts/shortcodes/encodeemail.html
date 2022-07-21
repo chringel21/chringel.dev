@@ -1,0 +1,18 @@
+{{- $address := .Get "address" | default (.Get 0) -}}
+{{- $message := .Get "message" | default (.Get 1) -}}
+{{- $fingerprint := md5 (print $address (index (seq 999 | shuffle) 0)) | truncate 8 "" -}}
+<style>
+  #span-{{ $fingerprint }}.encoded-e-mail:before {
+    cursor: pointer;
+  }
+</style>
+
+<span id="span-{{ $fingerprint }}" class="encoded-e-mail" onclick="injectEmail()">{{ $message }}</span>
+
+<script id="script-{{ $fingerprint }}">
+  function injectEmail() {
+    var encoded = {{ $address }};
+    var id = "span-" + {{ $fingerprint }};
+    document.getElementById(id).innerHTML = '<a href="mailto:' + atob(encoded) + '">' + atob(encoded) + '</a>';
+  }
+</script>
