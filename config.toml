@@ -16,6 +16,7 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
   footerCopyrightText = 'CC BY 4.0 Christian Engel 2022'
   titleImage = 'images/index.png'
   recentPostsOnIndex = true
+  showPrevNextPostNavigation = false
 
 [Params.isso]
   enabled = true
