@@ -25,6 +25,8 @@ description: This describes my experiences in getting my website into the IndieW
 syndication:
   twitter: https://twitter.com/DeEgge/status/1550547785279234050
   mastodon: https://fosstodon.org/web/@chringel/108692404350645632
+  indieweb.xyz: https://indieweb.xyz/en/indieweb
+  IndieWeb News: https://news.indieweb.org/en
 ---
 
 I actually can't recall anymore, what got me started with this whole **IndieWeb** thing. According to my browser history, I visited [IndieWeb.org](https://indieweb.org) on June 15, 2022, so around a month ago. I read up on **Miriam Suzanne**'s hugely popular post [Am I on the IndieWeb Yet?](https://www.miriamsuzanne.com/2022/06/04/indiweb/) and searched Google for "hugo indieweb" in the hopes there was some kind of [recipe](https://jlelse.blog/micro/2021/05/indieweb-recipe) to get me started on my static page (I'm a developer and after all \*_let's say it all together_\* developers are lazy).
