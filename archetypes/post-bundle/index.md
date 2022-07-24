@@ -4,7 +4,7 @@ author: Me
 type: post
 date:  {{ now.Format "2006-01-02" }}
 cover:
-  src: feature.jpg
+  src: feature.png
   caption: Title image **caption**
 draft: true
 categories:
