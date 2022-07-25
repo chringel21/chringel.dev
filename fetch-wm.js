@@ -15,10 +15,5 @@ const fsp = require("fs").promises;
   await fsp.writeFile(`${__dirname}/data/webmentions.json`, json, "utf-8");
   console.log(`-- done`);
 
-  // send webmentions
-  console.log("Sending webmentions...");
-  const since = await webmention.send("chringel.dev", config);
-  console.log(`-- done`);
-
   console.log("-- all done!");
 })();
