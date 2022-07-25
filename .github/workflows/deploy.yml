@@ -43,7 +43,7 @@ jobs:
       - name: Fetch webmentions
         run: |
           npm install
-          WM_TOKEN=${{ secrets.WM_TOKEN }} npm run fetch-wm
+          WM_TOKEN=${{ secrets.WM_TOKEN }} npm run fetch
 
       # Install dependencies for the theme
       - name: Install theme
