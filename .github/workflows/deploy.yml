@@ -23,30 +23,24 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - run: echo $PATH
-
       - uses: actions/checkout@v3
         with:
           submodules: recursive
 
       # Runs the Hugo command to build public directory
-      - run: echo $PATH
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: "0.91.2"
           extended: true
 
-      # Setup node and npm
       - run: echo ":/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> $GITHUB_PATH
 
+      # Setup node and npm
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-
-      - run: echo $PATH
 
       - name: Cache dependencies
         uses: actions/cache@v2
@@ -57,8 +51,6 @@ jobs:
             ${{ runner.os }}-node-
 
       # Fetch webmentions
-      - run: echo $PATH
-
       - name: Fetch webmentions
         run: |
           cd $GITHUB_WORKSPACE
@@ -92,3 +84,12 @@ jobs:
           remote_host: ${{ secrets.HOST }}
           remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.UBERSPACE_PRIVATE_SSH_KEY }}
+
+      # Trigger remote script to send webmentions
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.UBERSPACE_PRIVATE_SSH_KEY }}
+          script: bin/send-wm.sh
