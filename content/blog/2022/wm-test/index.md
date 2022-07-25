@@ -11,7 +11,6 @@ categories:
   - A
   - B
   - C
-  - D
 tags:
   - Hugo
   - Game Development
