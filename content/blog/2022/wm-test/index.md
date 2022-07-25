@@ -6,7 +6,6 @@ date: 2022-07-25
 cover:
   src: feature.jpg
   caption: Title image **caption**
-draft: true
 categories:
   - A
   - B
