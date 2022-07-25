@@ -1,6 +1,13 @@
-const { webmention } = require("jam-my-stack");
+const got = require("got");
 const { env } = require("process");
 const fsp = require("fs").promises;
+
+async function sendWebmentions(domain, config) {
+  const url = `${config.endpoint}/webmention/${domain}/${config.token}`;
+
+  // this is an async call and will return 202 to say "started sending them out".
+  const result = await got.put(url);
+}
 
 (async function () {
   const config = {
@@ -10,7 +17,7 @@ const fsp = require("fs").promises;
 
   // send webmentions
   console.log("Sending webmentions...");
-  const since = await webmention.send("chringel.dev", config);
+  const since = await sendWebmentions("chringel.dev", config);
   console.log(`-- done`);
 
   console.log("-- all done!");

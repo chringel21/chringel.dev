@@ -23,6 +23,7 @@
   },
   "homepage": "https://chringel.dev",
   "dependencies": {
-    "jam-my-stack": "^1.0.29"
+    "dayjs": "^1.11.4",
+    "got": "^11.8.5"
   }
 }

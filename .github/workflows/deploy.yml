@@ -16,42 +16,65 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - run: echo $PATH
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       # Runs the Hugo command to build public directory
+      - run: echo $PATH
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: "0.90.1"
+          hugo-version: "0.91.2"
           extended: true
 
-      # Clone the theme as a submodule
-      - name: Clone theme
-        run: git submodule update --init --recursive
-
       # Setup node and npm
-      - uses: actions/setup-node@v2
+      - run: echo ":/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> $GITHUB_PATH
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: "15"
+          node-version: "16"
+
+      - run: echo $PATH
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       # Fetch webmentions
+      - run: echo $PATH
+
       - name: Fetch webmentions
         run: |
-          npm install
-          WM_TOKEN=${{ secrets.WM_TOKEN }} npm run fetch
+          cd $GITHUB_WORKSPACE
+          echo $PATH
+          pwd
+          npm ci
+          WM_TOKEN=${{ secrets.WM_TOKEN }} SKIP_PREFLIGHT_CHECK=true npm run fetch
 
       # Install dependencies for the theme
       - name: Install theme
         run: |
           npm install -g postcss-cli
           npm install -g autoprefixer
+          npm install -g postcss
           cd themes/chringel
-          npm install
+          npm ci
 
       # Build the Hugo web site
       - name: Hugo build
@@ -69,12 +92,3 @@ jobs:
           remote_host: ${{ secrets.HOST }}
           remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.UBERSPACE_PRIVATE_SSH_KEY }}
-
-      # Trigger remote script to send webmentions
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.UBERSPACE_PRIVATE_SSH_KEY }}
-          script: bin/send-wm.sh
