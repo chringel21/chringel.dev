@@ -3,7 +3,7 @@ languageCode = 'en-us'
 title = 'Christian Engel'
 theme = 'chringel'
 pluralizelisttitles = false
-paginate = 4
+paginate = 10
 enableEmoji = true
 enableRobotsTXT = true
 author = 'Christian Engel'
@@ -59,6 +59,7 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
 [permalinks]
   posts = "/:year/:month/:slug/"
   blog = "/:year/:month/:slug/"
+  notes = "/:year/:month/:day/:slug"
   page = "/:slug/"
 
 [taxonomies]
