@@ -1,5 +1,4 @@
-# baseURL = 'https://chringel.dev'
-baseURL = 'http://localhost:8081'
+baseURL = 'https://chringel.dev'
 languageCode = 'en-us'
 title = 'Christian Engel'
 theme = 'chringel'
