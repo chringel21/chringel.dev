@@ -25,8 +25,8 @@ series:
   - Creating a Google Maps Clone
 description: A multipart series on how to create a full stack Google Maps Clone, covering everything from background imagery, geocoding and routing APIs and frontend GUI. Part 3 covers setting up a routing server to query a directions API using the open source tool Graphhopper.
 syndication:
-  twitter: http://...
-  mastodon: http://...
+  twitter: https://twitter.com/DeEgge/status/1558798296159764482
+  mastodon: https://fosstodon.org/web/@chringel/108821315024164434
 ---
 
 ## Basics
