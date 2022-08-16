@@ -4,7 +4,7 @@ author: Christian Engel
 type: post
 date: 2022-08-14T14:39:34
 cover:
-  src: feature.png
+  src: feature.jpg
   caption: A routing backend will tell you where to go
 categories:
   - Coding
