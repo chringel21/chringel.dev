@@ -12,7 +12,6 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
 
 [Params]
   description = 'My personal blog about coding, spatial stuff and everything else'
-  keywords = ['blog','geo','spatial','geospatial','coding', 'web development', 'gaming', 'hugo']
   headerTitle = 'chringel@dev: ~/$'
   footerCopyrightText = 'CC BY 4.0 Christian Engel 2022 <br /> [Impressum](/impressum) [Privacy Protection](/privacy-protection)'
   titleImage = 'images/index.png'
