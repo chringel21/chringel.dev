@@ -12,7 +12,7 @@ categories:
   - Spatial Stuff
 tags:
   - Google Maps
-  - Open Street Map
+  - OpenStreetMap
   - Directions
   - Routing
   - Graphhopper
