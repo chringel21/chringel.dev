@@ -118,7 +118,3 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
-
-[security]
-  [security.funcs]
-    getEnv = ['THEME_DEVELOPMENT']
