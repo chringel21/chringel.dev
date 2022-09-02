@@ -13,6 +13,8 @@ tags:
   - Hugo
   - Theme
   - Blog
+series:
+  - Blogging with Hugo
 description: Design and implementation process behind this custom Hugo theme
 ---
 

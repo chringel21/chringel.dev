@@ -20,6 +20,8 @@ tags:
   - Icons
   - Ionicons
   - Bash script
+series:
+  - Blogging with Hugo
 description: Create a partial to display inline SVG content as icons. Download SVG icons from Ionicons via bash script.
 ---
 

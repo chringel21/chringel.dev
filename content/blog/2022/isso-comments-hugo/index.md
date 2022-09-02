@@ -19,6 +19,8 @@ tags:
   - Python
   - Javascript
   - Ubersapce
+series:
+  - Blogging with Hugo
 description: Add Isso comments to your Hugo blog as an alternative to Disqus. It's open source and can be self-hosted.
 ---
 

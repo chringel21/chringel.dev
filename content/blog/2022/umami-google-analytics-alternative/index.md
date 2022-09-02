@@ -20,6 +20,8 @@ tags:
   - Open source
   - Node.js
   - Ubersapce
+series:
+  - Blogging with Hugo
 description: Add umami comments to your Hugo blog as an alternative to Google Analytics. It's open source and can be self-hosted.
 ---
 

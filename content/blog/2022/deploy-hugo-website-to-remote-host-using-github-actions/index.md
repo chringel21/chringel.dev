@@ -19,6 +19,8 @@ tags:
   - Deployment
   - Remote host
   - Static site generator
+series:
+  - Blogging with Hugo
 description: This post shows an example workflow to automatically deploy the latest version of a Hugo website using GitHub Actions.
 ---
 
