@@ -16,6 +16,9 @@ tags:
 series:
   - Blogging with Hugo
 description: This post covers the step how I created a simple, yet effective chronological post archive.
+syndication:
+  mastodon: https://fosstodon.org/web/@chringel/108928092566755708
+  twitter: https://twitter.com/DeEgge/status/1565632128817238016
 ---
 
 When I designed [this theme](/2022/02/chringel-hugo-theme/) I wasn't actually planning on creating an archive page. Now, a couple of months and several written posts later I figured, it might not be the worst thing to have.
