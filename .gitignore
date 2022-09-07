@@ -3,3 +3,4 @@ resources/_gen/*
 .vscode
 hugo_stats.json
 node_modules
+data/webmentions.json
