@@ -1,6 +1,6 @@
 baseURL = 'https://chringel.dev/'
 languageCode = 'en-us'
-title = 'Christian Engel'
+title = 'chringel.dev'
 theme = 'chringel'
 pluralizelisttitles = false
 paginate = 10
