@@ -30,7 +30,7 @@ hugo new --kind post-bundle blog/202x/title
 New note:
 
 ```shell
-notes/`date +'%Y/%m/%d/%H%M'`.md
+hugo new notes/`date +'%Y/%m/%d/%H%M'`.md
 ```
 
 ## License
