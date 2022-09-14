@@ -59,15 +59,6 @@ jobs:
           npm ci
           WM_TOKEN=${{ secrets.WM_TOKEN }} SKIP_PREFLIGHT_CHECK=true npm run fetch
 
-      # Install dependencies for the theme
-      - name: Install theme
-        run: |
-          npm install -g postcss-cli
-          npm install -g autoprefixer
-          npm install -g postcss
-          cd themes/chringel
-          npm ci
-
       # Build the Hugo web site
       - name: Hugo build
         run: |
