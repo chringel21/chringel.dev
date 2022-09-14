@@ -13,6 +13,9 @@ tags:
   - job
   - time
 description: How's it like to be a developer and a parent.
+syndication:
+  twitter: https://twitter.com/DeEgge/status/1570039805374873606
+  mastodon: https://fosstodon.org/web/@chringel/108996962709105273
 ---
 
 Time flies.
