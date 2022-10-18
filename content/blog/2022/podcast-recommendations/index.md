@@ -12,6 +12,9 @@ tags:
   - Podcast
   - parental leave
 description: I finally have time to listen to podcasts again. Here are some recommendations.
+syndication:
+  twitter: https://twitter.com/DeEgge/status/1582312305915621376
+  mastodon: https://fosstodon.org/web/@chringel/109188718309142181
 ---
 
 I was a passionate podcast listener when I used to commute to work, but Covid changed that (what did Covid not change, I'm asking?). Not going to the office meant no time on the train, meant no time for podcasts.
