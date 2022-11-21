@@ -15,6 +15,9 @@ tags:
   - Podcast
   - sourdough bread
 description: I'm back at work. What did I do the last two months?
+syndication:
+  twitter: https://twitter.com/DeEgge/status/1594681873799823360
+  mastodon: https://fosstodon.org/@chringel/109381991315849287
 ---
 
 Yesterday marked the last day of my parental leave. I'm back in the game, back at work, and welcomed by nearly two thousand chat messages and around six hundred and fifty mails. What a start. And what a way to motivate myself. Time to look back!
