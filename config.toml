@@ -17,7 +17,7 @@ copyright = 'Creative Commons Attribution 4.0 International - CC-BY'
   titleImage = 'images/index.png'
   recentPostsOnIndex = true
   showPrevNextPostNavigation = false
-  unsplashAccessKey = ''
+  unsplashAccessKey = 'unsplashaccesstoken'
 
 [Params.favicons]
   appleTouchIcon = '/apple-touch-icon.png'
