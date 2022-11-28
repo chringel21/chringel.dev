@@ -1,11 +1,29 @@
+{{- $imageUrl := "" -}}
+{{- $author := "" -}}
+{{- $authorUrl := "" -}}
+{{- $altDescription := "" -}}
+{{- with $.Site.Params.unsplashAccessKey -}}
+  {{- $authorization := . | printf "%s %s" "Client-ID" -}}
+  {{- $data := getJSON "https://api.unsplash.com/photos/random/?query=thoughts&orientation=landscape" (dict "Authorization" $authorization) -}}
+  {{- with $data.urls -}}
+    {{- $imageUrl = .regular -}}
+  {{- end -}}
+  {{- with $data.user -}}
+    {{- $author = .name -}}
+    {{- $authorUrl = .links.html -}}
+  {{- end -}}
+  {{- with $data.alt_description -}}
+    {{ $altDescription = . | humanize}}
+  {{- end -}}
+{{- end -}}
 ---
 title: "{{ replace .Name "-" " " | title }}"
-author: Me
+author: Christian Engel
 type: post
 date:  {{ .Date }}
 cover:
-  src: feature.png
-  caption: Title image **caption**
+  src: {{ $imageUrl }}
+  caption: "{{ $altDescription }} (Photo by [{{ $author }}]({{ $authorUrl }}?utm_source=chringel.dev%20blog&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=chringel.dev%20blog&utm_medium=referral))"
 draft: true
 categories:
   - A
