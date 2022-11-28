@@ -2,19 +2,20 @@
 {{- $author := "" -}}
 {{- $authorUrl := "" -}}
 {{- $altDescription := "" -}}
-{{- with $.Site.Params.unsplashAccessKey -}}
-  {{- $authorization := . | printf "%s %s" "Client-ID" -}}
-  {{- $data := getJSON "https://api.unsplash.com/photos/random/?query=thoughts&orientation=landscape" (dict "Authorization" $authorization) -}}
-  {{- with $data.urls -}}
-    {{- $imageUrl = .regular -}}
-  {{- end -}}
-  {{- with $data.user -}}
-    {{- $author = .name -}}
-    {{- $authorUrl = .links.html -}}
-  {{- end -}}
-  {{- with $data.alt_description -}}
-    {{ $altDescription = . | humanize}}
-  {{- end -}}
+
+{{- $unsplashAccessToken := getenv "HUGO_UNSPLASH_ACCESS_TOKEN" -}}
+{{- $authorization := $unsplashAccessToken | printf "%s %s" "Client-ID" -}}
+{{- $data := getJSON "https://api.unsplash.com/photos/random/?query=thoughts&orientation=landscape" (dict "Authorization" $authorization) -}}
+
+{{- with $data.urls -}}
+  {{- $imageUrl = .regular -}}
+{{- end -}}
+{{- with $data.user -}}
+  {{- $author = .name -}}
+  {{- $authorUrl = .links.html -}}
+{{- end -}}
+{{- with $data.alt_description -}}
+  {{ $altDescription = . | humanize}}
 {{- end -}}
 ---
 title: "{{ replace .Name "-" " " | title }}"
