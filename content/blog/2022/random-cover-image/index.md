@@ -17,6 +17,9 @@ tags:
   - archetype
   - shortcode
 description: I'm lazy, so I created a Hugo archetype to fetch a random blog post cover image from Unsplash.
+syndication:
+  twitter: https://twitter.com/DeEgge/status/1597932678266818560
+  mastodon: https://fosstodon.org/@chringel/109432787279471646
 ---
 
 This is a short one! A quick rundown on how I managed to get a random cover image for my blog posts when creating new content using Hugo.
