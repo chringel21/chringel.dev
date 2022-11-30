@@ -159,7 +159,3 @@ Use the shortcode like this:
 ```
 {{</* random-image "sunset" */>}}
 ```
-
-And here's the output:
-
-{{< random-image "sunset" >}}
