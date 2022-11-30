@@ -17,6 +17,8 @@ tags:
   - archetype
   - shortcode
 description: I'm lazy, so I created a Hugo archetype to fetch a random blog post cover image from Unsplash.
+series:
+  - Blogging with Hugo
 syndication:
   twitter: https://twitter.com/DeEgge/status/1597932678266818560
   mastodon: https://fosstodon.org/@chringel/109432787279471646
