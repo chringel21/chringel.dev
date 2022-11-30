@@ -1,0 +1,32 @@
+{{- $imageUrl := "" -}}
+{{- $author := "" -}}
+{{- $authorUrl := "" -}}
+{{- $altDescription := "" -}}
+{{- $query := .Get 0 -}}
+
+{{- $unsplashAccessToken := getenv "HUGO_UNSPLASH_ACCESS_TOKEN" -}}
+{{- $authorization := $unsplashAccessToken | printf "%s %s" "Client-ID" -}}
+{{- $requestUrl := $query | printf "%s%s" "https://api.unsplash.com/photos/random/?query=" -}}
+{{- $data := getJSON $requestUrl (dict "Authorization" $authorization) -}}
+
+{{- with $data.urls -}}
+  {{- $imageUrl = .raw -}}
+{{- end -}}
+{{- with $data.user -}}
+  {{- $author = .name -}}
+  {{- $authorUrl = .links.html -}}
+{{- end -}}
+{{- with $data.alt_description -}}
+  {{ $altDescription = . | humanize}}
+{{- end -}}
+
+<figure>
+  <img
+    alt="{{ $altDescription }}"
+    title="{{ $altDescription }}"
+    src="{{ $imageUrl }}"
+  />
+</figure>
+<figcaption class="text-sm italic">
+  <p>{{ $altDescription }} (Photo by <a href="{{ $authorUrl }}?utm_source=app_name&utm_medium=referral">{{ $author }}</a> on <a href="https://unsplash.com/?utm_source=app_name&utm_medium=referral">Unsplash</a>)</p>
+</figcaption>
