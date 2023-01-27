@@ -17,6 +17,9 @@ tags:
   - OGR
   - Uberspace
 description: How to install a current version of GDAL on Uberspace 7 shared hosting.
+syndication:
+  twitter: https://twitter.com/DeEgge/status/1618913507508117505
+  mastodon: https://fosstodon.org/@chringel/109760609842691086
 ---
 
 I was pleasantly surprised to find out that [Uberspace 🚀](https://uberspace.de/en/) now has lots of precompiled extensions for PostgreSQL 🐘. And among them is PostGIS 🗺️! There's also a [dedicated section in the installation manual](https://lab.uberspace.de/guide_postgresql/#postgis-spatially-enabling-the-database-using-postgis). That's pretty handy, if you want to store spatial data in your database. But how do you import spatial data? You can't always rely on `shp2pgsql`. We need some proper `ogr2ogr`. We need [GDAL](https://gdal.org/)!
