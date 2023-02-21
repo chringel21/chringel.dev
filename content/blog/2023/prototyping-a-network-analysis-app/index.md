@@ -17,6 +17,9 @@ tags:
   - isochrones
   - turf.js
 description: I prototyped a network analysis app using Graphhopper, Node.js and Maplibre GL
+syndication:
+  twitter: https://twitter.com/DeEgge/status/1628059757519970305
+  mastodon: https://fosstodon.org/@chringel/109903521371519204
 ---
 
 A couple of weeks ago I felt like diving into **server side JavaScript**. Although I'm fairly confident with writing client side JavaScript, I never really found an opportunity to try out Node.js. Being a (former) PHP and (current) Kotlin developer by profession, there also was no need to write any server side JavaScript.
