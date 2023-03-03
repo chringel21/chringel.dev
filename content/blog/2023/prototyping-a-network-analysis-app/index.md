@@ -3,6 +3,7 @@ title: "Prototyping a Network Analysis App"
 author: Christian Engel
 type: post
 date: 2023-02-20T09:49:29+01:00
+lastmod: 2023-03-03T08:03:00+01:00
 cover:
   src: feature.png
   caption: "Isochrone reachability calculated using Graphhopper"
@@ -21,6 +22,8 @@ syndication:
   twitter: https://twitter.com/DeEgge/status/1628059757519970305
   mastodon: https://fosstodon.org/@chringel/109903521371519204
 ---
+
+**Cross post**: A German version of this post is available at the [WhereGroup blog](https://wheregroup.com/blog/details/wie-weit-ist-es-bis-zum-naechsten-altglascontainer-ein-prototyp-fuer-dynamische-erreichbarkeitsanalysen-mit-express-und-graphhopper/).
 
 A couple of weeks ago I felt like diving into **server side JavaScript**. Although I'm fairly confident with writing client side JavaScript, I never really found an opportunity to try out Node.js. Being a (former) PHP and (current) Kotlin developer by profession, there also was no need to write any server side JavaScript.
 
@@ -83,12 +86,12 @@ This
 
 ```pug
 .main
-h1.header Hello World
-p.content Lorem ipsum dolorem bla
-ul
-  li Item 1
-  li Item 2
-  li Item 3
+  h1.header Hello World
+  p.content Lorem ipsum dolorem bla
+  ul
+    li Item 1
+    li Item 2
+    li Item 3
 ```
 
 turns into this
@@ -137,7 +140,10 @@ block content
 
 OK, I know my way around templating, and express is already running. The next step was to add a route, or an API endpoint to call from the client. The endpoint would, in turn, make a server side call to another API that would provide a set of points, a Geojson file with the locations of all glass containers in Potsdam.
 
-Adding a new route to the application was as simple as adding a new file to the `routes` folder, called `points.js`. Express uses a file based router, so just by creating the file `routes/points.js` means an endpoint at `/points` is available.
+Adding a new route to the application requires two things:
+
+- Adding a new file to the `routes` folder, called `points.js`
+- Adding the new route to `app.js`
 
 ```js
 // routes/points.js
@@ -162,6 +168,17 @@ const getPoints = async () => {
 };
 
 module.exports = router;
+
+// app.js
+// ...
+const indexRouter = require("./routes/index");
+const pointsRouter = require("./routes/points");
+
+// ...
+app.use("/", indexRouter);
+app.use("/points", pointsRouter);
+
+// ...
 ```
 
 Here's where I ran into another trap: I assumed `fetch`, the client side API to make HTTP requests to also be available server side. But the Node `fetch` API is only available on versions > v17, I was working with v16. So I went with [axios](https://axios-http.com/docs/intro).
@@ -242,3 +259,7 @@ If you want to try the app yourself, you can find the code at [GitHub](https://g
 Oh, and one last remark:
 
 **I was right!** I live in a spot secluded from glass containers within 10 minutes walking time. Bummer! 🤷
+
+**Update 2023-03-03**
+
+In a previous version of this post I stated that Express uses a file based router.
