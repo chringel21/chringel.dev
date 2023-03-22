@@ -69,6 +69,7 @@ In the `layouts` folder of your Hugo site, create a `partial` folder, if you don
 Here's the content of the partial called `ionicons.html`:
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 {{ $svg := resources.Get (print "ionicons/" . ".svg") }}
   <span class="inline-svg">
@@ -78,10 +79,12 @@ Here's the content of the partial called `ionicons.html`:
   </span>
 {{ end }}
 ```
+{% endraw %}
 
 If you want to make the logos look different from your standard icons, i.e. use a different size or color, just look for the string `logo` in the filename:
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 {{ $svg := resources.Get (print "svg/ionicons/" . ".svg") }}
 {{ if in $svg "logo" }}
@@ -98,6 +101,7 @@ If you want to make the logos look different from your standard icons, i.e. use 
   </span>
 {{ end }}
 ```
+{% endraw %}
 
 ## Styling
 

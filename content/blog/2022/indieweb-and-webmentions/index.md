@@ -55,6 +55,7 @@ Just add a `rel=me` [microformat](http://microformats.org/wiki/rel-me) to all yo
 
 **Hint: All code excerpts are reduced to a minimal working example.**
 
+{% raw %}
 ```html
 <div>
   {{ range .Site.Menus.social }}
@@ -62,10 +63,12 @@ Just add a `rel=me` [microformat](http://microformats.org/wiki/rel-me) to all yo
   {{ end }}
 </div>
 ```
+{% endraw %}
 
 Next, [I added an authorization endpoint](https://github.com/chringel21/chringel-hugo-theme/commit/c4221beea4a79c874a788d544cb32fadba919ebc) to validate my identity. There are different services, but [IndieAuth.com](https://indieauth.com/) seems to be the go to solution.
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 {{ with .Site.Params.indieweb }}
   <link
@@ -78,6 +81,7 @@ Next, [I added an authorization endpoint](https://github.com/chringel21/chringel
   />
 {{ end }}
 ```
+{% endraw %}
 
 I also read about it on **Ana Ulin**'s post [Using Your Site As Your Login](https://anaulin.org/blog/using-your-site-as-your-login-indieauth/). I went back to her [posts about IndieWeb](https://anaulin.org/tags/indieweb/) a couple of times during my journey.
 
@@ -86,6 +90,7 @@ I also read about it on **Ana Ulin**'s post [Using Your Site As Your Login](http
 Next step was to actually provide some basic information about myself, on my website. Sure, I already had an [About page](/about), but that's not machine readable. The `h-card` [microformat](http://microformats.org/wiki/h-card#Properties) provides properties that can be parsed. [Here's the commit](https://github.com/chringel21/chringel-hugo-theme/commit/19f0efa61cb8fec6fbd63b689a733a263ee10f72).
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 <div class="h-card">
   <p>
@@ -104,6 +109,7 @@ Next step was to actually provide some basic information about myself, on my web
   {{ end }}
 </div>
 ```
+{% endraw %}
 
 Again, this is a minimal example. There are many more properties that can be added. This is where I found [IndieWebify.me](https://indiewebify.me/), a nice guide to check whether your site is ready for the IndieWeb.
 
@@ -123,6 +129,7 @@ In this example, I add the following `h-entry` properties:
 - `p-category` - categories or tags for the post
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 {{ define "main" }}
   <article class="h-entry">
@@ -152,6 +159,7 @@ In this example, I add the following `h-entry` properties:
   </article>
 {{ end }}
 ```
+{% endraw %}
 
 ![Valid `h-entry` parsed by IndieWebify.me](images/h-entry.png "Valid `h-card` parsed by IndieWebify.me")
 
@@ -199,6 +207,7 @@ The latter describes the process of pulling in interactions of your POSSE copies
 [Adding syndication markup](https://github.com/chringel21/chringel-hugo-theme/commit/9c029939db09281f6d99637a3de8d4b3411d30ba) is easy, it's just another [microformat](http://microformats.org/wiki/h-entry#u-syndication).
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 {{ with .Params.syndication }}
   {{ range $silo, $url := . }}
@@ -206,6 +215,7 @@ The latter describes the process of pulling in interactions of your POSSE copies
   {{ end }}
 {{ end }}
 ```
+{% endraw %}
 
 And add the links where you syndicated your post in the front matter.
 

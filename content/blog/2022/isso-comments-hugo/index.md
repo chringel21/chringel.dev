@@ -44,6 +44,7 @@ Once you've got **Isso** up and running, you'll need a partial to display your n
 Create one for your blog at `layouts/partials/comments.html`. For this theme, I gave users the option to choose from either Disqus or Isso, based on their configuration.
 
 <!-- prettier-ignore -->
+{% raw %}
 ```html
 {{ if and .Site.DisqusShortname (index .Params "comments" | default "true") (not .Site.IsServer) }}
 <section class="comments">
@@ -69,6 +70,7 @@ Create one for your blog at `layouts/partials/comments.html`. For this theme, I 
   </div>
 {{ end }}
 ```
+{% endraw %}
 
 This will check if the config paramter `DisqusShortname` is set. If it is, it will render the internal, standard partial for Disqus comments.
 

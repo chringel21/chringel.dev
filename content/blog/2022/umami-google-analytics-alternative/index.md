@@ -51,6 +51,7 @@ Hugo has an built in [internal template for Google Analytics](https://gohugo.io/
 
 Create a partial for your website at `layouts/partials/comments`. For this theme, I gave users the option to choose from either Google Analytics or **umami**, based on their configuration.
 
+{% raw %}
 <!-- prettier-ignore -->
 ```html
 {{ if and .Site.GoogleAnalytics (not .Site.IsServer) }} 
@@ -65,6 +66,7 @@ Create a partial for your website at `layouts/partials/comments`. For this theme
 ></script>
 {{ end }}
 ```
+{% endraw %}
 
 This will check if the config paramter `GoogleAnalytics` is set. If it is, it will render the internal, standard partial for Google Analytics.
 
