@@ -2,5 +2,7 @@ public/*
 resources/_gen/*
 .vscode
 hugo_stats.json
-node_modules
+_site/
+node_modules/
+package-lock.json
 data/webmentions.json
