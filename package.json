@@ -3,19 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "npx @11ty/eleventy",
+    "build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/",
+    "start": "npx @11ty/eleventy --serve --quiet --port 3000",
+    "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
+    "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
+    "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chringel21/chringel.dev.git"
   },
-  "author": "Christian Engel",
+  "author": {
+    "name": "Christian Engel",
+    "email": "ch-engel@posteo.de",
+    "url": "https://chringel.dev"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/chringel21/chringel.dev/issues"
   },
   "homepage": "https://chringel.dev",
+  "engines": {
+    "node": ">=14"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0"
   }
