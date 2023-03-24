@@ -1,4 +1,5 @@
 module.exports = (eleventyConfig) => {
+  // Filters
   eleventyConfig.addFilter("permalink_year", (dateObj) =>
     dateObj.getFullYear()
   );
