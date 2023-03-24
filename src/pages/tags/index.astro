@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const allPosts = await getCollection("blog");
+const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+---
+
+<Base>
+  <ul>
+    {tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+</Base>

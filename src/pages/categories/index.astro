@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const allPosts = await getCollection("blog");
+const categories = [
+  ...new Set(allPosts.map((post) => post.data.categories).flat()),
+];
+---
+
+<Base>
+  <ul>
+    {categories.map((category) => <li>{category}</li>)}
+  </ul>
+</Base>
