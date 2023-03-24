@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "init.js",
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.10.1"
-  },
   "scripts": {
-    "fetch": "node fetch-wm.js",
-    "send": "node send-wm.js"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "repository": {
     "type": "git",
@@ -23,7 +20,14 @@
   },
   "homepage": "https://chringel.dev",
   "dependencies": {
-    "dayjs": "^1.11.4",
-    "got": "^11.8.5"
+    "astro": "^2.1.6"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-astro": "^0.26.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }
