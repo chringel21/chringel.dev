@@ -1,0 +1,6 @@
+{
+  "prettier.proseWrap": "always",
+  "html.format.enable": true,
+  "spellright.language": ["en"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext"]
+}
