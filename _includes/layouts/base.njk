@@ -1,6 +1,26 @@
+{% css %}
+body { display: grid; grid-template-areas: "header" "main" "footer"; grid-template-rows: 5rem minmax(0, 1fr) 5rem; grid-template-columns: minmax(0, 1fr); } main { grid-area: main; }
+{% endcss %}
+
 <!DOCTYPE html>
-<html lang="{{ metadata.language }}">
-  <main>
-    {{ content | safe }}
-  </main>
+<html class="theme-bubblegum" lang="{{ metadata.language }}">
+  <head>
+    <title>{{ title or metadata.title }}</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="{{ description or metadata.description }}"/>
+    <meta name="generator" content="{{ eleventy.generator }}"/>
+    {% include "components/fonts.njk" %}
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+  </head>
+  <style>
+    {% getBundle "css" %}
+  </style>
+  <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
+    {% include "components/header.njk" %}
+    <main id="main">
+      {{ content | safe }}
+    </main>
+    {% include "components/footer.njk" %}
+  </body>
 </html>
