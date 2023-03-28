@@ -1,0 +1,9 @@
+{% css %}
+.header { grid-area: header; display: grid; align-items: center; grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax( 0, max-content ); }
+{% endcss %}
+<style>
+  {% getBundle "css" %}
+</style>
+<header class="header">
+  {% include "components/navigation.njk" %}
+</header>
