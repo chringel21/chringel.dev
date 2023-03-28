@@ -1,7 +1,4 @@
-public/*
-resources/_gen/*
 .vscode
-hugo_stats.json
 _site/
 node_modules/
 package-lock.json
