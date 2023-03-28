@@ -6,13 +6,15 @@ const allPosts = await getCollection("blog");
 ---
 
 <Base>
-  <ul>
-    {
-      allPosts.map((post) => (
-        <li>
-          <a href={post.slug}>{post.slug}</a>
-        </li>
-      ))
-    }
-  </ul>
+  <section slot="main">
+    <ul>
+      {
+        allPosts.map((post) => (
+          <li>
+            <a href={post.slug}>{post.slug}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Base>
