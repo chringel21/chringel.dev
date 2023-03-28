@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/",
-    "start": "npx @11ty/eleventy --serve --quiet --port 3000",
+    "start": "npm-run-all -p dev:*",
+    "build": "run-s build:*",
+    "dev:11ty": "npx @11ty/eleventy --serve --quiet --port 3000",
+    "dev:css": "tailwindcss -i public/css/index.css -o _site/css/index.css --watch --postcss",
+    "build:11ty": "npx @11ty/eleventy",
+    "build:css": "tailwindcss -i public/css/index.css -o _site/css/index.css --postcss --minify",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
     "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
     "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
@@ -29,6 +32,14 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
-    "prettier": "^2.8.6"
+    "@11ty/eleventy-img": "^3.0.0",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-bundle": "^1.0.4",
+    "@tailwindcss/typography": "^0.5.9",
+    "autoprefixer": "^10.4.14",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.6",
+    "tailwindcss": "^3.2.7"
   }
 }
