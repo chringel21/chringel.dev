@@ -70,37 +70,38 @@ Here's the content of the partial called `ionicons.html`:
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
 {{ $svg := resources.Get (print "ionicons/" . ".svg") }}
-  <span class="inline-svg">
-    {{- $path:="<path" -}}
-    {{- $fill:="<path fill=\"none\"" -}}
-    {{ replace ($svg.Content) $path $fill | safeHTML }}
-  </span>
+<span class="inline-svg">
+  {{- $path:="<path" -}} {{- $fill:="<path fill=\"none\"" -}} {{ replace
+  ($svg.Content) $path $fill | safeHTML }}
+</span>
 {{ end }}
 ```
+
 {% endraw %}
 
 If you want to make the logos look different from your standard icons, i.e. use a different size or color, just look for the string `logo` in the filename:
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
-{{ $svg := resources.Get (print "svg/ionicons/" . ".svg") }}
-{{ if in $svg "logo" }}
-  <span class="inline-svg h-10 w-10">
-    {{- $path:="<path" -}}
-    {{- $fill:="<path fill=\"currentColor\"" }}
-    {{ replace ($svg.Content) $path $fill | safeHTML }}
-  </span>
+{{ $svg := resources.Get (print "svg/ionicons/" . ".svg") }} {{ if in $svg
+"logo" }}
+<span class="inline-svg h-10 w-10">
+  {{- $path:="<path" -}} {{- $fill:="<path fill=\"currentColor\"" }} {{ replace
+  ($svg.Content) $path $fill | safeHTML }}
+</span>
 {{ else }}
-  <span class="inline-svg">
-    {{- $path:="<path" -}}
-    {{- $fill:="<path fill=\"none\"" -}}
-    {{ replace ($svg.Content) $path $fill | safeHTML }}
-  </span>
+<span class="inline-svg">
+  {{- $path:="<path" -}} {{- $fill:="<path fill=\"none\"" -}} {{ replace
+  ($svg.Content) $path $fill | safeHTML }}
+</span>
 {{ end }}
 ```
+
 {% endraw %}
 
 ## Styling
@@ -119,18 +120,26 @@ All that's left to do is style the partial appropiately. Somewhere in your custo
 
 Did you note the `$fill` variable (`"path fill=\"currentColor\" ...`) used in the partial's code? This is useful for coloring your icon. It will inherit the color of its parents HTML tag. Let's say you want to use your icon as a link. Give that link a color, and your icon will be filled with the same color.
 
+{% raw %}
+
 ```html
 <a href="someUrl" style="color: red;">
   {{ partial "icons/ionicons" "logo-mastodon" }}
 </a>
 ```
 
+{% endraw %}
+
 ## Using the partial
 
 There we go! Now you can use your partial to customize the layout of your site, or use it in your theme. The partial takes two parameters - actually only one, because the first indicates the name of the partial you want to use, inside your `partial` folder. The second parameter is just the SVGs filename, without the ending.
 
+{% raw %}
+
 ```html
 {{ partial "icons/ionicons" "logo-mastodon" }}
 ```
+
+{% endraw %}
 
 Have fun with your new, fancy SVG icons and logos!

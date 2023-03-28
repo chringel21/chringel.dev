@@ -38,4 +38,4 @@ By supporting Webmentions on your website, **you explicitly signal your wish for
 
 This site collects relatively little personal data, none even if you choose only to consume and have no interactions. But you may at any time demand information on all your stored personal data, their correction and their deletion. Please send me a message.
 
-**{{< encodeemail "Y29udGFjdEBjaHJpbmdlbC5kZXY=" "Show mail address!" >}}**
+encodeemail "Y29udGFjdEBjaHJpbmdlbC5kZXY=" "Show mail address!"

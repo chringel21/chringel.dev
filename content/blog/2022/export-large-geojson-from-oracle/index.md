@@ -100,7 +100,7 @@ That's it. Now all rows of our table will have their full geometry.
 
 Unfortunately, exporting the data at this stage to a text based format like JSON or CSV will, again, cut off the geometry column at 4000 characters. But we can use the `loader` format for exporting. Right click on one of the preview rows and select **Export Objects**.
 
-!["Export data using loader format"](images/export_loader_format.png "Export options. Image by [Jeff Smith](https://www.thatjeffsmith.com/archive/2014/05/exporting-multiple-blobs-with-oracle-sql-developer/)")
+{% image "./images/export_loader_format.png", "Export options. Image by [Jeff Smith](https://www.thatjeffsmith.com/archive/2014/05/exporting-multiple-blobs-with-oracle-sql-developer/)" %}
 
 Note the second box:
 

@@ -56,6 +56,7 @@ Just add a `rel=me` [microformat](http://microformats.org/wiki/rel-me) to all yo
 **Hint: All code excerpts are reduced to a minimal working example.**
 
 {% raw %}
+
 ```html
 <div>
   {{ range .Site.Menus.social }}
@@ -63,24 +64,21 @@ Just add a `rel=me` [microformat](http://microformats.org/wiki/rel-me) to all yo
   {{ end }}
 </div>
 ```
+
 {% endraw %}
 
 Next, [I added an authorization endpoint](https://github.com/chringel21/chringel-hugo-theme/commit/c4221beea4a79c874a788d544cb32fadba919ebc) to validate my identity. There are different services, but [IndieAuth.com](https://indieauth.com/) seems to be the go to solution.
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
-{{ with .Site.Params.indieweb }}
-  <link
-    rel="authorization_endpoint"
-    href="{{ .authorizationEndpoint | default "https://indieauth.com/auth" }}"
-  />
-  <link
-    rel="token_endpoint"
-    href="{{ .tokenEndpoint | default "https://tokens.indieauth.com/token" }}"
-  />
-{{ end }}
+{{ with .Site.Params.indieweb }} <link rel="authorization_endpoint" href="{{
+.authorizationEndpoint | default "https://indieauth.com/auth" }}" /> <link
+rel="token_endpoint" href="{{ .tokenEndpoint | default
+"https://tokens.indieauth.com/token" }}" /> {{ end }}
 ```
+
 {% endraw %}
 
 I also read about it on **Ana Ulin**'s post [Using Your Site As Your Login](https://anaulin.org/blog/using-your-site-as-your-login-indieauth/). I went back to her [posts about IndieWeb](https://anaulin.org/tags/indieweb/) a couple of times during my journey.
@@ -91,29 +89,29 @@ Next step was to actually provide some basic information about myself, on my web
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
 <div class="h-card">
   <p>
     <a class="u-url" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
     {{ with .Site.Params.Hcard.Avatar }}
-      <img class="u-photo" alt="" src="{{ . | absURL }}" />
+    <img class="u-photo" alt="" src="{{ . | absURL }}" />
     {{ end }}
-    <span class="p-name" rel="me">
-      {{ .Site.Params.Hcard.FullName }}
-    </span>
+    <span class="p-name" rel="me"> {{ .Site.Params.Hcard.FullName }} </span>
   </p>
   {{ with .Site.Params.Hcard.Biography }}
-    <p>
-      <span class="p-note">{{ . | markdownify }}</span>
-    </p>
+  <p>
+    <span class="p-note">{{ . | markdownify }}</span>
+  </p>
   {{ end }}
 </div>
 ```
+
 {% endraw %}
 
 Again, this is a minimal example. There are many more properties that can be added. This is where I found [IndieWebify.me](https://indiewebify.me/), a nice guide to check whether your site is ready for the IndieWeb.
 
-![Valid `h-card` parsed by IndieWebify.me](images/h-card.png "Valid `h-card` entry parsed by IndieWebify.me")
+{% image "./images/h-card.png", "Valid `h-card` entry parsed by IndieWebify.me" %}
 
 ### 3. Add content markup
 
@@ -130,6 +128,7 @@ In this example, I add the following `h-entry` properties:
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
 {{ define "main" }}
   <article class="h-entry">
@@ -159,9 +158,10 @@ In this example, I add the following `h-entry` properties:
   </article>
 {{ end }}
 ```
+
 {% endraw %}
 
-![Valid `h-entry` parsed by IndieWebify.me](images/h-entry.png "Valid `h-card` parsed by IndieWebify.me")
+{% image "images/h-entry.png", "Valid `h-card` parsed by IndieWebify.me" %}
 
 At this point, my content is correctly marked up to be consumed by the IndieWeb. This was all relatively easy. The next step was a little bit more challenging, because it meant working on the backend.
 
@@ -208,13 +208,15 @@ The latter describes the process of pulling in interactions of your POSSE copies
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
-{{ with .Params.syndication }}
-  {{ range $silo, $url := . }}
-    <a href="{{ $url }}" class="u-syndication" rel="syndication">{{ title $silo }}</a>
-  {{ end }}
-{{ end }}
+{{ with .Params.syndication }} {{ range $silo, $url := . }}
+<a href="{{ $url }}" class="u-syndication" rel="syndication"
+  >{{ title $silo }}</a
+>
+{{ end }} {{ end }}
 ```
+
 {% endraw %}
 
 And add the links where you syndicated your post in the front matter.

@@ -51,7 +51,7 @@ A common way to serve vector tiles from OpenStreetMap data is storing them in a 
 
 Take a look at the GIF below. Unique `*.pbf` files are stored (and requested by the client) in a schema that looks like this: `path/to/data/zoom_level/x_position/y_position/xxx.pbf`
 
-![Gridded structure of vector tiles](images/vector-tile-grid.gif "Gridded structure of vector tiles")
+{% image "./images/vector-tile-grid.gif", "Gridded structure of vector tiles" %}
 
 The client, in particular a web map client ([MapBox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/), [MapLibre GL](https://maplibre.org/), [OpenLayers](https://openlayers.org/en/latest/examples/osm-vector-tiles.html)) will render an image based on [specific styling](https://docs.mapbox.com/mapbox-gl-js/style-spec/) information, i.e. river geometries will be painted blue and 10 pixels wide, a bus station will get a special icon and so on. This separation of data and style is especially useful, because it means you can have one data source, and style it according to your needs.
 
@@ -115,7 +115,7 @@ docker run \
 
 Navigate to [http://localhost:8080/](http://localhost:8080/) to view the output of Planetiler.
 
-![Tileserver GL overview](images/tileserver-gl.png "Tileserver GL overview")
+{% image "./images/tileserver-gl.png", "Tileserver GL overview" %}
 
 Click the [TileJSON link](http://localhost:8080/data/v3.json) to see some metadata about the MBTiles. Save the value of the `"bounds"` key for later.
 
@@ -190,7 +190,7 @@ docker run \
 
 Your new shiny **OSM Bright style** should be available.
 
-!["OSM Bright GL Style"](images/osm-bright-gl-style.png "OSM Bright GL Style")
+{% image "./images/osm-bright-gl-style.png", "OSM Bright GL Style" %}
 
 OpenMapTiles provides more styles, i.e. the dark [Fiord Color GL Style](https://github.com/openmaptiles/fiord-color-gl-style), which is best suited for data visualizations. Once downloaded, you can add them in your `config.json` and they will be available as additional styles.
 
@@ -198,7 +198,7 @@ OpenMapTiles provides more styles, i.e. the dark [Fiord Color GL Style](https://
 
 It is quite possible to create background imagery for a Google Maps clone solely with **open data** and **open source software** tools. OpenStreetMap can provide the data, and modern rendering technologies (Web GL) allow for smooth and sharp web maps to be displayed in your browser. The presented tools make up only a fraction of the open source eco system that has been building up around creating and serving vector tiles. I recommend trying out other approaches.
 
-!["OpenStreetMap Vector Tiles compared to Google Maps"](images/vector-tiles-google-maps-comparison.png "OpenStreetMap Vector Tiles compared to Google Maps")
+{% image "./images/vector-tiles-google-maps-comparison.png", "OpenStreetMap Vector Tiles compared to Google Maps" %}
 
 Of course, creating background imagery is not enough, you need some interaction with the data. The next part will cover setting up a custom search tool for our map, also called **geocoder**.
 

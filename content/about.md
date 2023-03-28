@@ -1,13 +1,17 @@
 ---
 author: Christian Engel
 title: "About"
-type: "about"
+type: page
 date: 2021-12-28T20:14:01+01:00
 description: A short description about me.
 keywords:
   - about
   - creator
   - whoami
+eleventyNavigation:
+  key: About Me
+  order: 3
+layout: "layouts/base.njk"
 ---
 
 ## Hi, I'm Christian 👋

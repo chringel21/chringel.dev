@@ -16,7 +16,7 @@ Potsdam
 
 ## Kontakt
 
-{{< encodeemail "Y29udGFjdEBjaHJpbmdlbC5kZXY=" "E-Mail zeigen!" >}}
+encodeemail "Y29udGFjdEBjaHJpbmdlbC5kZXY=" "E-Mail zeigen!"
 
 ## Datenschutz
 

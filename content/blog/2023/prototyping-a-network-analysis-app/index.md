@@ -74,7 +74,7 @@ npm install
 DEBUG=simple-network-analysis:* npm start
 ```
 
-!["Express is running"](express.png "Express is running")
+{% image "./express.png", "Express is running" %}
 
 Voilá! Express is running!
 
@@ -134,7 +134,7 @@ block content
     });
 ```
 
-!["A basic map"](basic_map.png "A basic map")
+{% image "./basic_map.png", "A basic map" %}
 
 ### A route: `/points` ➡️
 
@@ -185,7 +185,7 @@ Here's where I ran into another trap: I assumed `fetch`, the client side API to 
 
 Then I added a form with a button to the frontend to make a call to the backend. The response, Geojson points, would then be added to the map.
 
-!["Map with a button and points"](load_points.png "Map with a button and points")
+{% image "./load_points.png", "Map with a button and points" %}
 
 ### A second route: `/isochrone` 🛣️
 
@@ -195,7 +195,7 @@ This step was a bit more complex, because I needed to come up with an algorithm 
 
 Here's the work flow I came up with:
 
-!["Isochrone processing chain"](isochrone_process.png "Isochrone processing chain")
+{% image "./isochrone_process.png", "Isochrone processing chain" %}
 
 1. The unprocessed "raw" geometries resulting from multiple calls to Graphhopper's Isochrone API are sent to the frontend.
 2. The geometries are [smoothed](http://turfjs.org/docs/#polygonSmooth), for better visual representation
@@ -250,7 +250,7 @@ script(type="text/javascript").
 
 The final app looks like this:
 
-!["Final app"](feature.png "Final app")
+{% image "./feature.png", "Final app" %}
 
 Creating this small prototype from scratch in only two days was fun, although I probably wouldn't do it again in "vanilla" Node.js (yes, I call Node+Express "vanilla"). All goals were accomplished, I created some API endpoints, used a templating engine and an environment file for deploying. But I miss the frontend tooling and would probably go with a fullstack framework, like Next.js. For building APIs, Node+Express is alright, I guess, but there more sophisticated solutions available.
 

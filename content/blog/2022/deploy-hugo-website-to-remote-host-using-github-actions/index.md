@@ -67,11 +67,11 @@ ssh-copy-id -i ~/.ssh/github-deploy.pub user@remote.host
 
 Go to your repository's settings page and find the security section on the right. Select _Actions_ and then _New Repository Secret_.
 
-![Create a New Repository Secret](images/github-new-secret-1.png "Create a **New Repository Secret**")
+{% image "./images/github-new-secret-1.png", "Create a **New Repository Secret**" %}
 
 Give your secret a descriptive name and paste the SSH key's private part as _Value_. We can later reference the secret from a repository wide object called `secrets`.
 
-![Name the secret and paste the private part of the ssh key](images/github-new-secret-2.png "Name the secret and paste the **private part** of the SSH key")
+{% image "./images/github-new-secret-2.png", "Name the secret and paste the **private part** of the SSH key" %}
 
 Let's move on to the GitHub Action configuration.
 
@@ -148,7 +148,7 @@ Be sure to edit the values of the keys `remote_path`, `remote_host` and `remote_
 
 Save this file and push it to your repository. It should run immediatly. If everything goes well, you should see a little green tick mark ✅ next to the last commit made to your repository. Click on it to see the output of the workflow. If not ❌, check the output to find the error.
 
-![Everything went well](images/github-action-successful.png "Success!")
+{% image "./images/github-action-successful.png", "Success!" %}
 
 ## Wrapping up
 
