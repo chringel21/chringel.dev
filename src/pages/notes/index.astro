@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const allNotes = await getCollection("notes");
+---
+
+<Base>
+  <section slot="main">
+    <ul>
+      {
+        allNotes.map((note) => (
+          <li>
+            <a href={note.slug}>{note.slug}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Base>
