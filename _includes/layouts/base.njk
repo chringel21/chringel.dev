@@ -23,4 +23,7 @@ body { display: grid; grid-template-areas: "header" "main" "footer"; grid-templa
     </main>
     {% include "components/footer.njk" %}
   </body>
+  <script>
+    {% getBundle "js" %}
+  </script>
 </html>
