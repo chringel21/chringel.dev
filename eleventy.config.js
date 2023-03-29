@@ -1,6 +1,7 @@
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const eleventyNavigation = require("@11ty/eleventy-navigation");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const { DateTime } = require("luxon");
 
 module.exports = (eleventyConfig) => {
   // Wath targets
@@ -10,6 +11,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyNavigation);
   eleventyConfig.addPlugin(pluginBundle);
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+    preAttributes: { tabindex: 0 },
+  });
 
   // App plugins
   eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
@@ -24,6 +27,15 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addFilter("permalink_day", (dateObj) =>
     String(dateObj.getDay()).padStart(2, "0")
   );
+  eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
+    return DateTime.fromJSDate(dateObj, {
+      zone: zone || "Europe/Berlin",
+    }).toFormat(format || "LLLL dd, yyyy");
+  });
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "Europe/Berlin" }).toISO();
+  });
+
   // Passthrough
   eleventyConfig.addPassthroughCopy({
     "./public/fonts": "/fonts",
