@@ -7,7 +7,7 @@
     <ul class="unset flex gap-4 [&>li]:p-0">
       {%- for entry in collections.all | eleventyNavigation %}
         <li class="nav-item">
-          <a href="{{ entry.url }}" class="{{'show' if entry.url == page.url else ''}} unset animated-link" {% if entry.url == page.url %} aria-current="page" {% endif %}>{{ entry.title }}</a>
+          <a href="{{ entry.url }}" class="{% if entry.url == page.url %}show{% elseif entry.url in page.url and entry.url != '/' %}show{% endif %} unset animated-link" {% if entry.url == page.url %} aria-current="page" {% endif %}>{{ entry.title }}</a>
         </li>
       {%- endfor %}
     </ul>
