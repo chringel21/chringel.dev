@@ -1,5 +1,6 @@
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const eleventyNavigation = require("@11ty/eleventy-navigation");
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = (eleventyConfig) => {
   // Wath targets
@@ -8,6 +9,7 @@ module.exports = (eleventyConfig) => {
   // Plugins
   eleventyConfig.addPlugin(eleventyNavigation);
   eleventyConfig.addPlugin(pluginBundle);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 
   // App plugins
   eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
@@ -25,6 +27,8 @@ module.exports = (eleventyConfig) => {
   // Passthrough
   eleventyConfig.addPassthroughCopy({
     "./public/fonts": "/fonts",
+    "./node_modules/prismjs/themes/prism-okaidia.min.css":
+      "/css/prism-okaidia.css",
   });
 
   return {

@@ -212,7 +212,7 @@ The last thing on my list of goals was to use an environment file. During develo
 
 To make use of environment files I had to install the package [dotenv](https://github.com/motdotla/dotenv). With the `.env` file in the root of the project, I could add its contents as a config object. Every value in this object will be available by its key. But be sure not to expose any sensitive data to the frontend.
 
-```env
+```
 # .env
 STYLE_URL=http://localhost:8080/tiles/styles/osm-bright-gl-style/style.json
 ```
