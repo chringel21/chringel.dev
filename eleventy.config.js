@@ -1,6 +1,8 @@
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const eleventyNavigation = require("@11ty/eleventy-navigation");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const { DateTime } = require("luxon");
 
 module.exports = (eleventyConfig) => {
@@ -8,10 +10,14 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
   // Plugins
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(eleventyNavigation);
   eleventyConfig.addPlugin(pluginBundle);
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     preAttributes: { tabindex: 0 },
+  });
+  eleventyConfig.addPlugin(pluginWebc, {
+    components: "_includes/components/**/*.webc",
   });
 
   // App plugins
@@ -44,7 +50,7 @@ module.exports = (eleventyConfig) => {
   });
 
   return {
-    templateFormats: ["md", "njk", "html"],
+    templateFormats: ["md", "njk", "html", "webc"],
 
     markdownTemplateEngine: "njk",
 
