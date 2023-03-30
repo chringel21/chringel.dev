@@ -1,0 +1,3 @@
+<style webc:root="override">
+  @import url(/css/prism-okaidia.css);
+</style>

@@ -6,5 +6,5 @@ summary: This page contains an archive of all posts.
 eleventyNavigation:
   key: Archive
   order: 2
-layout: "layouts/base.njk"
+layout: "layouts/base.webc"
 ---

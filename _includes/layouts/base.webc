@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="theme-bubblegum" :lang="metadata.language">
+  <head>
+    <title @text="title || metadata.title"></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      @attributes="({ content: description ||
+    metadata.description})"
+    />
+    <meta name="generator" :content="eleventy.generator" />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="preload"
+      href="/fonts/space-grotesk-v13-latin-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="crossorigin"
+    />
+    <link
+      rel="preload"
+      href="/fonts/space-grotesk-v13-latin-700.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="crossorigin"
+    />
+    <link rel="stylesheet" :href="url('/css/index.css')" webc:keep />
+  </head>
+  <style @raw="getBundle('css')" webc:keep></style>
+  <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
+    <site-header></site-header>
+    <main id="main" @html="content"></main>
+    <site-footer></site-footer>
+  </body>
+  <script @raw="getBundle('js')" webc:keep></script>
+</html>
+
+<style>
+  body {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 5rem minmax(0, 1fr) 5rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  main {
+    grid-area: main;
+  }
+</style>

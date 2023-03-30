@@ -6,7 +6,7 @@ const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const { DateTime } = require("luxon");
 
 module.exports = (eleventyConfig) => {
-  // Wath targets
+  // Watch targets
   eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
   // Plugins
@@ -17,7 +17,7 @@ module.exports = (eleventyConfig) => {
     preAttributes: { tabindex: 0 },
   });
   eleventyConfig.addPlugin(pluginWebc, {
-    components: "_includes/components/**/*.webc",
+    components: "_includes/components/*.webc",
   });
 
   // App plugins
@@ -42,6 +42,16 @@ module.exports = (eleventyConfig) => {
     return DateTime.fromJSDate(dateObj, { zone: "Europe/Berlin" }).toISO();
   });
 
+  eleventyConfig.addJavaScriptFunction("isShown", (entry, page) => {
+    if (entry.url === page.url) {
+      return "show unset animated-link";
+    } else if (page.url.includes(entry.url) && entry.url != "/") {
+      return "show unset animated-link";
+    } else {
+      return "unset animated-link";
+    }
+  });
+
   // Passthrough
   eleventyConfig.addPassthroughCopy({
     "./public/fonts": "/fonts",
@@ -54,7 +64,7 @@ module.exports = (eleventyConfig) => {
 
     markdownTemplateEngine: "njk",
 
-    htmlTemplateEngine: "njk",
+    htmlTemplateEngine: "webc",
 
     dir: {
       input: "content",

@@ -1,0 +1,6 @@
+<a
+  :href="entry.url"
+  :class="isShown(entry, page)"
+  @text="entry.data.eleventyNavigation.key"
+  webc:root="override"
+></a>

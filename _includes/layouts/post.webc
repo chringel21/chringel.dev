@@ -1,21 +1,19 @@
 ---
-layout: layouts/base.njk
+layout: layouts/base.webc
 ---
 
-{%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss
-%}
+<syntax-highlighting></syntax-highlighting>
 <section class="blog-post prose max-w-none prose-bubblegum">
   <h1 class="m-0 mb-[0.25em]">
     <span
       class="pl-6 relative block leading-[150%] after:absolute after:content-[''] after:w-2 after:h-full after:top-0 after:left-0 after:bg-primary-green"
-    >
-      {{ title }}
-    </span>
+      @text="title"
+    ></span>
   </h1>
   <time
     class="block mb-[2em] text-text-muted"
-    datetime="{{ date | htmlDateString }}"
-    >{{ date | readableDate }}</time
-  >
-  {{ content | safe }}
+    :datetime="htmlDateString(date)"
+    @text="readableDate(date)"
+  ></time>
+  <template @html="content" webc:nokeep></template>
 </section>
