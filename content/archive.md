@@ -5,6 +5,6 @@ archiveType: post
 summary: This page contains an archive of all posts.
 eleventyNavigation:
   key: Archive
-  order: 2
+  order: 4
 layout: "layouts/base.webc"
 ---

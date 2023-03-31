@@ -1,6 +1,22 @@
 <a
   :href="entry.url"
-  :class="isShown(entry, page)"
-  @text="entry.data.eleventyNavigation.key"
+  class="show unset animated-link"
+  @text="entry.title"
   webc:root="override"
+  aria-current="page"
+  webc:if="entry.url === page.url"
+></a>
+<a
+  :href="entry.url"
+  class="show unset animated-link"
+  @text="entry.title"
+  webc:root="override"
+  webc:elseif="(page.url.includes(entry.url) && entry.url != '/')"
+></a>
+<a
+  :href="entry.url"
+  class="unset animated-link"
+  @text="entry.title"
+  webc:root="override"
+  webc:else
 ></a>

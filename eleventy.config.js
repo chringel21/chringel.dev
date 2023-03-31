@@ -42,16 +42,6 @@ module.exports = (eleventyConfig) => {
     return DateTime.fromJSDate(dateObj, { zone: "Europe/Berlin" }).toISO();
   });
 
-  eleventyConfig.addJavaScriptFunction("isShown", (entry, page) => {
-    if (entry.url === page.url) {
-      return "show unset animated-link";
-    } else if (page.url.includes(entry.url) && entry.url != "/") {
-      return "show unset animated-link";
-    } else {
-      return "unset animated-link";
-    }
-  });
-
   // Passthrough
   eleventyConfig.addPassthroughCopy({
     "./public/fonts": "/fonts",
