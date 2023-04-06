@@ -1,0 +1,51 @@
+---
+layout: "layouts/base.webc"
+---
+
+<section class="mb-8">
+  <div class="hero sm:h-96 bg-base-200 animate-fadeInUp">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <div class="flex flex-col">
+        <h1 class="font-bold text-4xl md:text-5xl pt-4 pb-2 overflow-hidden">
+          <span
+            class="bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue"
+          >
+            This is chringel.dev
+          </span>
+        </h1>
+        <p class="text-2xl pb-4">
+          Software Engineer - Web Frontend and Backend - GIS Consultant
+        </p>
+        <p class="order-first">Hey, I'm Christian</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2 class="text-3xl mb-4">Latest Posts</h2>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+    >
+      <div
+        webc:for="(entry, index) of collections.allPostsReverse"
+        webc:if="index < 8"
+        class="h-72 bg-slate-400 post-item"
+      >
+        <eleventy-image
+          :src="entry.data.coverImage"
+          :alt="entry.data.cover.caption"
+          sizes="100vw"
+          class="post-item-image"
+        ></eleventy-image>
+        <div class="post-item-inner">
+          <a :href="entry.url">
+            <span @text="entry.data.title" class="text-xl"></span>
+          </a>
+          <p
+            @text="entry.data.description"
+            class="mt-4 leading-tight text-ellipsis overflow-hidden"
+          ></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
