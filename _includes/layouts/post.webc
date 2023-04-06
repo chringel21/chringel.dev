@@ -3,7 +3,7 @@ layout: layouts/base.webc
 ---
 
 <syntax-highlighting></syntax-highlighting>
-<section class="blog-post prose max-w-none prose-bubblegum">
+<section class="blog-post prose max-w-2xl mx-auto prose-bubblegum">
   <h1 class="m-0 mb-[0.25em]">
     <span
       class="pl-6 relative block leading-[150%] after:absolute after:content-[''] after:w-2 after:h-full after:top-0 after:left-0 after:bg-primary-green"

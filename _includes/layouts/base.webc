@@ -28,7 +28,7 @@
     <link rel="stylesheet" :href="url('/css/index.css')" webc:keep />
   </head>
   <style @raw="getBundle('css')" webc:keep></style>
-  <body class="max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
+  <body class="lg:max-w-5xl max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
     <site-header></site-header>
     <main id="main" @html="content"></main>
     <site-footer></site-footer>
