@@ -1,0 +1,29 @@
+---
+layout: "layouts/base.webc"
+---
+
+<section>
+  <ul>
+    <li
+      webc:for="entry of collections.allPostsReverse"
+      webc:if="entry.data.date"
+      class="grid grid-cols-[1fr] md:grid-cols-[1fr_auto] mb-3 md:gap-2 items-start"
+    >
+      <div class="title">
+        <a
+          :href="entry.url"
+          @text="entry.data.title"
+          class="unset transition-[background-size] duration-300 bg-gradient-to-r bg-left-bottom bg-no-repeat bg-[length:0%_55%] hover:bg-[length:100%_55%] dark:bg-[length:0%_2px] hover:dark:bg-[length:100%_2px] from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue"
+        >
+        </a>
+      </div>
+      <div class="text-text-muted text-sm italic pt-1">
+        <time
+          :datetime="htmlDateString(entry.data.date)"
+          @text="readableDate(entry.data.date)"
+        >
+        </time>
+      </div>
+    </li>
+  </ul>
+</section>
