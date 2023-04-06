@@ -56,7 +56,7 @@ Since our vector tiles background imagery is based on OpenStreetMap data, we mig
 
 The most widely used tool for that is [Nominatim](https://nominatim.org/). It also powers the search on the official OpenStreetMap web page.
 
-{% image "./images/osm-search-powered-by-nominatim.png", "OpenStreetMap Search powered by Nominatim" %}
+{% imagenjk "./images/osm-search-powered-by-nominatim.png", "OpenStreetMap Search powered by Nominatim" %}
 
 It's very powerful, but it's not suited for an **auto-complete search**, such as you know it from Google Maps. Even if you would self-host an instance of Nominatim (which is ultimately half of the goal of this post), it would result in heavy load on the server and database, as Nominatim is powered by **PostgreSQL** and **PostGIS**. So, what's the alternative?
 
@@ -160,7 +160,7 @@ Done 1448341/1448341 in 1760 @ 822.655 per second - FINISHED rank 30
 
 Once everything's done, you can even send a sample query to `http://localhost:8080/search?`, i.e. [http://localhost:8080/search?q=berlin](http://localhost:8080/search?q=berlin).
 
-{% image "./images/nominatim-query-response.png", "Nominatim query response" %}
+{% imagenjk "./images/nominatim-query-response.png", "Nominatim query response" %}
 
 Be sure to let Nominatim run in the background, we'll need it in the next step.
 
@@ -201,7 +201,7 @@ It will automatically pick up the data directory, but you can also provide a fla
 
 Once the index is loaded, you can send queries to `http://localhost:2322/api`, i.e. [http://localhost:2322/api?q=berlin](http://localhost:2322/api?q=berlin). It's output is [GeoJson](https://geojson.org/), so basically ready to be consumed by a web mapping application.
 
-{% image "./images/photon-query-response.png", "Photon query response" %}
+{% imagenjk "./images/photon-query-response.png", "Photon query response" %}
 
 ## Wrapping up and next steps
 

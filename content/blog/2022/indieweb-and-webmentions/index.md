@@ -111,7 +111,7 @@ Next step was to actually provide some basic information about myself, on my web
 
 Again, this is a minimal example. There are many more properties that can be added. This is where I found [IndieWebify.me](https://indiewebify.me/), a nice guide to check whether your site is ready for the IndieWeb.
 
-{% image "./images/h-card.png", "Valid `h-card` entry parsed by IndieWebify.me" %}
+{% imagenjk "./images/h-card.png", "Valid `h-card` entry parsed by IndieWebify.me" %}
 
 ### 3. Add content markup
 
@@ -161,7 +161,7 @@ In this example, I add the following `h-entry` properties:
 
 {% endraw %}
 
-{% image "images/h-entry.png", "Valid `h-card` parsed by IndieWebify.me" %}
+{% imagenjk "images/h-entry.png", "Valid `h-card` parsed by IndieWebify.me" %}
 
 At this point, my content is correctly marked up to be consumed by the IndieWeb. This was all relatively easy. The next step was a little bit more challenging, because it meant working on the backend.
 

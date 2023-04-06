@@ -48,7 +48,7 @@ I wanted to keep it relatively simple (for now at least), so I just created cust
 
 The landing page includes a "featured post" widget, which displays the latest blog post more prominently with a big image card.
 
-{% image "./images/featured-post.png", "Featured post" %}
+{% imagenjk "./images/featured-post.png", "Featured post" %}
 
 #### Social icons
 

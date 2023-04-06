@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-layout: "layouts/base.webc"
+layout: "layouts/blog.webc"
 permalink: /blog/
 eleventyNavigation:
   key: Blog
