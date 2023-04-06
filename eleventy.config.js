@@ -6,6 +6,7 @@ const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const { eleventyImagePlugin } = require("@11ty/eleventy-img");
 const svgSprite = require("eleventy-plugin-svg-sprite");
 const { DateTime } = require("luxon");
+const { data } = require("autoprefixer");
 
 module.exports = (eleventyConfig) => {
   // Watch targets
@@ -65,6 +66,14 @@ module.exports = (eleventyConfig) => {
   });
   eleventyConfig.addFilter("htmlDateString", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "Europe/Berlin" }).toISO();
+  });
+
+  // Custom collection for all posts
+  eleventyConfig.addCollection("allPostsReverse", (collectionApi) => {
+    return collectionApi
+      .getAllSorted()
+      .reverse()
+      .filter((item) => item.data.type === "post");
   });
 
   // Passthrough
