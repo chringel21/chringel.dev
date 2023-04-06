@@ -34,6 +34,22 @@ module.exports = {
           code: "rgb(var(--color-border-code) / <alpha-value>)",
         },
       },
+      keyframes: (theme) => ({
+        fadeInUp: {
+          "0%": {
+            color: theme("colors.transparent"),
+            transform: "translateY(10%)",
+          },
+          "100%": {
+            color: theme("colors.current"),
+            transform: "translateY(0%)",
+          },
+          "animation-timing-function": "cubic - bezier(0.4, 0, 0.2, 1)",
+        },
+      }),
+      animation: {
+        fadeInUp: "fadeInUp 0.5s",
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {

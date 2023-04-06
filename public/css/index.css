@@ -227,4 +227,96 @@
   .animated-link.show:after {
     transform: translateZ(0) scale(1);
   }
+
+  .icon {
+    display: inline-block;
+    font-size: 1.5em;
+    height: 1em;
+    width: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    pointer-events: none;
+  }
+
+  .hero {
+    display: grid;
+    width: 100%;
+    place-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .hero-content {
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80rem;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .post-item {
+    display: block;
+    height: 300px;
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .post-item-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .post-item-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    color: #fff;
+    padding: 1rem;
+    background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+
+  .post-item-inner > a {
+    text-decoration: none;
+  }
+
+  .post-item-inner > a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
 }
