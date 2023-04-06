@@ -3,6 +3,7 @@ const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const eleventyNavigation = require("@11ty/eleventy-navigation");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
+const svgSprite = require("eleventy-plugin-svg-sprite");
 const { DateTime } = require("luxon");
 
 module.exports = (eleventyConfig) => {
@@ -18,6 +19,9 @@ module.exports = (eleventyConfig) => {
   });
   eleventyConfig.addPlugin(pluginWebc, {
     components: "_includes/components/*.webc",
+  eleventyConfig.addPlugin(svgSprite, {
+    path: "./public/svg",
+    outputFilepath: "./_site/sprites/icons.svg",
   });
 
   // App plugins
