@@ -1,0 +1,23 @@
+<script>
+  function injectEmail() {
+    const id = "encoded-e-mail";
+    const span = document.getElementById(id);
+    const encoded = span.dataset.address;
+    span.innerHTML =
+      '<a href="mailto:' + atob(encoded) + '">' + atob(encoded) + "</a>";
+  }
+</script>
+
+<span
+  id="encoded-e-mail"
+  onclick="injectEmail()"
+  @text="message"
+  :data-address="address"
+  webc:root="override"
+></span>
+
+<style webc:scoped>
+  :host span {
+    cursor: pointer;
+  }
+</style>
