@@ -11,7 +11,7 @@ keywords:
 eleventyNavigation:
   key: About Me
   order: 3
-layout: "layouts/base.webc"
+layout: "layouts/page.webc"
 ---
 
 ## Hi, I'm Christian 👋
