@@ -252,13 +252,10 @@
   }
 
   .icon {
-    display: inline-block;
+    @apply inline-block align-middle pointer-events-none fill-current;
     font-size: 1.5em;
     height: 1em;
     width: 1em;
-    vertical-align: middle;
-    fill: currentColor;
-    pointer-events: none;
   }
 
   .hero {

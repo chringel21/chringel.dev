@@ -1,38 +1,32 @@
-<header webc:root="override">
+<header
+  webc:root="override"
+  class="container flex items-center justify-between py-8"
+>
   <navigation webc:nokeep></navigation>
-  <div
-    class="justify-self-end py-2 flex items-center content-center text-text-bold"
-  >
-    <a
-      class="unset ml-4 rounded-sm transition-[background-size] duration-150 ease-in-out bg-left-bottom bg-[length:0%_55%] hover:bg-[length:100%_55%] bg-no-repeat bg-gradient-to-r from-primary-yellow to-primary-yellow dark:bg-none dark:hover:text-primary-yellow"
-      href="https://github.com/chringel21"
-    >
-      <span><svg-icon @prop="logo-github"></svg-icon></span>
-    </a>
-    <a
-      class="unset ml-4 rounded-sm transition-[background-size] duration-150 bg-left-bottom bg-[length:0%_55%] hover:bg-[length:100%_55%] bg-no-repeat bg-gradient-to-r from-primary-blue to-primary-blue dark:bg-none dark:hover:text-primary-blue"
-      href="https://twitter.com/DeEgge"
-    >
-      <span><svg-icon @prop="logo-twitter"></svg-icon></span>
-    </a>
-    <a
-      class="unset ml-4 rounded-sm transition-[background-size] duration-150 bg-left-bottom bg-[length:0%_55%] hover:bg-[length:100%_55%] bg-no-repeat bg-gradient-to-r from-primary-green to-primary-green dark:bg-none dark:hover:text-primary-green"
-      href="https://fosstodon.org/@chringel"
-    >
-      <span><svg-icon @prop="logo-mastodon"></svg-icon></span>
-    </a>
+  <div class="flex items-center">
+    <div class="text-text-bold">
+      <a
+        class="unset ml-4 rounded-sm transition-[background-size] duration-150 ease-in-out bg-left-bottom bg-[length:0%_55%] hover:bg-[length:100%_55%] bg-no-repeat bg-gradient-to-r from-primary-yellow to-primary-yellow dark:bg-none dark:hover:text-primary-yellow"
+        href="https://github.com/chringel21"
+        title="Christian Engel on Github"
+      >
+        <span><svg-icon @prop="logo-github"></svg-icon></span>
+      </a>
+      <a
+        class="unset ml-4 rounded-sm transition-[background-size] duration-150 bg-left-bottom bg-[length:0%_55%] hover:bg-[length:100%_55%] bg-no-repeat bg-gradient-to-r from-primary-blue to-primary-blue dark:bg-none dark:hover:text-primary-blue"
+        href="https://twitter.com/DeEgge"
+        title="Christian Engel on Twitter"
+      >
+        <span><svg-icon @prop="logo-twitter"></svg-icon></span>
+      </a>
+      <a
+        class="unset ml-4 rounded-sm transition-[background-size] duration-150 bg-left-bottom bg-[length:0%_55%] hover:bg-[length:100%_55%] bg-no-repeat bg-gradient-to-r from-primary-green to-primary-green dark:bg-none dark:hover:text-primary-green"
+        href="https://fosstodon.org/@chringel"
+        title="Christian Engel on Mastodon"
+      >
+        <span><svg-icon @prop="logo-mastodon"></svg-icon></span>
+      </a>
+    </div>
+    <mode-toggle></mode-toggle>
   </div>
-  <mode-toggle></mode-toggle>
 </header>
-
-<style webc:scoped>
-  :host {
-    grid-area: header;
-    display: grid;
-    align-items: center;
-    grid-template-columns: minmax(0, 1fr) minmax(0, max-content) minmax(
-        0,
-        max-content
-      );
-  }
-</style>
