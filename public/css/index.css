@@ -197,6 +197,19 @@
   /* ------ GLOBAL STYLES - END ------ */
 
   /* ------ REUSABLE UTILS - START ------ */
+  .container {
+    @apply lg:max-w-6xl max-w-3xl w-11/12 mx-auto;
+  }
+
+  .layout {
+    @apply flex flex-col min-w-full;
+    min-height: 100vh;
+  }
+
+  .layout > .main {
+    @apply flex flex-col flex-auto;
+  }
+
   .animated-link {
     position: relative;
     box-decoration-break: clone;

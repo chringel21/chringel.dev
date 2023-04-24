@@ -28,22 +28,12 @@
     <link rel="stylesheet" :href="url('/css/index.css')" webc:keep />
   </head>
   <style @raw="getBundle('css')" webc:keep></style>
-  <body class="lg:max-w-5xl max-w-3xl mx-auto min-h-screen px-6 sm:px-8">
-    <site-header></site-header>
-    <main id="main" @html="content"></main>
-    <site-footer></site-footer>
+  <body>
+    <div class="layout">
+      <site-header></site-header>
+      <main id="main" @html="content" class="main container"></main>
+      <site-footer></site-footer>
+    </div>
   </body>
   <script @raw="getBundle('js')" webc:keep></script>
 </html>
-
-<style>
-  body {
-    display: grid;
-    grid-template-areas: "header" "main" "footer";
-    grid-template-rows: 5rem minmax(0, 1fr) 5rem;
-    grid-template-columns: minmax(0, 1fr);
-  }
-  main {
-    grid-area: main;
-  }
-</style>
