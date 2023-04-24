@@ -3,7 +3,7 @@ layout: "layouts/base.webc"
 ---
 
 <section class="mb-8">
-  <div class="hero sm:h-96 bg-base-200 animate-fadeInUp">
+  <div class="hero sm:h-96 animate-fadeInUp">
     <div class="hero-content flex-col lg:flex-row-reverse">
       <div class="flex flex-col">
         <h1 class="font-bold text-4xl md:text-5xl pt-4 pb-2 overflow-hidden">
@@ -23,21 +23,21 @@ layout: "layouts/base.webc"
   <div>
     <h2 class="text-3xl mb-4">Latest Posts</h2>
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mb-4"
     >
       <div
         webc:for="(entry, index) of collections.allPostsReverse"
         webc:if="index < 8"
-        class="h-72 bg-slate-400 post-item"
+        class="post-item"
       >
         <eleventy-image
           :src="entry.data.coverImage"
           :alt="entry.data.cover.caption"
-          sizes="100vw"
+          sizes="10vw"
           class="post-item-image"
         ></eleventy-image>
         <div class="post-item-inner">
-          <a :href="entry.url">
+          <a :href="entry.url" class="unset font-bold">
             <span @text="entry.data.title" class="text-xl"></span>
           </a>
           <p
@@ -46,6 +46,9 @@ layout: "layouts/base.webc"
           ></p>
         </div>
       </div>
+    </div>
+    <div class="text-right w-full text-lg">
+      <a href="/blog" class="unset animated-link">All posts</a>
     </div>
   </div>
 </section>

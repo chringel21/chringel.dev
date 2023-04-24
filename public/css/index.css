@@ -220,6 +220,16 @@
     transform: translateZ(0) scale(1);
   }
 
+  .animated-link:before {
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    content: "";
+    height: 2px;
+    position: absolute;
+    background-color: theme("colors.slate.200");
+  }
+
   .animated-link:after {
     left: 0;
     right: 0;
@@ -252,66 +262,31 @@
   }
 
   .hero {
-    display: grid;
-    width: 100%;
-    place-items: center;
-    background-size: cover;
-    background-position: center;
+    @apply flex justify-center;
   }
 
   .hero-content {
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 80rem;
-    gap: 1rem;
-    padding: 1rem;
+    @apply z-0 flex items-center justify-center max-w-7xl gap-4 p-4;
   }
 
   .sr-only {
-    position: absolute;
+    @apply absolute p-0 overflow-hidden whitespace-nowrap border-0;
     width: 1px;
     height: 1px;
-    padding: 0;
     margin: -1px;
-    overflow: hidden;
     clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
   }
 
   .post-item {
-    display: block;
-    height: 300px;
-    position: relative;
-    border-radius: 0.5rem;
-    overflow: hidden;
+    @apply h-80 block relative rounded-md overflow-hidden bg-slate-400 shadow-md;
   }
 
   .post-item-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    @apply absolute inset-0 block w-full h-full object-cover object-center;
   }
 
   .post-item-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: hidden;
-    border-radius: 0.5rem;
-    color: #fff;
-    padding: 1rem;
+    @apply absolute inset-0 overflow-hidden rounded-md text-white p-4;
     background-image: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.5) 0%,
@@ -319,17 +294,20 @@
     );
   }
 
-  .post-item-inner > a {
-    text-decoration: none;
-  }
-
   .post-item-inner > a::after {
     content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+    @apply absolute inset-0 z-10;
   }
+
+  @media (pointer: fine) {
+    .post-item-inner > p {
+      @apply pointer-events-none opacity-0 transition -translate-y-2;
+    }
+
+    .post-item:hover .post-item-inner > p,
+    .post-item-inner > a:focus + .post-item-inner > p {
+      @apply opacity-100 translate-y-0;
+    }
+  }
+
 }
