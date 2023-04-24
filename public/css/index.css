@@ -307,4 +307,23 @@
     }
   }
 
+  .post-content {
+    @apply prose prose-bubblegum max-w-2xl mx-auto;
+  }
+
+  .post-footer {
+    @apply border-t max-w-2xl mx-auto py-2 mt-8;
+  }
+
+  .post-footer-item {
+    @apply flex items-center gap-x-1.5 flex-wrap;
+  }
+
+  .post-footer-item > span {
+    @apply font-bold ml-1;
+  }
+
+  .post-footer-item > a.tag::before {
+    content: "#";
+  }
 }
