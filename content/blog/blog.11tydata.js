@@ -1,11 +1,28 @@
 module.exports = {
   tags: ["posts"],
   layout: "layouts/post.webc",
-  permalink:
-    "/blog/{{ page.date | permalink_year }}/{{ page.date | permalink_month }}/{{ page.fileSlug }}/",
+  permalink: (data) => {
+    const year = String(data.page.date.getFullYear());
+    const month = String(data.page.date.getMonth() + 1).padStart(2, "0");
+    if (data.page.date > new Date("2023-02-21T12:00:00")) {
+      return `/blog/${year}/${month}/${data.page.fileSlug}/`;
+    }
+    return `/${year}/${month}/${data.page.fileSlug}/`;
+  },
   eleventyComputed: {
     frontmatter: (data) => data,
-    coverImage:
-      "{% if frontmatter.cover.src and 'http' in frontmatter.cover.src %}{{ frontmatter.cover.src }}{% else %}./content{{ page.filePathStem | replace('index', frontmatter.cover.src) }}{% endif %}",
+    coverImage: (data) => {
+      if (data.cover && data.cover.src) {
+        if (data.cover.src.includes("http")) {
+          return data.cover.src;
+        } else {
+          const newFilePathStem = data.page.filePathStem.replace(
+            "index",
+            data.cover.src
+          );
+          return `./content${newFilePathStem}`;
+        }
+      }
+    },
   },
 };
