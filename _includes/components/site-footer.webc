@@ -1,30 +1,33 @@
-<footer class="text-sm leading-[1.75] mt-4" webc:root="override">
-  <div>
-    This blog is built with
+<footer
+  class="flex justify-center text-sm mt-16 border-t border-slate-200 py-8"
+  webc:root="override"
+>
+  <p class="text-center">
+    CC-BY 4.0
     <a
       class="unset gradient-link tracking-wider font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#f57111] to-[#f79605] hover:after:bg-gradient-to-r hover:after:from-[#f57111] hover:after:to-[#f79605]"
-      href="https://github.com/flexdinesh/blogster"
+      href="https://chringel.dev/"
+      >Christian Engel</a
     >
-      Blogster</a
-    >
-    and hosted in
+    <br />
+    Legal stuff:
     <a
       class="unset gradient-link tracking-wider font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00abda] to-[#1476ff] hover:after:bg-gradient-to-r hover:after:from-[#00abda] hover:after:to-[#1476ff]"
-      href="https://www.netlify.com"
+      href="/imprint"
     >
-      Netlify</a
-    >.
-  </div>
+      Imprint</a
+    >
+    •
+    <a
+      class="unset gradient-link tracking-wider font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#00abda] to-[#1476ff] hover:after:bg-gradient-to-r hover:after:from-[#00abda] hover:after:to-[#1476ff]"
+      href="/privacy-policy"
+    >
+      Privacy Policy</a
+    >
+  </p>
 </footer>
 
 <style webc:scoped>
-  :host {
-    grid-area: footer;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   :host .gradient-link {
     position: relative;
     box-decoration-break: clone;

@@ -1,6 +1,6 @@
 ---
 author: Christian Engel
-title: "Privacy Protection"
+title: "Privacy Policy"
 type: "page"
 date: 2022-07-20
 description: Privacy and data protection on this website
@@ -8,6 +8,7 @@ keywords:
   - privacy
   - data processing
   - stored data
+layout: "layouts/page.webc"
 ---
 
 As you visit this site, by default, no **personal data is collected**. That means
@@ -38,4 +39,4 @@ By supporting Webmentions on your website, **you explicitly signal your wish for
 
 This site collects relatively little personal data, none even if you choose only to consume and have no interactions. But you may at any time demand information on all your stored personal data, their correction and their deletion. Please send me a message.
 
-encodeemail "Y29udGFjdEBjaHJpbmdlbC5kZXY=" "Show mail address!"
+<p webc:is="encode-email" @address="Y29udGFjdEBjaHJpbmdlbC5kZXYK" @message="Show email address"></p>

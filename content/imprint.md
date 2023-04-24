@@ -7,6 +7,7 @@ description: Impressum (imprint) as required by German law
 keywords:
   - Impressum
   - imprint
+layout: "layouts/page.webc"
 ---
 
 ## Verantwortlich für den Inhalt nach Art. 18 Abs. 2 MStV
@@ -16,11 +17,11 @@ Potsdam
 
 ## Kontakt
 
-encodeemail "Y29udGFjdEBjaHJpbmdlbC5kZXY=" "E-Mail zeigen!"
+<p webc:is="encode-email" @address="Y29udGFjdEBjaHJpbmdlbC5kZXYK" @message="Email-Adresse anzeigen"></p>
 
 ## Datenschutz
 
-Die Zielgruppe der auf dieser Seite verfassten Inhalte ist ein Englisch sprechendes Fachpublikum. Die Datenschutzerklärung gem. DSGVO ist daher in Englisch verfasst und unter [Privacy Protection](/privacy-protection) abrufbar.
+Die Zielgruppe der auf dieser Seite verfassten Inhalte ist ein Englisch sprechendes Fachpublikum. Die Datenschutzerklärung gem. DSGVO ist daher in Englisch verfasst und unter [Privacy Protection](/privacy-policy) abrufbar.
 
 ## Haftungsausschluss (Disclaimer)
 

@@ -1,0 +1,11 @@
+---
+layout: "layouts/base.webc"
+---
+
+<header class="py-16 md:py-20">
+  <h1
+    class="font-bold text-4xl md:text-5xl bottom-2 text-center"
+    @text="title"
+  ></h1>
+</header>
+<div @html="content" class="prose prose-bubblegum mx-auto"></div>
