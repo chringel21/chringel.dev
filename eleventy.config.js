@@ -7,6 +7,7 @@ const { eleventyImagePlugin } = require("@11ty/eleventy-img");
 const svgSprite = require("eleventy-plugin-svg-sprite");
 const { DateTime } = require("luxon");
 const { data } = require("autoprefixer");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 const filters = require("./_includes/utils/filters.js");
 
 module.exports = (eleventyConfig) => {
@@ -46,6 +47,7 @@ module.exports = (eleventyConfig) => {
     path: "./public/svg",
     outputFilepath: "./_site/sprites/icons.svg",
   });
+  eleventyConfig.addPlugin(pluginRss);
 
   // App plugins
   eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
