@@ -10,7 +10,7 @@ keywords:
   - whoami
 eleventyNavigation:
   key: About Me
-  order: 3
+  order: 4
 layout: "layouts/page.webc"
 ---
 
