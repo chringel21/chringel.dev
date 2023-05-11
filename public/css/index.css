@@ -339,4 +339,7 @@
     @apply absolute top-0 -left-5;
   }
 
+  .notes-content {
+    @apply max-w-2xl mx-auto;
+  }
 }
