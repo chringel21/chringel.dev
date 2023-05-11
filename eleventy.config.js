@@ -67,6 +67,12 @@ module.exports = (eleventyConfig) => {
       .reverse()
       .filter((item) => item.data.type === "post");
   });
+  eleventyConfig.addCollection("allNotesReverse", (collectionApi) => {
+    return collectionApi
+      .getAllSorted()
+      .reverse()
+      .filter((item) => item.data.type === "note");
+  });
 
   // Passthrough
   eleventyConfig.addPassthroughCopy({
