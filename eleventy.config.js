@@ -7,6 +7,7 @@ const { eleventyImagePlugin } = require("@11ty/eleventy-img");
 const svgSprite = require("eleventy-plugin-svg-sprite");
 const { DateTime } = require("luxon");
 const { data } = require("autoprefixer");
+const filters = require("./_includes/utils/filters.js");
 
 module.exports = (eleventyConfig) => {
   // Watch targets
@@ -50,22 +51,8 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
 
   // Filters
-  eleventyConfig.addFilter("permalink_year", (dateObj) =>
-    dateObj.getFullYear()
-  );
-  eleventyConfig.addFilter("permalink_month", (dateObj) =>
-    String(dateObj.getMonth() + 1).padStart(2, "0")
-  );
-  eleventyConfig.addFilter("permalink_day", (dateObj) =>
-    String(dateObj.getDay()).padStart(2, "0")
-  );
-  eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-    return DateTime.fromJSDate(dateObj, {
-      zone: zone || "Europe/Berlin",
-    }).toFormat(format || "LLLL dd, yyyy");
-  });
-  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "Europe/Berlin" }).toISO();
+  Object.keys(filters).forEach((filterName) => {
+    eleventyConfig.addFilter(filterName, filters[filterName]);
   });
 
   // Custom collection for all posts
