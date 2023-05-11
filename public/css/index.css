@@ -316,14 +316,17 @@
   }
 
   .post-footer-item {
-    @apply flex items-center gap-x-1.5 flex-wrap;
+    @apply flex items-center gap-x-1.5;
   }
 
   .post-footer-item > span {
     @apply font-bold ml-1;
   }
 
-  .post-footer-item > a.tag::before {
+  .post-footer-item > svg {
+    @apply shrink-0;
+  }
+
   .post-footer-item a.tag::before {
     content: "#";
   }

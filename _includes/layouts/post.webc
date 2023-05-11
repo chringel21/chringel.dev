@@ -81,12 +81,14 @@ layout: layouts/base.webc
     <div class="post-footer-item items-start">
       <svg-icon @prop="pricetags-outline" @classes="mt-1"></svg-icon>
       <span>Tags:</span>
-      <a
-        webc:for="value of tags"
-        :href="'/tags/' + slugify(value)"
-        @text="value"
-        class="tag"
-      ></a>
+      <div>
+        <a
+          webc:for="value of tags"
+          :href="'/tags/' + slugify(value)"
+          @text="value"
+          class="tag"
+        ></a>
+      </div>
     </div>
   </div>
 </section>
