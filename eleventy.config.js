@@ -60,7 +60,10 @@ module.exports = (eleventyConfig) => {
     eleventyConfig.addFilter(filterName, filters[filterName]);
   });
 
-  // Custom collection for all posts
+  // Custom collection for all posts, notes, etc.
+  eleventyConfig.addCollection("allReverse", (collectionApi) => {
+    return collectionApi.getAllSorted().reverse();
+  });
   eleventyConfig.addCollection("allPostsReverse", (collectionApi) => {
     return collectionApi
       .getAllSorted()
