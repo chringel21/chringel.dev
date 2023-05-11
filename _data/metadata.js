@@ -1,9 +1,9 @@
 module.exports = {
   title: "chringel.dev",
-  url: "https://chringel.dev/",
+  url: "https://chringel.dev",
   language: "en",
   description:
-    "My personal blog about coding, spatial stuff and everything else",
+    "Christian Engel's personal blog about coding, spatial stuff and everything else",
   author: {
     name: "Christian Engel",
     email: "ch-engel@posteo.de",
