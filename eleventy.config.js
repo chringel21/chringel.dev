@@ -10,6 +10,9 @@ const { data } = require("autoprefixer");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItEleventyImg = require("markdown-it-eleventy-img");
+const path = require("path");
+
 const filters = require("./_includes/utils/filters.js");
 
 module.exports = (eleventyConfig) => {
@@ -78,8 +81,10 @@ module.exports = (eleventyConfig) => {
   });
 
   // Passthrough
+  eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy({
     "./public/fonts": "/fonts",
+    "./public/img": "/img",
     "./node_modules/prismjs/themes/prism-okaidia.min.css":
       "/css/prism-okaidia.css",
   });
@@ -100,6 +105,40 @@ module.exports = (eleventyConfig) => {
   };
   const markdownLib = markdownIt(markdownItOptions)
     .use(markdownItAnchor, markdownItAnchorOptions)
+    .use(markdownItEleventyImg, {
+      imgOptions: {
+        widths: [500, 800, 1200, 1500, "auto"],
+        urlPath: "/images/",
+        outputDir: "./_site/img/",
+        formats: ["avif", "webp", "auto"],
+        sharpOptions: {
+          animated: true,
+        },
+      },
+      globalAttributes: {
+        decoding: "async",
+        loading: "lazy",
+        sizes: "100vw",
+      },
+      renderImage(image, attributes) {
+        const [Image, options] = image;
+        const [src, attrs] = attributes;
+
+        Image(src, options);
+
+        const metadata = Image.statsSync(src, options);
+        const imageMarkup = Image.generateHTML(metadata, attrs, {
+          whitespaceMode: "inline",
+        });
+
+        return `<figure>${imageMarkup}${
+          attrs.title
+            ? `<figcaption>${markdownIt().render(attrs.title)}</figcaption>`
+            : ""
+        }</figure>`;
+      },
+      resolvePath: (filepath, env) =>
+        path.join(path.dirname(env.page.inputPath), filepath),
     });
 
   eleventyConfig.setLibrary("md", markdownLib);

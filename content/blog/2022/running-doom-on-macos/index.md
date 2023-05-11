@@ -119,7 +119,7 @@ You can store additional WADs for modifications or other games in this folder.
 
 GZDoom will look in certain directories for WADs. If you run GZDoom right now, it will give you a hint about those directories.
 
-{% imagenjk "./images/gzdoom-error.png", "GZDoom can't find any WADs." %}
+![GZDoom can't find any WADs.](./images/gzdoom-error.png "GZDoom can't find any WADs.")
 
 You could do, what the message says, and place the `DOOM.WAD` into `~/Library/Application Support/gzdoom/`, but who is ever going to find that folder again.
 
@@ -153,7 +153,7 @@ OK, cool, Doom is running. What about mods and custom WADs? For example the supe
 
 Download SIGIL, it's free. Place the WADs in your custom folder `~/doomwads`. Now run GZDoom and enter the file's location as an optional parameter down below using the flag `-file`.
 
-{% imagenjk "./images/gzdoom-additional-parameters.png", "Use the custom WAD's location as an additional parameter" %}
+![Use the custom WAD's location as an additional parameter](./images/gzdoom-additional-parameters.png "Use the custom WAD's location as an additional parameter")
 
 You can also do that from the terminal, using this command:
 

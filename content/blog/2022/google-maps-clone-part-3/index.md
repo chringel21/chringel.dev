@@ -138,7 +138,7 @@ Once the graph is ready and prepared, the output should read something like this
 
 Open [http://localhost:8989](http://localhost:8989). It should redirect you to the built in graphical user interface, that comes with Graphhopper (`/maps`).
 
-{% imagenjk "./images/graphhopper-maps.png", "Graphhopper graphical user interface" %}
+![Graphhopper graphical user interface](./images/graphhopper-maps.png "Graphhopper graphical user interface")
 
 You can play around with it, try setting start and destination points, add intermediate points, change the routing profile and see how it affects the result.
 
@@ -146,7 +146,7 @@ You can play around with it, try setting start and destination points, add inter
 
 More interesting might be the API and the result's structure:
 
-{% imagenjk "./images/graphhopper-api-result.png", "Graphhopper API result" %}
+![Graphhopper API result](./images/graphhopper-api-result.png "Graphhopper API result")
 
 By default, the Routing API won't return an easily parseable GeoJson linestring. Instead, the result is an [Encoded Polyline Algorithm Format](https://developers.google.com/maps/documentation/utilities/polylinealgorithm). Server-side, the linestring is encoded to a single string, and [decoded client-side](https://github.com/graphhopper/directions-api-js-client/blob/cf43d1a5bc93a3e8007a44fcfc551117e4fa49bc/src/GHUtil.js#L27). This whole process takes less time, than sending a full GeoJson to the client.
 
