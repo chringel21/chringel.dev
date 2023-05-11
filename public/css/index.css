@@ -324,6 +324,16 @@
   }
 
   .post-footer-item > a.tag::before {
+  .post-footer-item a.tag::before {
     content: "#";
   }
+
+  .prose .heading {
+    @apply relative;
+  }
+
+  .prose .heading > a {
+    @apply absolute top-0 -left-5;
+  }
+
 }

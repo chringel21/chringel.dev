@@ -8,6 +8,8 @@ const svgSprite = require("eleventy-plugin-svg-sprite");
 const { DateTime } = require("luxon");
 const { data } = require("autoprefixer");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
 const filters = require("./_includes/utils/filters.js");
 
 module.exports = (eleventyConfig) => {
@@ -20,6 +22,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginBundle);
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     preAttributes: { tabindex: 0 },
+    templateFormats: ["md"],
   });
   eleventyConfig.addPlugin(pluginWebc, {
     components: [
@@ -71,6 +74,26 @@ module.exports = (eleventyConfig) => {
     "./node_modules/prismjs/themes/prism-okaidia.min.css":
       "/css/prism-okaidia.css",
   });
+
+  // markdown-it
+  const markdownItOptions = {
+    html: true,
+  };
+  const markdownItAnchorOptions = {
+    permalink: markdownItAnchor.permalink.linkAfterHeader({
+      class: "unset italic text-xl",
+      style: "aria-label",
+      assistiveText: (title) => `Permalink to “${title}”`,
+      visuallyHiddenClass: "hidden",
+      wrapper: ['<div class="heading">', "</div>"],
+      placement: "before",
+    }),
+  };
+  const markdownLib = markdownIt(markdownItOptions)
+    .use(markdownItAnchor, markdownItAnchorOptions)
+    });
+
+  eleventyConfig.setLibrary("md", markdownLib);
 
   return {
     templateFormats: ["md", "njk", "html", "webc"],
