@@ -1,5 +1,4 @@
 ---
-author: Christian Engel
 title: "Privacy Policy"
 type: "page"
 date: 2022-07-20
@@ -9,6 +8,7 @@ keywords:
   - data processing
   - stored data
 layout: "layouts/page.webc"
+permalink: /privacy-policy/
 ---
 
 As you visit this site, by default, no **personal data is collected**. That means

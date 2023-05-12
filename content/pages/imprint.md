@@ -1,5 +1,4 @@
 ---
-author: Christian Engel
 title: "Impressum"
 type: "page"
 date: 2022-07-20
@@ -8,6 +7,7 @@ keywords:
   - Impressum
   - imprint
 layout: "layouts/page.webc"
+permalink: /imprint/
 ---
 
 ## Verantwortlich für den Inhalt nach Art. 18 Abs. 2 MStV

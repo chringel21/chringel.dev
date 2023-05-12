@@ -1,8 +1,20 @@
 ---
+title: "Notes"
+permalink: /notes/index.html
+tags: navigation
+eleventyNavigation:
+  key: Notes
+  order: 3
 layout: "layouts/base.webc"
 ---
 
 <section class="notes-content">
+  <header class="py-16 md:py-20">
+    <h1
+      class="font-bold text-4xl md:text-5xl bottom-2 text-center"
+      @text="title"
+    ></h1>
+  </header>
   <ol class="notes-list">
     <li
       webc:for="entry of collections.allNotesReverse"

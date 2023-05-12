@@ -1,5 +1,4 @@
 ---
-author: Christian Engel
 title: "About"
 type: page
 date: 2021-12-28T20:14:01+01:00
@@ -8,10 +7,12 @@ keywords:
   - about
   - creator
   - whoami
+tags: navigation
 eleventyNavigation:
   key: About Me
   order: 4
 layout: "layouts/page.webc"
+permalink: /about/
 ---
 
 ## Hi, I'm Christian 👋
