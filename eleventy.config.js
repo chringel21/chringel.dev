@@ -39,9 +39,6 @@ module.exports = (eleventyConfig) => {
     sharpOptions: {
       animated: true,
     },
-
-    // Notably `outputDir` is resolved automatically
-    // to the project output directory
     defaultAttributes: {
       loading: "lazy",
       decoding: "async",
@@ -106,7 +103,7 @@ module.exports = (eleventyConfig) => {
     .use(markdownItEleventyImg, {
       imgOptions: {
         widths: [500, 800, 1200, 1500, "auto"],
-        urlPath: "/images/",
+        urlPath: "/img/",
         outputDir: "./_site/img/",
         formats: ["avif", "webp", "auto"],
         sharpOptions: {
