@@ -1,0 +1,3 @@
+<script webc:setup webc:root="override"></script>
+
+<pre @text="JSON.stringify(webmentions)"></pre>

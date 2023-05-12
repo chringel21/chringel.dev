@@ -1,3 +1,4 @@
+.env
 .vscode
 .cache/
 _site/
