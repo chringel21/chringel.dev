@@ -3,40 +3,38 @@ permalink: /index.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{{ metadata.title }}</title>
-  <subtitle>{{ metadata.description }}</subtitle>
-  <link
-    href="{{ metadata.url }}/index.xml"
-    rel="self"
-    type="application/atom+xml"
-  />
-  <link href="{{ metadata.url }}" rel="alternate" type="text/html" />
-  <author>
-    <name>{{ metadata.author.name }}</name>
-    <email>{{ metadata.author.email }}</email>
-  </author>
-  {% if collections.posts %}
-  <updated>{{ collections.allReverse | rssLastUpdatedDate }}</updated>
-  {% endif %}
-  <id>{{ metadata.url }}/</id>
-  {%- for post in collections.allReverse -%}
-    {% set absolutePostUrl %}
-      {{ post.url | url | absoluteUrl(metadata.url)}}
-    {% endset %}
-  <entry>
-    <title>{{ post.data.title }}</title>
-    <link href="{{ absolutePostUrl }}" />
-    <updated>{{ post.date | rssDate }}</updated>
-    <id>{{ absolutePostUrl }}</id>
-    <content type="html">
-      <![CDATA[
-      {% if post.data.cover %}
-        {# {% imagenjk post.data.cover.src, post.data.cover.caption, [50vw] %} #}
-      {% endif %}
-      {{ post.templateContent | safe }}
-      ]]>
-    </content>
-  </entry>
-  {%- endfor -%}
-</feed>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ metadata.title }}</title>
+    <description>{{ metadata.description }}</description>
+    <link>{{ metadata.url }}</link>
+    <atom:link
+      href="{{ permalink | absoluteUrl(metadata.url) }}"
+      rel="self"
+      type="application/rss+xml"
+    />
+    <language>{{ metadata.language }}</language>
+    <generator>{{ eleventy.generator }}</generator>
+    <copyright>Creative Commons Attribution 4.0 International - CC-BY</copyright>
+    {% if collections.posts %}
+    <lastBuildDate>{{ collections.allReverse | rssLastUpdatedDate }}</lastBuildDate>
+    {% endif %}
+    {%- for post in collections.allReverse -%}
+      {%- set absolutePostUrl = post.url | url | absoluteUrl(metadata.url) -%}
+    <item>
+      <title>{{ post.data.title }}</title>
+      <link>{{ absolutePostUrl }}</link>
+      <pubDate>{{ post.date | rssDate }}</pubDate>
+      <guid>{{ absolutePostUrl }}</guid>
+      <description>
+        <![CDATA[
+        {% if post.data.cover %}
+          {% image post.data.coverImage, post.data.cover.caption, [50vw] %}
+        {% endif %}
+        {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
+        ]]>
+      </description>
+    </item>
+    {%- endfor -%}
+  </channel>
+</rss>
