@@ -31,7 +31,7 @@ By default, Hugo comes with an option to enable [Google Analytics](https://gohug
 
 ## Installation
 
-As this blog is [hosted on ateroids :rocket:](https://uberspace.de/en/), I will be referring to their lab's installation guide mentioned above.
+As this blog is [hosted on ateroids 🚀](https://uberspace.de/en/), I will be referring to their lab's installation guide mentioned above.
 
 Follow the [installation guide](https://umami.is/docs/install). As always, _adapt the following steps to your specific setup and environment!_
 
@@ -52,6 +52,7 @@ Hugo has an built in [internal template for Google Analytics](https://gohugo.io/
 Create a partial for your website at `layouts/partials/comments`. For this theme, I gave users the option to choose from either Google Analytics or **umami**, based on their configuration.
 
 {% raw %}
+
 <!-- prettier-ignore -->
 ```html
 {{ if and .Site.GoogleAnalytics (not .Site.IsServer) }} 
@@ -66,6 +67,7 @@ Create a partial for your website at `layouts/partials/comments`. For this theme
 ></script>
 {{ end }}
 ```
+
 {% endraw %}
 
 This will check if the config paramter `GoogleAnalytics` is set. If it is, it will render the internal, standard partial for Google Analytics.

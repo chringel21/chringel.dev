@@ -26,7 +26,7 @@ description: This post shows an example workflow to automatically deploy the lat
 
 ## Premise
 
-So by now you should know that I like to keep things under my control. That's why this blog is [hosted on ateroids :rocket:](https://uberspace.de/en/) (I'm using this phrase so often, I should either trademark it, at least create a shortcode for it). It's content, on the other hand, is under version control at [GitHub](https://github.com/chringel21/chringel.dev).
+So by now you should know that I like to keep things under my control. That's why this blog is [hosted on ateroids 🚀](https://uberspace.de/en/) (I'm using this phrase so often, I should either trademark it, at least create a shortcode for it). It's content, on the other hand, is under version control at [GitHub](https://github.com/chringel21/chringel.dev).
 
 In the past, my workflow for writing and publishing new content would look like this:
 

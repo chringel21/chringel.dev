@@ -18,7 +18,7 @@ description: A fresh start
 
 ## Here we go (again)
 
-Hello everyone, and welcome to my _new_ blog. This is a fresh start for me, after I dumped my first two blogs. I’ll be writing about everything from _FOSS_, to notes from _development hell_ and _gaming_ and _social media_. I hope to get in the groove of writing on a regular basis, but we’ll see about that :)
+Hello everyone, and welcome to my _new_ blog. This is a fresh start for me, after I dumped my first two blogs. I’ll be writing about everything from _FOSS_, to notes from _development hell_ and _gaming_ and _social media_. I hope to get in the groove of writing on a regular basis, but we’ll see about that 🙂.
 
 I nearly missed the start of 2022. This is kind of a New Year's resolution for me, the write every couple of weeks, get my thoughts straight, put something together that I look back to.
 
