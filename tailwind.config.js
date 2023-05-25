@@ -58,17 +58,6 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            a: {
-              "text-decoration": "none",
-              "background-repeat": "no-repeat",
-              "background-size": "100% 1.5px",
-              "background-position": "0 100%",
-              "background-image":
-                "linear-gradient(to right, rgb(var(--color-text-link)/1), rgb(var(--color-text-link)/1))",
-              "&:hover": {
-                color: "rgb(var(--color-text-link))",
-              },
-            },
             "h1, h2, h3, h4, h5": {
               color: "rgb(var(--color-text-heading))",
             },
