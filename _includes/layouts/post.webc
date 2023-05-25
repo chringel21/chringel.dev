@@ -38,6 +38,19 @@ layout: "layouts/base.webc"
         ></figcaption>
       </div>
     </div>
+    <div webc:if="series" class="blog-post-series notice">
+      <p>This post is part of the <strong @text="series"></strong> series</p>
+      <ol>
+        <li webc:for="entry of collections.postsBySeries[series]">
+          <a
+            webc:if="title != entry.data.title"
+            :href="entry.url"
+            @text="entry.data.title"
+          ></a>
+          <p webc:else><strong @text="entry.data.title"></strong></p>
+        </li>
+      </ol>
+    </div>
   </header>
   <div @html="content" class="post-content"></div>
   <div class="post-footer">

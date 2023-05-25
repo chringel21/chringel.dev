@@ -266,6 +266,10 @@
     @apply z-0 flex items-center justify-center max-w-7xl gap-4 p-4;
   }
 
+  .notice {
+    @apply border-l-2 border-l-primary-green p-3 bg-slate-50 mt-8 prose-bubblegum dark:bg-slate-700;
+  }
+
   .sr-only {
     @apply absolute p-0 overflow-hidden whitespace-nowrap border-0;
     width: 1px;
@@ -305,6 +309,14 @@
     .post-item-inner > a:focus + .post-item-inner > p {
       @apply opacity-100 translate-y-0;
     }
+  }
+
+  .blog-post-series {
+    @apply max-w-2xl mx-auto;
+  }
+
+  .blog-post-series > ol {
+    @apply list-decimal;
   }
 
   .post-content {

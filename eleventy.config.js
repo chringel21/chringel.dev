@@ -74,6 +74,21 @@ module.exports = (eleventyConfig) => {
       .reverse()
       .filter((item) => item.data.type === "note");
   });
+  eleventyConfig.addCollection("postsBySeries", (collectionApi) => {
+    let series;
+    let postsBySeries = {};
+    collectionApi
+      .getAllSorted()
+      .filter((item) => item.data.series)
+      .forEach((item) => {
+        series = item.data.series;
+        if (!postsBySeries[series]) {
+          postsBySeries[series] = [];
+        }
+        postsBySeries[series].push(item);
+      });
+    return postsBySeries;
+  });
 
   // Passthrough
   eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
