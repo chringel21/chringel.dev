@@ -52,7 +52,7 @@ layout: "layouts/base.webc"
       </ol>
     </div>
   </header>
-  <div @html="content" class="post-content"></div>
+  <div @html="content" class="post-content prose prose-bubblegum"></div>
   <div class="post-footer">
     <div webc:if="syndication" class="post-footer-item">
       <svg-icon @prop="share-social-outline"></svg-icon>
