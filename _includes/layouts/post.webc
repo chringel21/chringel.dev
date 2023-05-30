@@ -54,21 +54,6 @@ layout: "layouts/base.webc"
   </header>
   <div @html="content" class="post-content prose prose-bubblegum"></div>
   <div class="post-footer">
-    <div webc:if="syndication" class="post-footer-item">
-      <svg-icon @prop="share-social-outline"></svg-icon>
-      <span>Interact with this post at:</span>
-      <a
-        webc:for="(key, value) in syndication"
-        :href="value"
-        :title="key"
-        class="capitalize"
-        ><svg-icon
-          :@prop="'logo-' + key"
-          webc:if="key.match(/twitter|mastodon/)"
-        ></svg-icon
-        ><span @text="key"></span
-      ></a>
-    </div>
     <div class="post-footer-item">
       <svg-icon @prop="calendar-outline"></svg-icon>
       <span>Posted:</span>
@@ -91,7 +76,7 @@ layout: "layouts/base.webc"
         @text="value"
       ></a>
     </div>
-    <div class="post-footer-item items-start">
+    <div class="post-footer-item">
       <svg-icon @prop="pricetags-outline" @classes="mt-1"></svg-icon>
       <span>Tags:</span>
       <div>
@@ -100,6 +85,23 @@ layout: "layouts/base.webc"
           :href="'/tags/' + slugify(value)"
           @text="value"
           class="tag"
+        ></a>
+      </div>
+    </div>
+    <div webc:if="syndication" class="post-footer-item">
+      <svg-icon @prop="share-social-outline"></svg-icon>
+      <span>Also on:</span>
+      <div>
+        <a
+          webc:for="(key, value) in syndication"
+          :href="value"
+          :title="key"
+          class="capitalize"
+          ><svg-icon
+            :@prop="'logo-' + key"
+            webc:if="key.match(/twitter|mastodon/)"
+          ></svg-icon
+          ><span @text="key"></span
         ></a>
       </div>
     </div>
