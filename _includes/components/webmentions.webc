@@ -1,3 +1,126 @@
-<script webc:setup webc:root="override"></script>
+<script webc:setup webc:root="override">
+  function hasWebmentions(webmentions, relativeTarget, type = "") {
+    if (type !== "") {
+      return getWebmentionsByType(type, relativeTarget).length > 0;
+    }
+    return getFilteredWebmentions(webmentions, relativeTarget).length > 0;
+  }
 
-<pre @text="JSON.stringify(webmentions)"></pre>
+  function getFilteredWebmentions(webmentions, relativeTarget) {
+    return webmentions.filter((wm) => wm.relativeTarget === relativeTarget);
+  }
+
+  function getWebmentionsByType(type, relativeTarget) {
+    const filteredWebmentions = getFilteredWebmentions(
+      webmentions,
+      relativeTarget
+    );
+    if (type === "response") {
+      return filteredWebmentions.filter(
+        (wm) =>
+          wm.content !== "" && (wm.type === "reply" || wm.type === "mention")
+      );
+    } else if (type === "reaction") {
+      return filteredWebmentions.filter(
+        (wm) =>
+          wm.type === "like" || wm.type === "repost" || wm.type === "bookmark"
+      );
+    }
+  }
+</script>
+
+<template webc:nokeep webc:if="hasWebmentions(webmentions, relativeTarget)">
+  <h3 webc:if="hasWebmentions(webmentions, relativeTarget, 'response')">
+    Responses
+  </h3>
+  <ol class="unset">
+    <li webc:for="wm of getWebmentionsByType('response', relativeTarget)">
+      <div class="flex flex-col relative pl-12 py-4">
+        <div class="flex flex-wrap items-baseline">
+          <a
+            :href="wm.url"
+            rel="author"
+            class="u-author h-card unset hover:text-text-link"
+          >
+            <img
+              loading="lazy"
+              :src="indieweb.webmentionUrl + wm.author.picture"
+              :alt="wm.author.picture"
+              class="rounded-full w-10 h-10 absolute left-0 border border-border-code"
+            />
+            <strong @text="wm.author.name" class="p-name"></strong>
+          </a>
+          <span class="mx-1 text-sm">•</span>
+          <time
+            class="dt-published text-text-muted text-sm"
+            :datetime="wm.published"
+            @text="fromISOToReadable(wm.published)"
+          ></time>
+        </div>
+        <p @text="wm.content" class="p-content break-words"></p>
+      </div>
+    </li>
+  </ol>
+
+  <h3 webc:if="hasWebmentions(webmentions, relativeTarget, 'reaction')">
+    Reactions
+  </h3>
+  <div class="flex flex-wrap">
+    <template
+      webc:nokeep
+      webc:for="wm of getWebmentionsByType('reaction', relativeTarget)"
+    >
+      <a
+        webc:if="wm.type === 'like'"
+        :href="wm.url"
+        rel="author"
+        class="u-author h-card u-url unset facepile"
+        :title="wm.author.name + ' liked'"
+      >
+        <div class="relative">
+          <img
+            loading="lazy"
+            :src="indieweb.webmentionUrl + wm.author.picture"
+            :alt="wm.author.picture"
+            class="rounded-full w-10 h-10 border border-border-code left"
+          />
+          <span class="absolute right-0 top-0">❤️</span>
+        </div>
+      </a>
+      <a
+        webc:elseif="wm.type === 'repost'"
+        :href="wm.url"
+        rel="author"
+        class="u-author h-card u-url unset facepile"
+        :title="wm.author.name + ' reposted'"
+      >
+        <div class="relative">
+          <img
+            loading="lazy"
+            :src="indieweb.webmentionUrl + wm.author.picture"
+            :alt="wm.author.picture"
+            class="rounded-full w-10 h-10 border border-border-code left"
+          />
+          <span class="absolute right-0 top-0">🔁</span>
+        </div>
+      </a>
+      <a
+        webc:elseif="wm.type === 'bookmark'"
+        :href="wm.url"
+        rel="author"
+        class="u-author h-card u-url unset facepile"
+        :title="wm.author.name + ' bookmarked'"
+      >
+        <div class="relative">
+          <img
+            loading="lazy"
+            :src="indieweb.webmentionUrl + wm.author.picture"
+            :alt="wm.author.picture"
+            class="rounded-full w-10 h-10 border border-border-code left"
+          />
+          <span class="absolute right-0 top-0">📎</span>
+        </div>
+      </a>
+    </template>
+  </div>
+</template>

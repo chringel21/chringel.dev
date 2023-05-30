@@ -105,7 +105,6 @@ layout: "layouts/base.webc"
     </div>
   </div>
   <div class="post-footer post-webmentions">
-    <pre @text="page.url"></pre>
-    <webmentions @url=""></webmentions>
+    <webmentions :@relative-target="page.url"></webmentions>
   </div>
 </section>

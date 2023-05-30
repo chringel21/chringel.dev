@@ -2,6 +2,10 @@ const { DateTime } = require("luxon");
 const markdownIt = require("markdown-it");
 
 module.exports = {
+  fromISOToReadable: (dateObj) => {
+    return DateTime.fromISO(dateObj).toFormat("LLLL dd, yyyy");
+  },
+
   readableDate: (dateObj, format, zone) => {
     return DateTime.fromJSDate(dateObj, {
       zone: zone || "Europe/Berlin",

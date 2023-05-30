@@ -1,5 +1,6 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 const metadata = require("./metadata");
+const { DateTime } = require("luxon");
 
 require("dotenv").config();
 
@@ -21,5 +22,7 @@ module.exports = async () => {
     return mention;
   });
 
-  return webmentions;
+  return webmentions.sort(
+    (a, b) => DateTime.fromISO(b.published) - DateTime.fromISO(a.published)
+  );
 };
