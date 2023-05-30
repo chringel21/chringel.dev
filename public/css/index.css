@@ -317,7 +317,7 @@
   }
 
   .post-footer-item {
-    @apply flex items-center gap-x-1.5;
+    @apply flex items-center gap-x-1.5 flex-wrap;
   }
 
   .post-footer-item > span {
@@ -330,6 +330,14 @@
 
   .post-footer-item a.tag::before {
     content: "#";
+  }
+
+  .post-footer .post-webmentions > h3 {
+    @apply font-bold text-lg uppercase;
+  }
+
+  .facepile {
+    @apply transition ease-in-out hover:scale-150 duration-300 hover:z-10;
   }
 
   .prose .heading {
