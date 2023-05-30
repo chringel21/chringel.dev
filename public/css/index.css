@@ -23,7 +23,8 @@
 
 @layer base {
   /* light theme */
-  .theme-bubblegum {
+  .theme-bubblegum,
+  .theme-bubblegum.light {
     /* Custom #8AE6FB */
     --color-primary-blue: 138 230 251;
     /* Tailwind lime-300 #bef264 */
@@ -58,7 +59,33 @@
   }
 
   /* dark theme */
-  .theme-bubblegum.dark {
+  @media (prefers-color-scheme: dark) {
+    .theme-bubblegum {
+      @apply dark;
+    }
+  }
+  :root {
+    font-family: theme("fontFamily.body");
+    background-color: theme("colors.bg.body");
+    color: theme("colors.text.body");
+    /* base font-size 1px larger for better visibility */
+    font-size: 1.125em;
+    line-height: 1.85;
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: theme("fontFamily.heading");
+  }
+}
+
+@layer components {
+  .dark {
     /* Tailwind blue-500 #3b82f6 */
     --color-primary-blue: 59 130 246;
     /* Tailwind lime-300 #bef264 */
@@ -91,27 +118,7 @@
     /* Tailwind yellow-100 #fef9c3 */
     --color-border-code: 254 243 199;
   }
-  :root {
-    font-family: theme("fontFamily.body");
-    background-color: theme("colors.bg.body");
-    color: theme("colors.text.body");
-    /* base font-size 1px larger for better visibility */
-    font-size: 1.125em;
-    line-height: 1.85;
-    scroll-behavior: smooth;
-  }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: theme("fontFamily.heading");
-  }
-}
-
-@layer components {
   strong {
     font-weight: 600;
     color: theme("colors.text.bold");
