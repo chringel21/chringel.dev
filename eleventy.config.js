@@ -105,7 +105,7 @@ module.exports = (eleventyConfig) => {
   };
   const markdownItAnchorOptions = {
     permalink: markdownItAnchor.permalink.linkAfterHeader({
-      class: "italic text-xl",
+      class: "hidden",
       style: "aria-label",
       assistiveText: (title) => `Permalink to “${title}”`,
       visuallyHiddenClass: "hidden",

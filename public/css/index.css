@@ -345,7 +345,7 @@
   }
 
   .prose .heading > a {
-    @apply absolute top-0 -left-5;
+    @apply md:block absolute top-0 -left-5 italic text-xl;
   }
 
   .notes-content {
