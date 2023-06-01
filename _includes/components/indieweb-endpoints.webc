@@ -1,0 +1,6 @@
+<script webc:type="js">
+  `<link rel="authorization_endpoint" href="${indieweb.authorizationEndpoint}" />
+    <link rel="token_endpoint" href="${indieweb.tokenEndpoint}" />
+    <link rel="webmention" href="${indieweb.webmentionUrl}${indieweb.webmentionEndpoint}" />
+    <link rel="pingback" href="${indieweb.webmentionUrl}${indieweb.webmentionPingbackEndpoint}" />`;
+</script>
