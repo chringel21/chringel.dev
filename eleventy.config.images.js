@@ -20,4 +20,20 @@ module.exports = (eleventyConfig) => {
 
     return Image.generateHTML(metadata, imageAttributes);
   });
+
+  eleventyConfig.addShortcode("imageUrl", function (src) {
+    if (src.includes("http")) {
+      return src;
+    }
+
+    Image(src, {
+      widths: [500],
+      urlPath: "/img/",
+      outputDir: "./_site/img/",
+      formats: ["webp"],
+    });
+    let metadata = Image.statsSync(src, options);
+
+    return metadata.webp[0].url;
+  });
 };
