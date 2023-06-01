@@ -97,6 +97,9 @@ module.exports = (eleventyConfig) => {
     "./public/img": "/img",
     "./node_modules/prismjs/themes/prism-okaidia.min.css":
       "/css/prism-okaidia.css",
+    "./static/.htaccess": "/.htaccess",
+    "./static/site.webmanifest": "/site.webmanifest",
+    "./static/browserconfig.xml": "/browserconfig.xml",
   });
 
   // markdown-it
