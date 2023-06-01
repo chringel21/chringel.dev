@@ -11,6 +11,7 @@
     />
     <meta name="generator" :content="eleventy.generator" />
     <meta name="theme-color" content="#ffffff" />
+    <meta webc:is="meta-favicons" webc:nokeep />
     <link webc:is="link-canonical" webc:nokeep />
     <link
       rel="preload"
