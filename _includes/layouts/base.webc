@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="theme-bubblegum" :lang="metadata.language">
   <head>
-    <title @text="getTitle(title, metadata)"></title>
+    <title webc:is="meta-title" webc:nokeep></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta

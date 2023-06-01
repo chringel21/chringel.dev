@@ -1,0 +1,11 @@
+<script webc:type="js">
+  let text = metadata.title;
+
+  if (title && metadata.author.name) {
+    text = `${title} | ${metadata.author.name} | ${metadata.title}`;
+  } else if (title && !metadata.author.name) {
+    text = `${title} | ${metadata.title}`;
+  }
+
+  `<title>${getTitle(title, metadata)}</title>`;
+</script>
