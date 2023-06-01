@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   title: "chringel.dev",
   url: "https://chringel.dev",
@@ -9,4 +11,5 @@ module.exports = {
     email: "ch-engel@posteo.de",
     url: "https://chringel.dev/about/",
   },
+  avatar: path.join(path.dirname(__dirname), "content/avatar.png"),
 };
