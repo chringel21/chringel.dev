@@ -247,6 +247,10 @@
     transform: translateZ(0) scale(1);
   }
 
+  a.tag::before {
+    content: "#";
+  }
+
   .icon {
     @apply inline-block align-middle pointer-events-none fill-current;
     font-size: 1.5em;
@@ -333,10 +337,6 @@
 
   .post-footer-item > svg {
     @apply shrink-0;
-  }
-
-  .post-footer-item a.tag::before {
-    content: "#";
   }
 
   .post-footer .post-webmentions > h3 {
