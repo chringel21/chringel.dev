@@ -1,0 +1,34 @@
+<template webc:nokeep webc:if="entry.reply">
+  <span class="p-summary"
+    >💬 Comment on
+    <a
+      :href="entry.reply.url"
+      class="u-in-reply-to"
+      @text="entry.reply.url"
+    ></a>
+  </span>
+</template>
+<template webc:nokeep webc:elseif="entry.like">
+  <span class="p-summary"
+    >❤️ Liked
+    <a :href="entry.like.url" class="u-like-of" @text="entry.like.url"></a>
+  </span>
+</template>
+<template webc:nokeep webc:elseif="entry.repost">
+  <span class="p-summary"
+    >🔁 Reposted
+    <a
+      :href="entry.repost.url"
+      class="u-repost-of"
+      @text="entry.repost.url"
+    ></a>
+  </span>
+</template>
+<template webc:nokeep webc:elseif="entry.quote">
+  <span class="p-summary"
+    >📜 Quoted
+    <blockquote class="h-cite u-quotation-of">
+      <a :href="entry.quote.url" class="u-url" @text="entry.quote.url"></a>
+    </blockquote>
+  </span>
+</template>
