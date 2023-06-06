@@ -1,0 +1,54 @@
+<script webc:setup webc:root="override">
+  function getFilteredWebmentions(webmentions, relativeTarget) {
+    return webmentions.filter((wm) => wm.relativeTarget === relativeTarget);
+  }
+
+  function getNumberOfWebmentions(webmentions) {
+    if (webmentions.length > 0) {
+      return webmentions.length;
+    }
+    return "0";
+  }
+
+  function getWebmentionsByType(type, relativeTarget) {
+    const filteredWebmentions = getFilteredWebmentions(
+      webmentions,
+      relativeTarget
+    );
+    if (type === "reply") {
+      return getNumberOfWebmentions(
+        filteredWebmentions.filter(
+          (wm) =>
+            wm.content !== "" && (wm.type === "reply" || wm.type === "mention")
+        )
+      );
+    } else if (type === "like") {
+      return getNumberOfWebmentions(
+        filteredWebmentions.filter(
+          (wm) => wm.type === "like" || wm.type === "bookmark"
+        )
+      );
+    } else if (type === "repost") {
+      return getNumberOfWebmentions(
+        filteredWebmentions.filter((wm) => wm.type === "repost")
+      );
+    }
+  }
+</script>
+
+<template webc:nokeep>
+  <div class="flex gap-3">
+    <div class="flex gap-1 items-center">
+      <svg-icon @prop="chatbubbles-outline"></svg-icon
+      ><span @text="getWebmentionsByType('reply', relativeTarget)"></span>
+    </div>
+    <div class="flex gap-1 items-center">
+      <svg-icon @prop="repeat-outline"></svg-icon
+      ><span @text="getWebmentionsByType('repost', relativeTarget)"></span>
+    </div>
+    <div class="flex gap-1 items-center">
+      <svg-icon @prop="star-outline"></svg-icon
+      ><span @text="getWebmentionsByType('like', relativeTarget)"></span>
+    </div>
+  </div>
+</template>
