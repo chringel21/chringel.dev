@@ -1,0 +1,46 @@
+---
+layout: "layouts/base.webc"
+---
+
+<section class="notes-content border rounded-sm border-border-code">
+  <h1 webc:if="title" @text="title"></h1>
+  <article class="h-entry">
+    <div class="flex flex-wrap items-center p-4 text-sm">
+      <a :href="url('/about')" rel="author" class="p-author h-card unset">
+        <span class="flex items-center">
+          <img
+            webc:is="eleventy-image"
+            :src="metadata.avatar"
+            :alt="metadata.author.name"
+            width="48"
+            class="rounded-full h-12 w-12 mr-2"
+            formats="webp"
+          />
+          <strong @text="metadata.author.name" class="p-name"></strong>
+        </span>
+      </a>
+      <span class="mx-1">•</span>
+      <a :href="url(page.url)" class="unset">
+        <time
+          :datetime="htmlDateString(page.date)"
+          @text="readableDate(page.date)"
+          class="text-text-muted"
+        ></time>
+      </a>
+    </div>
+    <div class="p-4">
+      <note-type :@entry="frontmatter"></note-type>
+      <p @html="content" class="e-content"></p>
+    </div>
+    <div class="p-4 bg-primary-yellow bg-opacity-20">
+      <webmentions :@relative-target="page.url"></webmentions>
+      <!-- TODO Add tags -->
+      <!--<a
+      webc:for="value of entry.data.tags"
+      :href="'/tags/' + slugify(value)"
+      @text="value"
+      class="tag pr-1"
+    ></a>-->
+    </div>
+  </article>
+</section>

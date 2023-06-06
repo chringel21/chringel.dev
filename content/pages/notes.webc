@@ -19,9 +19,9 @@ layout: "layouts/base.webc"
     <li
       webc:for="entry of collections.allNotesReverse"
       webc:if="entry.data.date"
-      class="p-5 border rounded-sm border-border-code"
+      class="border rounded-sm border-border-code"
     >
-      <p @html="entry.content"></p>
+      <template webc:is="note-single" webc:nokeep :@prop="entry"></template>
     </li>
   </ol>
 </section>
