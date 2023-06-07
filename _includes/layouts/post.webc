@@ -4,109 +4,139 @@ layout: "layouts/base.webc"
 
 <syntax-highlighting></syntax-highlighting>
 <section class="blog-post">
-  <header class="py-14">
-    <div class="flex flex-col items-center">
-      <h1 class="mb-4 font-bold text-4xl lg:text-5xl text-center">
-        <span
-          @text="title"
-          class="bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue"
-        >
-        </span>
-      </h1>
-      <div class="flex text-text-muted">
+  <article class="h-entry">
+    <header class="py-14">
+      <div class="flex flex-col items-center">
+        <h1 class="mb-4 font-bold text-4xl lg:text-5xl text-center">
+          <span
+            @text="title"
+            class="bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue p-name"
+          >
+          </span>
+        </h1>
+        <div class="flex text-text-muted">
+          <time
+            class="block text-center mb-8 mr-2 dt-published"
+            :datetime="htmlDateString(date)"
+            @text="readableDate(date)"
+          ></time
+          >•<span
+            webc:for="value of categories"
+            @text="value"
+            class="uppercase ml-2 tracking-wide"
+          ></span>
+        </div>
+        <div>
+          <eleventy-image
+            :src="coverImage"
+            :alt="cover.caption"
+            sizes="60vw"
+            class="rounded-md"
+          ></eleventy-image>
+          <figcaption
+            @html="md(cover.caption)"
+            class="text-sm text-text-muted self-start pt-2 ml-2"
+          ></figcaption>
+        </div>
+      </div>
+      <div webc:if="series" class="blog-post-series notice">
+        <p>This post is part of the <strong @text="series"></strong> series</p>
+        <ol>
+          <li webc:for="entry of collections.postsBySeries[series]">
+            <a
+              webc:if="title != entry.data.title"
+              :href="entry.url"
+              @text="entry.data.title"
+            ></a>
+            <p webc:else><strong @text="entry.data.title"></strong></p>
+          </li>
+        </ol>
+      </div>
+    </header>
+    <div
+      @html="content"
+      class="e-content post-content prose prose-bubblegum"
+    ></div>
+    <div class="post-footer">
+      <div class="hidden">
+        <a class="u-url" :href="new URL(page.url, metadata.url)"></a>
+        <p class="h-card p-author">
+          <a
+            class="p-name u-url"
+            rel="author"
+            :href="metadata.author.url"
+            @text="metadata.author.name"
+          ></a>
+          <img
+            webc:is="eleventy-image"
+            :src="metadata.avatar"
+            :alt="metadata.author.name"
+            width="200"
+            class="u-photo"
+            formats="webp"
+          />
+        </p>
+      </div>
+      <div class="post-footer-item">
+        <svg-icon @prop="calendar-outline"></svg-icon>
+        <span>Posted:</span>
         <time
-          class="block text-center mb-8 mr-2"
           :datetime="htmlDateString(date)"
           @text="readableDate(date)"
-        ></time
-        >•<span
+          class="dt-published"
+        ></time>
+      </div>
+      <div webc:if="lastmod" class="post-footer-item">
+        <svg-icon @prop="refresh-outline"></svg-icon>
+        <span>Last updated:</span>
+        <time
+          :datetime="htmlDateString(lastmod)"
+          @text="readableDate(lastmod)"
+        ></time>
+      </div>
+      <div class="post-footer-item">
+        <svg-icon @prop="folder-outline"></svg-icon>
+        <span>Posted in:</span>
+        <a
           webc:for="value of categories"
+          :href="'/categories/' + slugify(value)"
           @text="value"
-          class="uppercase ml-2 tracking-wide"
-        ></span>
+          class="p-category"
+        ></a>
       </div>
-      <div>
-        <eleventy-image
-          :src="coverImage"
-          :alt="cover.caption"
-          sizes="60vw"
-          class="rounded-md"
-        ></eleventy-image>
-        <figcaption
-          @html="md(cover.caption)"
-          class="text-sm text-text-muted self-start pt-2 ml-2"
-        ></figcaption>
-      </div>
-    </div>
-    <div webc:if="series" class="blog-post-series notice">
-      <p>This post is part of the <strong @text="series"></strong> series</p>
-      <ol>
-        <li webc:for="entry of collections.postsBySeries[series]">
+      <div class="post-footer-item">
+        <svg-icon @prop="pricetags-outline" @classes="mt-1"></svg-icon>
+        <span>Tags:</span>
+        <div>
           <a
-            webc:if="title != entry.data.title"
-            :href="entry.url"
-            @text="entry.data.title"
+            webc:for="value of tags"
+            :href="'/tags/' + slugify(value)"
+            @text="value"
+            class="tag"
           ></a>
-          <p webc:else><strong @text="entry.data.title"></strong></p>
-        </li>
-      </ol>
-    </div>
-  </header>
-  <div @html="content" class="post-content prose prose-bubblegum"></div>
-  <div class="post-footer">
-    <div class="post-footer-item">
-      <svg-icon @prop="calendar-outline"></svg-icon>
-      <span>Posted:</span>
-      <time :datetime="htmlDateString(date)" @text="readableDate(date)"></time>
-    </div>
-    <div webc:if="lastmod" class="post-footer-item">
-      <svg-icon @prop="refresh-outline"></svg-icon>
-      <span>Last updated:</span>
-      <time
-        :datetime="htmlDateString(lastmod)"
-        @text="readableDate(lastmod)"
-      ></time>
-    </div>
-    <div class="post-footer-item">
-      <svg-icon @prop="folder-outline"></svg-icon>
-      <span>Posted in:</span>
-      <a
-        webc:for="value of categories"
-        :href="'/categories/' + slugify(value)"
-        @text="value"
-      ></a>
-    </div>
-    <div class="post-footer-item">
-      <svg-icon @prop="pricetags-outline" @classes="mt-1"></svg-icon>
-      <span>Tags:</span>
-      <div>
-        <a
-          webc:for="value of tags"
-          :href="'/tags/' + slugify(value)"
-          @text="value"
-          class="tag"
-        ></a>
+        </div>
+      </div>
+      <div webc:if="syndication" class="post-footer-item">
+        <svg-icon @prop="share-social-outline"></svg-icon>
+        <span>Also on:</span>
+        <div>
+          <a
+            webc:for="(key, value) in syndication"
+            :href="value"
+            :title="key"
+            class="capitalize u-syndication"
+            rel="syndication"
+            ><svg-icon
+              :@prop="'logo-' + key"
+              webc:if="key.match(/twitter|mastodon/)"
+            ></svg-icon
+            ><span @text="key"></span
+          ></a>
+        </div>
       </div>
     </div>
-    <div webc:if="syndication" class="post-footer-item">
-      <svg-icon @prop="share-social-outline"></svg-icon>
-      <span>Also on:</span>
-      <div>
-        <a
-          webc:for="(key, value) in syndication"
-          :href="value"
-          :title="key"
-          class="capitalize"
-          ><svg-icon
-            :@prop="'logo-' + key"
-            webc:if="key.match(/twitter|mastodon/)"
-          ></svg-icon
-          ><span @text="key"></span
-        ></a>
-      </div>
+    <div class="post-footer post-webmentions">
+      <webmentions :@relative-target="page.url"></webmentions>
     </div>
-  </div>
-  <div class="post-footer post-webmentions">
-    <webmentions :@relative-target="page.url"></webmentions>
-  </div>
+  </article>
 </section>

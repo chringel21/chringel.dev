@@ -34,6 +34,23 @@ eleventyImport:
           {% image post.data.coverImage, post.data.cover.caption, [50vw] %}
         {% endif %}
         {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
+        {% if post.data.reply %}
+          <a href="{{ post.data.reply.url }}" class="u-in-reply-to break-all"></a>
+        {% endif %}
+        {% if post.data.like %}
+          <a href="{{ post.data.like.url }}" class="u-like-of break-all"></a>
+        {% endif %}
+        {% if post.data.repost %}
+          <a href="{{ post.data.repost.url }}" class="u-repost-of break-all"></a>
+        {% endif %}
+        {% if post.data.quote %}
+          <cite class="h-cite u-quotation-of"><a href="{{ post.data.quote.url }}" class="u-url break-all"></a></cite>
+        {% endif %}
+        {% if post.data.bridgy %}
+          {%- for item in post.data.bridgy -%}
+            <a href="https://brid.gy/publish/{{ item }}"></a>
+          {%- endfor -%}
+        {% endif %}
         ]]>
       </description>
     </item>

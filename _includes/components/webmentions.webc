@@ -35,7 +35,7 @@
   </h3>
   <ol class="unset">
     <li webc:for="wm of getWebmentionsByType('response', relativeTarget)">
-      <div class="flex flex-col relative pl-12 py-4">
+      <article class="flex flex-col relative pl-12 py-4 u-comment h-cite">
         <div class="flex flex-wrap items-baseline">
           <a
             :href="wm.url"
@@ -58,7 +58,7 @@
           ></time>
         </div>
         <p @text="wm.content" class="p-content break-words"></p>
-      </div>
+      </article>
     </li>
   </ol>
 

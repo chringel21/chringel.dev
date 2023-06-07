@@ -4,11 +4,23 @@
 >
   <p class="text-center">
     CC-BY 4.0
-    <a
-      class="unset gradient-link tracking-wider font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#f57111] to-[#f79605] hover:after:bg-gradient-to-r hover:after:from-[#f57111] hover:after:to-[#f79605]"
-      href="https://chringel.dev/"
-      >Christian Engel</a
-    >
+    <span class="h-card">
+      <a
+        class="unset gradient-link tracking-wider font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#f57111] to-[#f79605] hover:after:bg-gradient-to-r hover:after:from-[#f57111] hover:after:to-[#f79605] u-url p-name"
+        href="https://chringel.dev/"
+        rel="me"
+        >Christian Engel</a
+      >
+      <img
+        webc:is="eleventy-image"
+        :src="metadata.avatar"
+        :alt="metadata.author.name"
+        width="200"
+        class="hidden u-photo"
+        formats="webp"
+      />
+      <p @text="indieweb.microformats.pNote" class="hidden"></p>
+    </span>
     <br />
     Legal stuff:
     <a
