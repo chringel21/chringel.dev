@@ -12,6 +12,7 @@ const markdownItEleventyImg = require("markdown-it-eleventy-img");
 const path = require("path");
 
 const filters = require("./_includes/utils/filters.js");
+const collections = require("./_includes/utils/collections.js");
 
 module.exports = (eleventyConfig) => {
   // Watch targets
@@ -59,35 +60,8 @@ module.exports = (eleventyConfig) => {
   });
 
   // Custom collection for all posts, notes, etc.
-  eleventyConfig.addCollection("allReverse", (collectionApi) => {
-    return collectionApi.getAllSorted().reverse();
-  });
-  eleventyConfig.addCollection("allPostsReverse", (collectionApi) => {
-    return collectionApi
-      .getAllSorted()
-      .reverse()
-      .filter((item) => item.data.type === "post");
-  });
-  eleventyConfig.addCollection("allNotesReverse", (collectionApi) => {
-    return collectionApi
-      .getAllSorted()
-      .reverse()
-      .filter((item) => item.data.type === "note");
-  });
-  eleventyConfig.addCollection("postsBySeries", (collectionApi) => {
-    let series;
-    let postsBySeries = {};
-    collectionApi
-      .getAllSorted()
-      .filter((item) => item.data.series)
-      .forEach((item) => {
-        series = item.data.series;
-        if (!postsBySeries[series]) {
-          postsBySeries[series] = [];
-        }
-        postsBySeries[series].push(item);
-      });
-    return postsBySeries;
+  Object.keys(collections).forEach((collection) => {
+    eleventyConfig.addCollection(collection, collections[collection]);
   });
 
   // Passthrough
