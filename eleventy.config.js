@@ -3,7 +3,6 @@ const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const eleventyNavigation = require("@11ty/eleventy-navigation");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
-const { eleventyImagePlugin } = require("@11ty/eleventy-img");
 const svgSprite = require("eleventy-plugin-svg-sprite");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
@@ -31,19 +30,6 @@ module.exports = (eleventyConfig) => {
       "_includes/components/**/*.webc",
       "npm:@11ty/eleventy-img/*.webc",
     ],
-  });
-  eleventyConfig.addPlugin(eleventyImagePlugin, {
-    // Set global default options
-    formats: ["avif", "webp", "auto"],
-    widths: [500, 800, 1200, 1500, "auto"],
-    urlPath: "/img/",
-    sharpOptions: {
-      animated: true,
-    },
-    defaultAttributes: {
-      loading: "lazy",
-      decoding: "async",
-    },
   });
   eleventyConfig.addPlugin(svgSprite, {
     path: "./public/svg",
