@@ -19,7 +19,7 @@
         class="hidden u-photo"
         formats="webp"
       />
-      <p @text="indieweb.microformats.pNote" class="hidden"></p>
+      <span @text="indieweb.microformats.pNote" class="hidden p-note"></span>
     </span>
     <br />
     Legal stuff:
