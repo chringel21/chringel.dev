@@ -110,6 +110,7 @@ layout: "layouts/base.webc"
         <div>
           <a
             webc:for="value of tags"
+            webc:if="value !== 'posts'"
             :href="'/tags/' + slugify(value)"
             @text="value"
             class="tag"
