@@ -18,7 +18,7 @@ eleventyImport:
     <language>{{ metadata.language }}</language>
     <generator>{{ eleventy.generator }}</generator>
     <copyright>Creative Commons Attribution 4.0 International - CC-BY</copyright>
-    {% if collections.posts %}
+    {% if collections.allReverse %}
     <lastBuildDate>{{ collections.allReverse | rssLastUpdatedDate }}</lastBuildDate>
     {% endif %}
     {%- for post in collections.allReverse -%}
