@@ -34,7 +34,9 @@ module.exports = {
   },
   categories: (collectionApi) => {
     const options = { categoryVar: "categories" };
-    const posts = collectionApi.getFilteredByTag("posts");
+    const posts = collectionApi
+      .getAll()
+      .filter((item) => item.data.type === "post");
     let tagArray = getCategoryKeys(posts, options);
 
     const categoriesWithPosts = tagArray.map((category) => {
