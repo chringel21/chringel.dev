@@ -94,3 +94,62 @@ My post entries are organized using Hugo's [page bundle](https://gohugo.io/conte
 
 ...
 ```
+
+To get it working, I needed two things:
+
+1. The official [11ty image plugin](https://www.11ty.dev/docs/plugins/image/)
+2. A plugin for 11ty's markdown processor _markdown-it_, aptly called [markdown-it-eleventy-img](https://github.com/solution-loisir/markdown-it-eleventy-img)
+
+The 11ty image plugin allows for "build-time image transformations", while outputting multiple formats and sizes. The markdown-it plugin on the other hand let's you resolve the path to images relative to it's corresponding markdown file.
+
+Here's my config:
+
+```js
+// eleventy.config.js
+
+const markdownIt = require("markdown-it");
+const markdownItEleventyImg = require("markdown-it-eleventy-img");
+const path = require("path");
+
+// generic markdown-it options
+const markdownItOptions = {...}
+
+const markdownLib = markdownIt(markdownItOptions)
+    .use(markdownItEleventyImg, {
+      imgOptions: {
+        widths: [500, 800, 1200, 1500, "auto"],
+        urlPath: "/img/",
+        outputDir: "./_site/img/",
+        formats: ["avif", "webp", "auto"],
+        sharpOptions: {
+          animated: true, // output animated gifs
+        },
+      },
+      globalAttributes: {
+        decoding: "async",
+        loading: "lazy",
+        sizes: "100vw",
+      },
+      renderImage(image, attributes) {
+        const [Image, options] = image;
+        const [src, attrs] = attributes;
+
+        Image(src, options);
+
+        const metadata = Image.statsSync(src, options);
+        const imageMarkup = Image.generateHTML(metadata, attrs, {
+          whitespaceMode: "inline",
+        });
+
+        return `<figure>${imageMarkup}${
+          attrs.title
+            ? `<figcaption>${markdownIt().render(attrs.title)}</figcaption>`
+            : ""
+        }</figure>`;
+      },
+      resolvePath: (filepath, env) =>
+        path.join(path.dirname(env.page.inputPath), filepath),
+    });
+
+  eleventyConfig.setLibrary("md", markdownLib);
+```
