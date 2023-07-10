@@ -31,6 +31,14 @@
       crossorigin="crossorigin"
     />
     <link rel="stylesheet" :href="url('/css/index.css')" webc:keep />
+    <script
+      webc:if="build.env === 'production'"
+      webc:keep
+      async
+      defer
+      :data-website-id="build.umami.websiteId"
+      :src="build.umami.jsLocation"
+    ></script>
   </head>
   <style @raw="getBundle('css')" webc:keep></style>
   <body>
