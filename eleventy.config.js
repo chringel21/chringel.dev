@@ -8,6 +8,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItEleventyImg = require("markdown-it-eleventy-img");
+const { minify } = require("terser");
 const path = require("path");
 
 const filters = require("./_includes/utils/filters.js");
@@ -20,7 +21,17 @@ module.exports = (eleventyConfig) => {
   // Plugins
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(eleventyNavigation);
-  eleventyConfig.addPlugin(pluginBundle);
+  eleventyConfig.addPlugin(pluginBundle, {
+    transforms: [
+      async function (content) {
+        if (this.type === "js" && process.env.ELEVENTY_ENV === "production") {
+          const minified = await minify(content);
+          return minified.code;
+        }
+        return content;
+      },
+    ],
+  });
   eleventyConfig.addPlugin(pluginSyntaxHighlight, {
     preAttributes: { tabindex: 0 },
     templateFormats: ["md"],
