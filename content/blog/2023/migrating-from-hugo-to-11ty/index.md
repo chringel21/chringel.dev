@@ -13,9 +13,8 @@ tags:
   - 11ty
   - Hugo
 description: This post describes my journey of migrating my blog from Hugo to Eleventy (11ty)
-# syndication:
-#   twitter: ...
-#   mastodon: ...
+syndication:
+  mastodon: https://fosstodon.org/@chringel/111285774212429287
 ---
 
 I've been building this blog with Hugo for around one and a half years ([January 3rd 2022](/2022/01/hello-world-part-ii-the-return-of-hugo/), to be precise) and even created a [custom](/2022/02/chringel-hugo-theme/) [theme](https://github.com/chringel21/chringel-hugo-theme). But lately I was getting bored with all the releases Hugo throws at you. Beginning with 0.91.0, Hugo is now at 0.115.0 🤯. I was already hesitant to go beyond 0.100.0, but now I can't take it anymore. So I've decided to migrate my blog from Hugo to [11ty](https://www.11ty.dev/).
