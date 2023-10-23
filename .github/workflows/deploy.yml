@@ -32,7 +32,8 @@ jobs:
         with:
           node-version: "16"
           cache: 'npm'
-      - run: WM_TOKEN=${{ secrets.WM_TOKEN }} npm ci
+      - run: touch .env && echo WM_TOKEN=${{ secrets.WM_TOKEN }} >> .env
+      - run: npm ci
 
       # Build the 11ty site
       - name: 11ty build
