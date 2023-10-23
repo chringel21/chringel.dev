@@ -2,8 +2,8 @@
 title: "Migrating from Hugo to Eleventy (11ty)"
 author: Christian Engel
 type: post
-date: 2023-06-30T09:49:29+01:00
-lastmod: 2023-06-30T09:49:29+01:00
+date: 2023-10-23T09:49:29+01:00
+lastmod: 2023-10-23T09:49:29+01:00
 cover:
   src: feature.png
   caption: "**Leaving Hugo for 11ty** (Original: *Joshua Reynolds*, David Garrick Between Tragedy and Comedy, 1761 - [Wikipedia](https://en.wikipedia.org/wiki/David_Garrick_Between_Tragedy_and_Comedy))"
@@ -13,9 +13,9 @@ tags:
   - 11ty
   - Hugo
 description: This post describes my journey of migrating my blog from Hugo to Eleventy (11ty)
-syndication:
-  twitter: ...
-  mastodon: ...
+# syndication:
+#   twitter: ...
+#   mastodon: ...
 ---
 
 I've been building this blog with Hugo for around one and a half years ([January 3rd 2022](/2022/01/hello-world-part-ii-the-return-of-hugo/), to be precise) and even created a [custom](/2022/02/chringel-hugo-theme/) [theme](https://github.com/chringel21/chringel-hugo-theme). But lately I was getting bored with all the releases Hugo throws at you. Beginning with 0.91.0, Hugo is now at 0.115.0 🤯. I was already hesitant to go beyond 0.100.0, but now I can't take it anymore. So I've decided to migrate my blog from Hugo to [11ty](https://www.11ty.dev/).
