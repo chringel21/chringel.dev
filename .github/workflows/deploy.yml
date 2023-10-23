@@ -24,23 +24,19 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - run: echo ":/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> $GITHUB_PATH
 
       # Setup node and npm
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: 'npm'
+      - run: touch .env && echo JAM_TOKEN=${{ secrets.JAM_TOKEN }} >> .env
+      - run: npm ci
 
       # Build the 11ty site
-      - name: Hugo build
+      - name: 11ty build
         run: |
           cd $GITHUB_WORKSPACE
           npm run build
