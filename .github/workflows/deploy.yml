@@ -30,19 +30,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-
-      - name: Install deps
-        run: | 
-          cd $GITHUB_WORKSPACE
-          npm ci
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          cache: 'npm'
+      - run: npm ci
 
       # Build the 11ty site
       - name: 11ty build
