@@ -24,17 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      # Runs the Hugo command to build public directory
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: "0.91.2"
-          extended: true
-
-      - run: echo ":/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" >> $GITHUB_PATH
 
       # Setup node and npm
       - name: Setup Node
@@ -50,27 +39,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # Fetch webmentions
-      - name: Fetch webmentions
-        run: |
-          cd $GITHUB_WORKSPACE
-          echo $PATH
-          pwd
-          npm ci
-          WM_TOKEN=${{ secrets.WM_TOKEN }} SKIP_PREFLIGHT_CHECK=true npm run fetch
-
-      # Build the Hugo web site
+      # Build the 11ty site
       - name: Hugo build
         run: |
           cd $GITHUB_WORKSPACE
-          hugo -v
+          npm run build
 
       # Copy build folder to remote using rsync
       - name: Rsync Deployments Action
         uses: Burnett01/rsync-deployments@5.2
         with:
           switches: -avzr --delete
-          path: public/
+          path: _site/
           remote_path: ${{ secrets.PATH }}
           remote_host: ${{ secrets.HOST }}
           remote_user: ${{ secrets.USERNAME }}
