@@ -39,8 +39,9 @@
       :data-website-id="build.umami.websiteId"
       :src="build.umami.jsLocation"
     ></script>
+    <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
+    <script :src="getBundleFileUrl('js')" defer webc:keep></script>
   </head>
-  <style @raw="getBundle('css')" webc:keep></style>
   <body>
     <div class="layout">
       <site-header></site-header>
@@ -48,5 +49,4 @@
       <site-footer></site-footer>
     </div>
   </body>
-  <script @raw="getBundle('js')" webc:keep></script>
 </html>
