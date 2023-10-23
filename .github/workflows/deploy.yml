@@ -31,6 +31,11 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Install deps
+        run: | 
+          cd $GITHUB_WORKSPACE
+          npm ci
+
       - name: Cache dependencies
         uses: actions/cache@v2
         with:
@@ -40,7 +45,7 @@ jobs:
             ${{ runner.os }}-node-
 
       # Build the 11ty site
-      - name: Hugo build
+      - name: 11ty build
         run: |
           cd $GITHUB_WORKSPACE
           npm run build
