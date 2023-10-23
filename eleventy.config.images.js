@@ -41,7 +41,7 @@ module.exports = (eleventyConfig) => {
     }
 
     Image(src, {
-      widths: [500],
+      widths: ["auto"],
       urlPath: "/img/",
       outputDir: "./_site/img/",
       formats: ["webp"],
