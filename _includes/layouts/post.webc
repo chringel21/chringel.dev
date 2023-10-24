@@ -137,7 +137,7 @@ layout: "layouts/base.webc"
       </div>
     </div>
     <div class="post-footer post-webmentions">
-      <webmentions :@relative-target="page.url"></webmentions>
+      <webmentions-base :@relative-target="page.url"></webmentions-base>
     </div>
   </article>
 </section>

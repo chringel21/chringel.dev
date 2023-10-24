@@ -33,7 +33,7 @@ layout: "layouts/base.webc"
       <p @html="content" class="e-content"></p>
     </div>
     <div class="p-4 bg-primary-yellow bg-opacity-20">
-      <webmentions :@relative-target="page.url"></webmentions>
+      <webmentions-base :@relative-target="page.url"></webmentions-base>
       <!-- TODO Add tags -->
       <!--<a
       webc:for="value of entry.data.tags"
