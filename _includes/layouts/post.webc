@@ -8,11 +8,7 @@ layout: "layouts/base.webc"
     <header class="py-14">
       <div class="flex flex-col items-center">
         <h1 class="mb-4 font-bold text-4xl lg:text-5xl text-center">
-          <span
-            @text="title"
-            class="bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-blue dark:from-primary-blue dark:to-primary-blue p-name"
-          >
-          </span>
+          <span @text="title" class="title-underline p-name"> </span>
         </h1>
         <div class="flex text-text-muted">
           <time
@@ -77,6 +73,9 @@ layout: "layouts/base.webc"
           />
         </p>
       </div>
+      <h2 class="text-xl font-bold mb-4">
+        <span class="title-underline">Meta </span>
+      </h2>
       <div class="post-footer-item">
         <svg-icon @prop="calendar-outline"></svg-icon>
         <span>Posted:</span>

@@ -206,6 +206,10 @@
     @apply flex flex-col flex-auto;
   }
 
+  .title-underline {
+    @apply bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-yellow dark:from-primary-blue dark:to-primary-blue;
+  }
+
   .animated-link {
     position: relative;
     box-decoration-break: clone;
