@@ -30,6 +30,36 @@
 </script>
 
 <template webc:nokeep webc:if="hasWebmentions(webmentions, relativeTarget)">
+  <h2 class="text-xl font-bold mb-4">
+    <span class="title-underline">Webmentions </span>
+  </h2>
+  <div class="border-dashed border p-2">
+    <p class="text-sm mb-2">
+      You mentioned this post on your site? Great! Why not send a
+      <a href="https://indieweb.org/Webmention">webmention?</a>
+    </p>
+    <form
+      :action="indieweb.webmentionUrl + indieweb.webmentionEndpoint"
+      method="post"
+    >
+      <label for="form-webmention-source" class="mb-2 mr-2">URL</label>
+      <input
+        class="mb-2 w-1/2 border-2 border-primary-yellow"
+        id="form-webmention-source"
+        type="url"
+        name="source"
+        placeholder="https://yoursite.com/your-post"
+        required
+      />
+      <input type="hidden" name="target" :value="relativeTarget" />
+      <br />
+      <input
+        type="submit"
+        value="Send Webmention"
+        class="cursor-pointer bg-primary-green p-2"
+      />
+    </form>
+  </div>
   <h3 webc:if="hasWebmentions(webmentions, relativeTarget, 'response')">
     Responses
   </h3>
