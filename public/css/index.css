@@ -88,10 +88,10 @@
   .dark {
     /* Tailwind blue-500 #3b82f6 */
     --color-primary-blue: 59 130 246;
-    /* Tailwind lime-300 #bef264 */
-    --color-primary-green: 190 242 100;
+    /* Tailwind lime-600 #bef264 */
+    --color-primary-green: 101 163 13;
     /* Custom #FFDE69 */
-    --color-primary-yellow: 255 222 105;
+    --color-primary-yellow: 172 150 95;
 
     /* tailwind slate-300 */
     --color-text-body: 203 213 225;
@@ -207,7 +207,7 @@
   }
 
   .title-underline {
-    @apply bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-yellow dark:from-primary-blue dark:to-primary-blue;
+    @apply bg-gradient-to-bl bg-no-repeat bg-bottom bg-[length:90%_40%] from-primary-blue to-primary-yellow;
   }
 
   .animated-link {
