@@ -76,6 +76,7 @@ module.exports = (eleventyConfig) => {
   // markdown-it
   const markdownItOptions = {
     html: true,
+    linkify: true,
   };
   const markdownItAnchorOptions = {
     permalink: markdownItAnchor.permalink.linkAfterHeader({
