@@ -5,6 +5,12 @@ module.exports = {
   allReverse: (collectionApi) => {
     return collectionApi.getAllSorted().reverse();
   },
+  allFeed: (collectionApi) => {
+    return collectionApi
+      .getAllSorted()
+      .reverse()
+      .filter((item) => item.data.type === "post" || item.data.type === "note");
+  },
   allPostsReverse: (collectionApi) => {
     return collectionApi
       .getAllSorted()

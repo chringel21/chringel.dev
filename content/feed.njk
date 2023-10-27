@@ -18,10 +18,10 @@ eleventyImport:
     <language>{{ metadata.language }}</language>
     <generator>{{ eleventy.generator }}</generator>
     <copyright>Creative Commons Attribution 4.0 International - CC-BY</copyright>
-    {% if collections.allReverse %}
-    <lastBuildDate>{{ collections.allReverse | rssLastUpdatedDate }}</lastBuildDate>
+    {% if collections.allFeed %}
+    <lastBuildDate>{{ collections.allFeed | rssLastUpdatedDate }}</lastBuildDate>
     {% endif %}
-    {%- for post in collections.allReverse -%}
+    {%- for post in collections.allFeed -%}
       {%- set absolutePostUrl = post.url | url | absoluteUrl(metadata.url) -%}
     <item>
       <title>{{ post.data.title }}</title>
