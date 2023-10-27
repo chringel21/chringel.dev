@@ -1,5 +1,6 @@
 const { DateTime } = require("luxon");
 const markdownIt = require("markdown-it");
+const fs = require("fs");
 
 module.exports = {
   fromISOToReadable: (dateObj) => {
@@ -28,5 +29,22 @@ module.exports = {
     } else {
       return `${metadata.title}`;
     }
+  },
+
+  bust: (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    const relativeUrl =
+      urlPart.charAt(0) == "/" ? urlPart.substring(1) : urlPart;
+
+    try {
+      const fileStats = fs.statSync("public/" + relativeUrl);
+      const dateTimeModified = new DateTime(fileStats.mtime).toFormat("X");
+      params.set("v", dateTimeModified);
+    } catch (error) {
+      console.log(error);
+    }
+
+    return `${urlPart}?${params}`;
   },
 };

@@ -30,7 +30,7 @@
       type="font/woff2"
       crossorigin="crossorigin"
     />
-    <link rel="stylesheet" :href="url('/css/index.css')" webc:keep />
+    <link rel="stylesheet" :href="bust(url('/css/index.css'))" webc:keep />
     <script
       webc:if="build.env === 'production'"
       webc:keep
