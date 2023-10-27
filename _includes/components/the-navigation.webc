@@ -1,70 +1,106 @@
-<script>
-  function openMobileMenu() {
-    const menuElem = document.querySelector("#mobile-menu");
-    menuElem.classList.remove("hide-menu");
-    menuElem.classList.add("show-menu");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeMobileMenu() {
-    const menuElem = document.querySelector("#mobile-menu");
-    menuElem.classList.remove("show-menu");
-    menuElem.classList.add("hide-menu");
-    document.body.style.overflow = "auto";
-  }
-</script>
-
-<nav class="hidden md:inline">
-  <section class="text-text-bold">
-    <ul class="unset flex gap-4 [&>li]:p-0">
-      <li
-        class="nav-item"
-        webc:for="entry of eleventyNavigation(collections.all)"
-      >
+<div webc:root="override">
+  <input class="side-menu" type="checkbox" id="side-menu" />
+  <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+  <nav class="nav">
+    <ul class="menu">
+      <li class="" webc:for="entry of eleventyNavigation(collections.all)">
         <nav-link @prop="entry" @prop="page"></nav-link>
       </li>
     </ul>
-  </section>
-</nav>
-<nav class="md:hidden">
-  <button id="mobile-menu-open" onclick="openMobileMenu()">
-    <span aria-hidden="true" title="Open mobile menu"
-      ><svg-icon @prop="menu-outline"></svg-icon
-    ></span>
-    <span class="sr-only">Open mobile menu</span>
-  </button>
-  <section
-    id="mobile-menu"
-    class="hide-menu fixed top-0 left-0 z-10 w-full h-full transition-transform bg-black/75 border-primary-blue"
-  >
-    <div class="bg-bg-body w-[75%] h-full drop-shadow-2xl">
-      <button
-        id="mobile-menu-close"
-        class="px-6 h-[5rem] text-lg xml-[1px]"
-        onclick="closeMobileMenu()"
-      >
-        <span aria-hidden="true" title="Close mobile menu"
-          ><svg-icon @prop="close-outline"></svg-icon
-        ></span>
-        <span class="sr-only">Close mobile menu</span>
-      </button>
-      <ul class="unset flex flex-col text-text-bold gap-4 [&>li]:p-0 px-6">
-        <li
-          class="nav-item"
-          webc:for="entry of eleventyNavigation(collections.all)"
-        >
-          <nav-link @prop="entry" @prop="page"></nav-link>
-        </li>
-      </ul>
-    </div>
-  </section>
-</nav>
+  </nav>
+</div>
 
-<style>
-  .hide-menu {
-    transform: translateX(-100%);
+<style webc:scoped>
+  :host ul {
+    list-style: none;
+    width: fit-content;
+    padding-left: 3rem;
   }
-  .show-menu {
-    transform: translateX(0%);
+  :host li {
+    padding: 1rem;
+  }
+  :host .nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgb(var(--color-bg-body));
+    overflow: hidden;
+    z-index: 1;
+  }
+  :host .menu a {
+    display: block;
+    color: rgb(var(--color-text-body));
+  }
+  :host .nav {
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+  }
+
+  :host .hamb {
+    cursor: pointer;
+    float: right;
+    padding: 40px 20px;
+  }
+
+  :host .hamb-line {
+    background: rgb(var(--color-text-body));
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+  }
+
+  :host .hamb-line::before,
+  :host .hamb-line::after {
+    background: rgb(var(--color-text-body));
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+  }
+  :host .hamb-line::before {
+    top: 5px;
+  }
+  :host .hamb-line::after {
+    top: -5px;
+  }
+  :host .side-menu {
+    display: none;
+  }
+
+  :host .side-menu:checked ~ nav {
+    max-height: 100%;
+  }
+  :host .side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+  }
+  :host .side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+    z-index: 2;
+  }
+  :host .side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+    z-index: 2;
+  }
+
+  @media (min-width: 768px) {
+    :host .nav {
+      max-height: none;
+      top: 0;
+      position: relative;
+      float: right;
+      width: fit-content;
+      background-color: transparent;
+    }
+    :host .menu li {
+      float: left;
+    }
+    :host .hamb {
+      display: none;
+    }
   }
 </style>

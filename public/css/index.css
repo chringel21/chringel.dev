@@ -167,7 +167,6 @@
   ul:not(.unset):not(:where([class~="prose"] *)) > li::before {
     position: absolute;
     left: 0;
-    content: "»";
     color: rgb(var(--color-text-muted));
   }
 

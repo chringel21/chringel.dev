@@ -2,7 +2,7 @@
   webc:root="override"
   class="container flex items-center justify-between py-8"
 >
-  <the-navigation webc:nokeep></the-navigation>
+  <the-navigation></the-navigation>
   <div class="flex items-center">
     <div class="text-text-bold">
       <social-link
