@@ -12,5 +12,29 @@ module.exports = {
   },
   eleventyComputed: {
     frontmatter: (data) => data,
+    webmentionsByPage: (data) => {
+      const wmByPage = data.webmentions.filter(
+        (wm) => wm.relativeTarget === data.page.url
+      );
+      const groupedWm = wmByPage.reduce((r, a) => {
+        if (!a.source.includes("https://chringel.dev/")) {
+          if (
+            a.content !== "" &&
+            (a.type === "reply" || a.type === "mention")
+          ) {
+            r.replies = r.replies || [];
+            r.replies.push(a);
+          } else if (a.type === "like" || a.type === "bookmark") {
+            r.likes = r.likes || [];
+            r.likes.push(a);
+          } else if (a.type === "repost") {
+            r.reposts = r.reposts || [];
+            r.reposts.push(a);
+          }
+        }
+        return r;
+      }, Object.create(null));
+      return groupedWm;
+    },
   },
 };

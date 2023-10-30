@@ -1,39 +1,8 @@
-<script webc:setup webc:root="override">
-  function hasWebmentions(webmentions, relativeTarget, type = "") {
-    if (type !== "") {
-      return getWebmentionsByType(type, relativeTarget).length > 0;
-    }
-    return getFilteredWebmentions(webmentions, relativeTarget).length > 0;
-  }
-
-  function getFilteredWebmentions(webmentions, relativeTarget) {
-    return webmentions.filter((wm) => wm.relativeTarget === relativeTarget);
-  }
-
-  function getWebmentionsByType(type, relativeTarget) {
-    const filteredWebmentions = getFilteredWebmentions(
-      webmentions,
-      relativeTarget
-    );
-    if (type === "response") {
-      return filteredWebmentions.filter(
-        (wm) =>
-          wm.content !== "" && (wm.type === "reply" || wm.type === "mention")
-      );
-    } else if (type === "reaction") {
-      return filteredWebmentions.filter(
-        (wm) =>
-          wm.type === "like" || wm.type === "repost" || wm.type === "bookmark"
-      );
-    }
-  }
-</script>
-
-<template webc:nokeep webc:if="hasWebmentions(webmentions, relativeTarget)">
+<template webc:nokeep webc:if="webmentionsByPage">
   <h2 class="text-xl font-bold mb-4">
     <span class="title-underline">Webmentions </span>
   </h2>
-  <div class="border-dashed border p-2">
+  <div class="border-dashed border p-2 mb-8">
     <p class="text-sm mb-2">
       You mentioned this post on your site? Great! Why not send a
       <a href="https://indieweb.org/Webmention">webmention?</a>
@@ -60,48 +29,17 @@
       />
     </form>
   </div>
-  <h3 webc:if="hasWebmentions(webmentions, relativeTarget, 'response')">
-    Responses
-  </h3>
-  <ol class="unset">
-    <li webc:for="wm of getWebmentionsByType('response', relativeTarget)">
-      <article class="flex flex-col relative pl-12 py-4 u-comment h-cite">
-        <div class="flex flex-wrap items-baseline">
-          <a
-            :href="wm.url"
-            rel="author"
-            class="u-author h-card unset hover:text-text-link"
-          >
-            <img
-              loading="lazy"
-              :src="indieweb.webmentionUrl + wm.author.picture"
-              :alt="wm.author.picture"
-              class="rounded-full w-10 h-10 absolute left-0 border border-border-code"
-            />
-            <strong @text="wm.author.name" class="p-name"></strong>
-          </a>
-          <span class="mx-1 text-sm">•</span>
-          <time
-            class="dt-published text-text-muted text-sm"
-            :datetime="wm.published"
-            @text="fromISOToReadable(wm.published)"
-          ></time>
-        </div>
-        <p @text="wm.content" class="p-content break-words"></p>
-      </article>
-    </li>
-  </ol>
 
-  <h3 webc:if="hasWebmentions(webmentions, relativeTarget, 'reaction')">
-    Reactions
-  </h3>
-  <div class="flex flex-wrap">
-    <template
-      webc:nokeep
-      webc:for="wm of getWebmentionsByType('reaction', relativeTarget)"
-    >
+  <div
+    webc:if="webmentionsByPage.likes"
+    class="flex flex-wrap items-center mb-8"
+  >
+    <h3 class="text-lg font-bold w-24">
+      <span @text="webmentionsByPage.likes.length"></span>
+      Likes
+    </h3>
+    <template webc:nokeep webc:for="wm of webmentionsByPage.likes">
       <a
-        webc:if="wm.type === 'like'"
         :href="wm.url"
         rel="author"
         class="u-author h-card u-url unset facepile"
@@ -117,8 +55,19 @@
           <span class="absolute right-0 top-0">❤️</span>
         </div>
       </a>
+    </template>
+  </div>
+
+  <div
+    webc:if="webmentionsByPage.reposts"
+    class="flex flex-wrap items-center mb-8"
+  >
+    <h3 class="text-lg font-bold w-24">
+      <span @text="webmentionsByPage.reposts.length"></span>
+      Reposts
+    </h3>
+    <template webc:nokeep webc:for="wm of webmentionsByPage.reposts">
       <a
-        webc:elseif="wm.type === 'repost'"
         :href="wm.url"
         rel="author"
         class="u-author h-card u-url unset facepile"
@@ -134,23 +83,43 @@
           <span class="absolute right-0 top-0">🔁</span>
         </div>
       </a>
-      <a
-        webc:elseif="wm.type === 'bookmark'"
-        :href="wm.url"
-        rel="author"
-        class="u-author h-card u-url unset facepile"
-        :title="wm.author.name + ' bookmarked'"
-      >
-        <div class="relative">
-          <img
-            loading="lazy"
-            :src="indieweb.webmentionUrl + wm.author.picture"
-            :alt="wm.author.picture"
-            class="rounded-full w-10 h-10 border border-border-code left"
-          />
-          <span class="absolute right-0 top-0">📎</span>
-        </div>
-      </a>
     </template>
+  </div>
+
+  <div webc:if="webmentionsByPage.replies">
+    <details>
+      <summary
+        class="text-lg font-bold"
+        @text="webmentionsByPage.replies.length + ' Responses'"
+      ></summary>
+      <ol class="unset">
+        <li webc:for="wm of webmentionsByPage.replies">
+          <article class="flex flex-col relative pl-12 py-4 u-comment h-cite">
+            <div class="flex flex-wrap items-baseline">
+              <a
+                :href="wm.url"
+                rel="author"
+                class="u-author h-card unset hover:text-text-link"
+              >
+                <img
+                  loading="lazy"
+                  :src="indieweb.webmentionUrl + wm.author.picture"
+                  :alt="wm.author.picture"
+                  class="rounded-full w-10 h-10 absolute left-0 border border-border-code"
+                />
+                <strong @text="wm.author.name" class="p-name"></strong>
+              </a>
+              <span class="mx-1 text-sm">•</span>
+              <time
+                class="dt-published text-text-muted text-sm"
+                :datetime="wm.published"
+                @text="fromISOToReadable(wm.published)"
+              ></time>
+            </div>
+            <p @text="wm.content" class="p-content break-words"></p>
+          </article>
+        </li>
+      </ol>
+    </details>
   </div>
 </template>
