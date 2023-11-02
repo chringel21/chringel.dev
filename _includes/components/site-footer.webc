@@ -1,5 +1,5 @@
 <footer
-  class="flex flex-wrap justify-center align-middle gap-8 text-sm mt-16 border-t border-border-code py-8"
+  class="flex flex-wrap justify-center items-center gap-8 text-sm mt-16 border-t border-border-code py-8"
   webc:root="override"
 >
   <p class="text-center">
