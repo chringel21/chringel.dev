@@ -31,6 +31,7 @@
       crossorigin="crossorigin"
     />
     <link rel="stylesheet" :href="bust(url('/css/index.css'))" webc:keep />
+    <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
     <script
       webc:if="build.env === 'production'"
       webc:keep
@@ -39,8 +40,6 @@
       :data-website-id="build.umami.websiteId"
       :src="build.umami.jsLocation"
     ></script>
-    <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
-    <script :src="getBundleFileUrl('js')" defer webc:keep></script>
     <script
       :src="bust(url('/js/main.js'))"
       defer
@@ -48,6 +47,11 @@
       webc:keep
     ></script>
     <script
+      :src="getBundleFileUrl('js')"
+      defer
+      webc:keep
+      type="module"
+    ></script>
   </head>
   <body>
     <div class="layout">
