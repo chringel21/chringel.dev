@@ -129,7 +129,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.setLibrary("md", markdownLib);
 
   return {
-    templateFormats: ["md", "njk", "html", "webc"],
+    templateFormats: ["md", "njk", "html", "webc", "11ty.js"],
 
     markdownTemplateEngine: "njk",
 

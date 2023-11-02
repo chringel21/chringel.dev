@@ -41,6 +41,13 @@
     ></script>
     <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
     <script :src="getBundleFileUrl('js')" defer webc:keep></script>
+    <script
+      :src="bust(url('/js/main.js'))"
+      defer
+      type="module"
+      webc:keep
+    ></script>
+    <script
   </head>
   <body>
     <div class="layout">
