@@ -1,0 +1,13 @@
+<is-land on:visible>
+  <speedlify-score
+    webc:raw
+    webc:root
+    @attributes
+    speedlify-url="https://speedlify.chringel.dev/"
+  ></speedlify-score>
+
+  <template data-island="once" webc:raw>
+    <link rel="stylesheet" href="/css/speedlify-score.css" webc:keep />
+    <script src="/js/speedlify-score.js" webc:keep></script>
+  </template>
+</is-land>

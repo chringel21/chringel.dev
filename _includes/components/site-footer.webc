@@ -1,5 +1,5 @@
 <footer
-  class="flex justify-center text-sm mt-16 border-t border-border-code py-8"
+  class="flex flex-wrap justify-center align-middle gap-8 text-sm mt-16 border-t border-border-code py-8"
   webc:root="override"
 >
   <p class="text-center">
@@ -37,6 +37,9 @@
       Privacy Policy</a
     >
   </p>
+  <a href="https://speedlify.chringel.dev/chringel.dev/" class="unset">
+    <speedlify-score hash="54e925b2" score weight requests></speedlify-score>
+  </a>
 </footer>
 
 <style webc:scoped>

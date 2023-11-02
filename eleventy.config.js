@@ -68,6 +68,10 @@ module.exports = (eleventyConfig) => {
     "./public/img": "/img",
     "./node_modules/prismjs/themes/prism-okaidia.min.css":
       "/css/prism-okaidia.css",
+    "./node_modules/speedlify-score/speedlify-score.css":
+      "/css/speedlify-score.css",
+    "./node_modules/speedlify-score/speedlify-score.js":
+      "/js/speedlify-score.js",
     "./static/.htaccess": "/.htaccess",
     "./static/site.webmanifest": "/site.webmanifest",
     "./static/browserconfig.xml": "/browserconfig.xml",
