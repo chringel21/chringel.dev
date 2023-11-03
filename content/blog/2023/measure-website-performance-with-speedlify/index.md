@@ -2,8 +2,8 @@
 title: "Measure your website's performance with Speedlify"
 author: Christian Engel
 type: post
-date: 2023-11-02T18:52:02.245+01:00
-lastmod: 2023-11-02T18:52:02.245+01:00
+date: 2023-11-03T11:52:02.245+01:00
+lastmod: 2023-11-03T11:52:02.245+01:00
 cover:
   src: feature.png
   caption: Four hundos, that's what I like to see!
