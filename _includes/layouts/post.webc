@@ -103,7 +103,8 @@ layout: "layouts/base.webc"
           class="p-category"
         ></a>
       </div>
-      <div class="post-footer-item">
+      <!-- TODO add tags
+        <div class="post-footer-item">
         <svg-icon @prop="pricetags-outline" @classes="mt-1"></svg-icon>
         <span>Tags:</span>
         <div>
@@ -115,7 +116,7 @@ layout: "layouts/base.webc"
             class="tag"
           ></a>
         </div>
-      </div>
+      </div>-->
       <div webc:if="syndication" class="post-footer-item">
         <svg-icon @prop="share-social-outline"></svg-icon>
         <span>Also on:</span>
