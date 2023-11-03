@@ -37,8 +37,17 @@
       Privacy Policy</a
     >
   </p>
-  <a href="https://speedlify.chringel.dev/chringel.dev/" class="unset">
-    <speedlify-score hash="54e925b2" score weight requests></speedlify-score>
+  <a
+    href="https://speedlify.chringel.dev/chringel.dev/"
+    class="unset"
+    webc:if="speedlify[metadata.url + '/']"
+  >
+    <speedlify-score
+      :hash="speedlify[metadata.url + '/'].hash"
+      score
+      weight
+      requests
+    ></speedlify-score>
   </a>
 </footer>
 
