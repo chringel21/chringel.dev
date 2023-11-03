@@ -13,8 +13,8 @@ tags:
   - 11ty
   - Speedlify
 description: Zach Leatherman told me, I could add Lighthouse scores to my site's footer. And so I did.
-# syndication:
-#   mastodon:
+syndication:
+  mastodon: https://fosstodon.org/@chringel/111346561054087507
 ---
 
 The first time I visited [Max Böck's website](https://mxb.dev/) I noticed a little something down in the footer: **Lighthouse scores** 🟢💯. If you reduce your site's footprint to get four [hundos](https://www.urbandictionary.com/define.php?term=hundo) you also receive bragging rights, I guess.
