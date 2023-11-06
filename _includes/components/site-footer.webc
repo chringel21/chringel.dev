@@ -46,7 +46,6 @@
       :hash="speedlify[metadata.url + '/'].hash"
       score
       weight
-      requests
     ></speedlify-score>
   </a>
 </footer>
