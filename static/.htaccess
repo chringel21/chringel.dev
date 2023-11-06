@@ -6,3 +6,5 @@
   SetOutputFilter DEFLATE
  </FilesMatch>
 </IfModule>
+
+ErrorDocument 404 /404.html
