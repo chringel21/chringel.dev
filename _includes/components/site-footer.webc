@@ -48,6 +48,7 @@
       weight
     ></speedlify-score>
   </a>
+  <a :href=`https://github.com/chringel21/chringel.dev/blob/main/${page.inputPath}`>Edit this page on GitHub</a>
 </footer>
 
 <style webc:scoped>

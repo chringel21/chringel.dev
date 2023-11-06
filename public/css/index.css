@@ -361,4 +361,24 @@
   .notes-content {
     @apply max-w-2xl mx-auto;
   }
+
+  a[href^="https://github.com"]:not(.elv-externalexempt):before
+  {
+    content: "";
+    display: inline-block;
+    vertical-align: text-bottom;
+    width: 1em;
+    height: 1em;
+    margin: 0 0.2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  a[href^="https://github.com"]:before
+  {
+    background-image: url(/img/link-icons/github.png);
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #fff;
+    border-radius: 7px;
+  }
 }
