@@ -270,7 +270,7 @@
   }
 
   .notice {
-    @apply border-l-2 border-l-primary-green p-3 bg-slate-50 mt-8 prose-bubblegum dark:bg-slate-700;
+    @apply border-2 border-primary-green p-3 mt-8 prose-bubblegum;
   }
 
   .sr-only {
