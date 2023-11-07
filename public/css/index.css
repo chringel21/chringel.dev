@@ -362,7 +362,7 @@
     @apply max-w-2xl mx-auto;
   }
 
-  a[href^="https://github.com"]:not(.elv-externalexempt):before
+  a[href^="https://github.com"]:not(.no-logo):before
   {
     content: "";
     display: inline-block;
