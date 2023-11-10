@@ -14,8 +14,8 @@ tags:
   - JavaScript
   - WebC
 description: For when you need to minify your WebC JavaScript
-# syndication:
-#   mastodon: https://...
+syndication:
+  mastodon: https://fosstodon.org/@chringel/111385587417297521
 ---
 
 This is a short one, folks!
