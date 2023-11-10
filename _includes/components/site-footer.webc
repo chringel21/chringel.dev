@@ -40,7 +40,7 @@
   <a
     href="https://speedlify.chringel.dev/chringel.dev/"
     class="unset"
-    name="Speedlify Score"
+    aria-label="Speedlify Score"
     webc:if="speedlify[metadata.url + '/']"
   >
     <speedlify-score
