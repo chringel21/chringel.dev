@@ -8,7 +8,7 @@ eleventyNavigation:
 layout: "layouts/base.webc"
 ---
 
-<section class="notes-content">
+<section>
   <header class="py-16 md:py-20">
     <h1 class="font-bold text-4xl md:text-5xl bottom-2 text-center">
       <span @text="title" class="title-underline p-name"> </span>

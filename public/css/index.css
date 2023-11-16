@@ -360,10 +360,6 @@
     @apply md:block absolute top-0 -left-5 italic text-xl;
   }
 
-  .notes-content {
-    @apply max-w-2xl mx-auto;
-  }
-
   a[href^="https://github.com"]:not(.no-logo):before
   {
     content: "";
