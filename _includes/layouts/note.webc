@@ -3,7 +3,6 @@ layout: "layouts/base.webc"
 ---
 
 <section class="border rounded-sm border-border-code max-w-2xl mx-auto">
-  <h1 webc:if="title" @text="title"></h1>
   <article class="h-entry">
     <div class="flex flex-wrap items-center p-4 text-sm">
       <a :href="url('/about')" rel="author" class="p-author h-card unset">
@@ -29,6 +28,7 @@ layout: "layouts/base.webc"
       </a>
     </div>
     <div class="p-4">
+      <h2 webc:if="title" @text="title"></h2>
       <note-type :@entry="frontmatter"></note-type>
       <p @html="content" class="e-content"></p>
     </div>
