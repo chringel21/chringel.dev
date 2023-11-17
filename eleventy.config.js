@@ -75,6 +75,7 @@ module.exports = (eleventyConfig) => {
     "./static/.htaccess": "/.htaccess",
     "./static/site.webmanifest": "/site.webmanifest",
     "./static/browserconfig.xml": "/browserconfig.xml",
+    "./static/robots.txt": "/robots.txt",
   });
 
   // markdown-it
