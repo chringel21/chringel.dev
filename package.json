@@ -56,7 +56,6 @@
     "markdown-it-eleventy-img": "^0.10.1",
     "netlify-plugin-cache": "^1.0.3",
     "npm-run-all": "^4.1.5",
-    "petite-vue": "^0.4.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.6",
     "speedlify-score": "^3.0.0",
