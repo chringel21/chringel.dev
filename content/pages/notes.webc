@@ -14,11 +14,11 @@ layout: "layouts/base.webc"
       <span @text="title" class="title-underline p-name"> </span>
     </h1>
   </header>
-  <ol class="notes-list">
+  <ol class="notes-list unset">
     <li
       webc:for="entry of collections.allNotesReverse"
       webc:if="entry.data.date"
-      class="border rounded-sm border-border-code"
+      class="mb-6"
     >
       <template webc:is="note-single" webc:nokeep :@prop="entry"></template>
     </li>

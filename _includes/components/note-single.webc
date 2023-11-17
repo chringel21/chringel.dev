@@ -1,5 +1,5 @@
 <h1 webc:if="entry.data.title" @text="entry.data.title"></h1>
-<article class="h-entry">
+<article class="h-entry border rounded-sm border-border-code max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center p-4 text-sm">
     <a :href="url('/about')" rel="author" class="p-author h-card unset">
       <span class="flex items-center">
@@ -27,8 +27,9 @@
     <note-type :@entry="entry.data"></note-type>
     <p @html="entry.content" class="e-content"></p>
   </div>
-  <div class="p-4 bg-primary-yellow bg-opacity-20">
-    <webmentions-minimal :@relative-target="entry.url"></webmentions-minimal>
+  <div webc:if="!hideWebmentions" class="p-4 bg-primary-yellow bg-opacity-20">
+    <webmentions-minimal :@relative-target="entry.url" webc:if="page.url === /notes/"></webmentions-minimal>
+    <webmentions-base :@relative-target="entry.url" webc:else></webmentions-minimal>
     <!-- TODO Add tags -->
     <!--<a
       webc:for="value of entry.data.tags"

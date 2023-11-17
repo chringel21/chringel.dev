@@ -379,4 +379,9 @@
     box-shadow: 0 0 0 2px #fff;
     border-radius: 7px;
   }
+
+  .h-entry a,
+  .p-summary a {
+    @apply break-words hyphens-auto;
+  }
 }

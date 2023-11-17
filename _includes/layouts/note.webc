@@ -2,7 +2,7 @@
 layout: "layouts/base.webc"
 ---
 
-<section class="border rounded-sm border-border-code">
+<section class="border rounded-sm border-border-code max-w-2xl mx-auto">
   <h1 webc:if="title" @text="title"></h1>
   <article class="h-entry">
     <div class="flex flex-wrap items-center p-4 text-sm">
