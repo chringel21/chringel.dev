@@ -20,7 +20,58 @@ layout: "layouts/base.webc"
       webc:if="entry.data.date"
       class="mb-6"
     >
-      <template webc:is="note-single" webc:nokeep :@prop="entry"></template>
+      <article
+        class="h-entry border rounded-sm border-border-code max-w-2xl mx-auto"
+      >
+        <div class="flex flex-wrap items-center p-4 text-sm">
+          <a :href="url('/about')" rel="author" class="p-author h-card unset">
+            <span class="flex items-center">
+              <img
+                webc:is="eleventy-image"
+                :src="metadata.avatar"
+                :alt="metadata.author.name"
+                width="48"
+                class="rounded-full h-12 w-12 mr-2"
+                formats="webp"
+              />
+              <strong @text="metadata.author.name" class="p-name"></strong>
+            </span>
+          </a>
+          <span class="mx-1">•</span>
+          <a :href="url(entry.url)" class="unset">
+            <time
+              :datetime="htmlDateString(entry.data.date)"
+              @text="readableDate(entry.data.date)"
+              class="text-text-muted"
+            ></time>
+          </a>
+        </div>
+        <div class="p-4">
+          <h2 webc:if="entry.data.title" @text="entry.data.title"></h2>
+          <note-type :@entry="entry.data"></note-type>
+          <p @html="entry.content" class="e-content"></p>
+        </div>
+        <div
+          webc:if="!hideWebmentions"
+          class="p-4 bg-primary-yellow bg-opacity-20"
+        >
+          <webmentions-minimal
+            :@relative-target="entry.url"
+            webc:if="page.url === '/notes/'"
+          ></webmentions-minimal>
+          <webmentions-base
+            :@relative-target="entry.url"
+            webc:else
+          ></webmentions-base>
+          <!-- TODO Add tags -->
+          <!--<a
+          webc:for="value of entry.data.tags"
+          :href="'/tags/' + slugify(value)"
+          @text="value"
+          class="tag pr-1"
+        ></a>-->
+        </div>
+      </article>
     </li>
   </ol>
 </section>
