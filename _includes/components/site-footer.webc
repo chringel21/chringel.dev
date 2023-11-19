@@ -38,13 +38,13 @@
     >
   </p>
   <a
-    href="https://speedlify.chringel.dev/chringel.dev/"
+    :href="'https://speedlify.chringel.dev/chringel.dev/' + page.url"
     class="unset"
     aria-label="Speedlify Score"
-    webc:if="speedlify[metadata.url + '/']"
+    webc:if="speedlify[metadata.url + page.url]"
   >
     <speedlify-score
-      :hash="speedlify[metadata.url + '/'].hash"
+      :hash="speedlify[metadata.url + page.url].hash"
       score
       weight
     ></speedlify-score>
