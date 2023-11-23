@@ -30,7 +30,7 @@ getFrontmatter = (yaml) => {
   return frontmatter.join("\n");
 };
 
-getFileContent = ({ title, url, text }) => {
+getFileContent = ({ title, url, text, interaction }) => {
   const date = DateTime.utc().toISO({ suppressMilliseconds: true });
   const frontmatter = getFrontmatter({
     author: "Christian Engel",
@@ -38,7 +38,7 @@ getFileContent = ({ title, url, text }) => {
     date: `"${date}"`,
     description: "Just a note",
     title: `"${sanitize(title)}"`,
-    reply: `"${url}"`,
+    [interaction]: `"${url}"`,
   });
 
   let content = frontmatter;
@@ -115,9 +115,8 @@ export default async (req, context) => {
 
     console.log(data);
 
-    return new Response(JSON.stringify(data, null, 2), { status: 200 });
-    // const response = await postFile(data);
-    // return handleResponse(response);
+    const response = await postFile(data);
+    return handleResponse(response);
   } catch (e) {
     console.log(e);
     return new Response(e.toString(), { status: 400 });
