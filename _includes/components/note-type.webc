@@ -1,34 +1,26 @@
 <template webc:nokeep webc:if="entry.reply">
   <span class="p-summary"
     >💬 Comment on
-    <a
-      :href="entry.reply.url"
-      class="u-in-reply-to"
-      @text="entry.reply.url"
-    ></a>
+    <a :href="entry.reply" class="u-in-reply-to" @text="entry.reply"></a>
   </span>
 </template>
 <template webc:nokeep webc:elseif="entry.like">
   <span class="p-summary"
     >❤️ Liked
-    <a :href="entry.like.url" class="u-like-of" @text="entry.like.url"></a>
+    <a :href="entry.like" class="u-like-of" @text="entry.like"></a>
   </span>
 </template>
 <template webc:nokeep webc:elseif="entry.repost">
   <span class="p-summary"
     >🔁 Reposted
-    <a
-      :href="entry.repost.url"
-      class="u-repost-of"
-      @text="entry.repost.url"
-    ></a>
+    <a :href="entry.repost" class="u-repost-of" @text="entry.repost"></a>
   </span>
 </template>
 <template webc:nokeep webc:elseif="entry.quote">
   <span class="p-summary"
     >📜 Quoted
     <blockquote class="h-cite u-quotation-of">
-      <a :href="entry.quote.url" class="u-url" @text="entry.quote.url"></a>
+      <a :href="entry.quote" class="u-url" @text="entry.quote"></a>
     </blockquote>
   </span>
 </template>
