@@ -13,7 +13,7 @@
     >
       <label for="form-webmention-source" class="mb-2 mr-2">URL</label>
       <input
-        class="mb-2 w-1/2 border-2 border-primary-yellow"
+        class="mb-2 w-1/2 text-input"
         id="form-webmention-source"
         type="url"
         name="source"
