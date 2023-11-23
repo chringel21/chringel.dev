@@ -1,0 +1,6 @@
+<a
+  webc:root="override"
+  class="p-1 w-fit cursor-grab bg-primary-green border-lime-700 border text-sm unset hover:text-bg-body"
+  href='javascript:(function(){let title=document.getElementsByTagName("title")[0].innerHTML;title=encodeURIComponent(title);let selection="";if (window.getSelection) {selection=window.getSelection().toString();} else if (document.selection && document.selection.type !== "Control") {selection=document.selection.createRange().text;}selection=encodeURIComponent(selection);const url=`https://chringel.dev/share/?title=${title}&text=${selection}&url=+${encodeURIComponent(document.location.href)}`;const opts="resizable,scrollbars,status=0,toolbar=0,menubar=0,titlebar=0,width=680,height=700,location=0";window.open(url, "Sharer", opts);})();'
+  >Share on chringel.dev</a
+>

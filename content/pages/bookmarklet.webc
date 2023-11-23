@@ -1,0 +1,39 @@
+---
+title: "Bookmarklet"
+layout: "layouts/base.webc"
+permalink: /bookmarklet
+---
+
+<syntax-highlighting></syntax-highlighting>
+
+<share-bookmarklet></share-bookmarklet>
+
+<template webc:type="11ty" 11ty:type="md">
+  <!-- prettier-ignore -->
+  ```javascript
+    (function () {
+      // get link title
+      let title = document.getElementsByTagName("title")[0].innerHTML;
+      title = encodeURIComponent(title);
+  
+      // get optional text selection
+      let selection = "";
+      if (window.getSelection) {
+        selection = window.getSelection().toString();
+      } else if (document.selection && document.selection.type !== "Control") {
+        selection = document.selection.createRange().text;
+      }
+      selection = encodeURIComponent(selection);
+  
+      // generate share URL
+      const url = `https://chringel.dev/share/?title=${title}&text=${selection}&url=+${encodeURIComponent(
+        document.location.href
+      )}`;
+  
+      // open popup window to sharing form
+      const opts =
+        "resizable,scrollbars,status=0,toolbar=0,menubar=0,titlebar=0,width=680,height=700,location=0";
+      window.open(url, "Sharer", opts);
+    })();
+  ```
+</template>
