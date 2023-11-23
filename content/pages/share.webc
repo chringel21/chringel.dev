@@ -1,0 +1,211 @@
+---
+permalink: share/index.html
+excludeFromSitemap: true
+---
+
+<!DOCTYPE html>
+<html class="theme-bubblegum" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>Share something...</title>
+
+    <link rel="stylesheet" :href="bust(url('/css/index.css'))" webc:keep />
+    <link rel="stylesheet" :href="getBundleFileUrl('css')" webc:keep />
+
+    <script
+      :src="getBundleFileUrl('js')"
+      defer
+      webc:keep
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="container max-w-2xl mx-auto">
+      <div class="my-6">
+        <article class="h-entry border rounded-sm border-border-code">
+          <div class="flex flex-wrap items-center p-4 text-sm">
+            <div rel="author" class="p-author h-card unset">
+              <span class="flex items-center">
+                <img
+                  webc:is="eleventy-image"
+                  :src="metadata.avatar"
+                  :alt="metadata.author.name"
+                  width="48"
+                  class="rounded-full h-12 w-12 mr-2"
+                  formats="webp"
+                />
+                <strong @text="metadata.author.name" class="p-name"></strong>
+              </span>
+            </div>
+            <span class="mx-1">•</span>
+            <time
+              :datetime="htmlDateString(new Date())"
+              @text="readableDate(new Date())"
+              class="text-text-muted"
+            ></time>
+          </div>
+          <div class="p-4">
+            <h2 class="font-bold"></h2>
+            <div class="interaction">
+              <span class="p-summary"> </span><a href="" class=""></a>
+            </div>
+            <p class="e-content"></p>
+          </div>
+        </article>
+      </div>
+      <form
+        class="w-full"
+        accept-charset="utf-8"
+        method="post"
+        action="/share-note"
+      >
+        <ul>
+          <li class="flex flex-col justify-center pl-0">
+            <label class="block">
+              <span>Title</span>
+              <input
+                type="text"
+                name="title"
+                id="share_title"
+                class="text-input"
+              />
+            </label>
+          </li>
+          <li class="flex flex-col justify-center pl-0">
+            <label class="block">
+              <span>URL</span>
+              <input type="url" name="url" id="share_url" class="text-input" />
+            </label>
+          </li>
+          <li class="col-span-2 flex flex-col justify-center pl-0">
+            <label class="block">
+              <span>Interaction</span>
+              <select
+                type="url"
+                name="interaction"
+                id="share_interaction"
+                class="text-input"
+              >
+                <option value="">❌ None</option>
+                <option value="reply">💬 Comment</option>
+                <option value="like">❤️ Like</option>
+                <option value="repost">🔁 Repost</option>
+                <option value="quote">📜 Quote</option>
+              </select>
+            </label>
+          </li>
+          <li class="col-span-2 flex flex-col justify-center pl-0">
+            <label class="block">
+              <span>Note Text</span>
+              <textarea
+                name="text"
+                id="share_text"
+                maxlength="200"
+                class="text-input"
+              ></textarea>
+            </label>
+          </li>
+        </ul>
+        <details class="col-span-2">
+          <summary>Auth</summary>
+          <ul class="grid grid-cols-2 gap-y-4 gap-x-8">
+            <li class="flex flex-col justify-center pl-0">
+              <label class="block">
+                <span>User Name</span>
+                <input
+                  type="text"
+                  name="username"
+                  id="share_username"
+                  class="text-input"
+                />
+              </label>
+            </li>
+            <li class="flex flex-col justify-center pl-0">
+              <label class="block">
+                <span>Access Token</span>
+                <input
+                  type="password"
+                  name="token"
+                  id="share_token"
+                  class="text-input"
+                />
+              </label>
+            </li>
+          </ul>
+        </details>
+        <div class="sr-only hidden" aria-hidden="true">
+          <label for="share_hp">D0n´7 f1ll 7h15 0ut 1f y0u,re hum4n:</label>
+          <input type="text" name="h0_3yp07" id="share_hp" tabindex="-1" />
+        </div>
+        <div class="text-right my-4">
+          <button
+            type="submit"
+            class="cursor-pointer bg-primary-green p-2 hover:bg-lime-500"
+          >
+            Publish Note
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const setTitle = (title) => {
+    document.querySelector("h2").innerText = title;
+    document.querySelector("#share_title").value = title;
+  };
+  const setUrl = (url) => {
+    const interactionA = document.querySelector(".interaction a");
+    interactionA.innerText = url;
+    interactionA.attributes.href.value = url;
+    document.querySelector("#share_url").value = url;
+  };
+  const setInteraction = (interaction) => {
+    document.querySelector("#share_interaction").value = interaction;
+    const interactionSpan = document.querySelector(".interaction span");
+    switch (interaction) {
+      case "reply":
+        interactionSpan.innerText = "💬 Comment on ";
+        break;
+      case "like":
+        interactionSpan.innerText = "❤️ Liked ";
+        break;
+      case "repost":
+        interactionSpan.innerText = "🔁 Reposted ";
+        break;
+      case "quote":
+        interactionSpan.innerText = "📜 Quoted ";
+        break;
+      default:
+        interactionSpan.innerText = "";
+    }
+  };
+  const setText = (text) => {
+    document.querySelector("p").innerText = text;
+    document.querySelector("#share_text").value = text;
+  };
+
+  document.querySelector("#share_title").addEventListener("keyup", (e) => {
+    setTitle(e.target.value);
+  });
+  document.querySelector("#share_url").addEventListener("keyup", (e) => {
+    setUrl(e.target.value);
+  });
+  document.querySelector("select").addEventListener("change", (e) => {
+    setInteraction(e.target.value);
+  });
+  document.querySelector("#share_text").addEventListener("keyup", (e) => {
+    setText(e.target.value);
+  });
+
+  const queryParams = new URLSearchParams(window.location.search);
+  if (queryParams.has("title")) setTitle(queryParams.get("title"));
+  if (queryParams.has("url")) setUrl(queryParams.get("url"));
+  if (queryParams.has("interaction"))
+    setInteraction(queryParams.get("interaction"));
+  if (queryParams.has("text")) setText(queryParams.get("text"));
+</script>

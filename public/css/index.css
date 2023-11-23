@@ -384,4 +384,8 @@
   .p-summary a {
     @apply break-words hyphens-auto;
   }
+
+  .text-input {
+    @apply block w-full bg-bg-body border-text-body focus:border-green-300 focus:ring-4 focus:ring-green-300;
+  }
 }

@@ -1,5 +1,8 @@
 # www.robotstxt.org
 
+User-agent: *
+Disallow: /share
+
 User-agent: CCBot
 Disallow: /
 
