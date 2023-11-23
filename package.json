@@ -13,7 +13,8 @@
     "debugstart": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
     "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
     "fetch": "node fetch-wm.js",
-    "send": "node send-wm.js"
+    "send": "node send-wm.js",
+    "netlify": "netlify dev"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
   },
   "homepage": "https://chringel.dev",
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
@@ -43,6 +44,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@11ty/eleventy-plugin-webc": "^0.10.1",
     "@11ty/is-land": "^4.0.0",
+    "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",
     "dayjs": "^1.11.10",
