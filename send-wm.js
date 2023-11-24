@@ -1,6 +1,7 @@
 const got = require("got");
-const { env } = require("process");
 const fsp = require("fs").promises;
+
+require("dotenv").config();
 
 async function sendWebmentions(domain, config) {
   const url = `${config.endpoint}/webmention/${domain}/${config.token}`;
@@ -12,7 +13,7 @@ async function sendWebmentions(domain, config) {
 (async function () {
   const config = {
     endpoint: "https://jam.chringel.dev",
-    token: process.env.WM_TOKEN,
+    token: process.env.JAM_TOKEN,
   };
 
   // send webmentions
