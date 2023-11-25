@@ -31,11 +31,13 @@ getFrontmatter = (yaml) => {
 };
 
 getFileContent = ({ title, url, text, interaction }) => {
-  const date = DateTime.utc().toISO({ suppressMilliseconds: true });
+  const date = DateTime.fromJSDate(jsDateObj, {
+    zone: "Europe/Berlin",
+  }).toISO();
   const frontmatter = getFrontmatter({
     author: "Christian Engel",
     type: "note",
-    date: `"${date}"`,
+    date: `${date}`,
     description: "Just a note",
     title: `"${sanitize(title)}"`,
     [interaction]: `"${url}"`,
