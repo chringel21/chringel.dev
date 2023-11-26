@@ -23,21 +23,27 @@ layout: "layouts/base.webc"
       <article
         class="h-entry border rounded-sm border-border-code max-w-2xl mx-auto"
       >
-        <div class="flex flex-wrap items-center p-4 text-sm">
-          <a :href="url('/about')" rel="author" class="p-author h-card unset">
-            <span class="flex items-center">
-              <img
-                webc:is="eleventy-image"
-                :src="metadata.avatar"
-                :alt="metadata.author.name"
-                width="48"
-                class="u-photo rounded-full h-12 w-12 mr-2"
-                formats="webp"
-              />
-              <strong @text="metadata.author.name" class="p-name"></strong>
-            </span>
-          </a>
-          <span class="mx-1">•</span>
+        <div class="flex flex-wrap gap-1 items-center p-4 text-sm">
+          <p
+            rel="author"
+            class="flex flex-wrap gap-2 items-center p-author h-card"
+          >
+            <img
+              webc:is="eleventy-image"
+              :src="metadata.avatar"
+              :alt="metadata.author.name"
+              width="48"
+              class="u-photo rounded-full h-12 w-12"
+              formats="webp"
+            />
+            <a
+              :href="url('/about')"
+              @text="metadata.author.name"
+              class="p-name unset font-bold"
+            >
+            </a>
+          </p>
+          <span>•</span>
           <a :href="url(entry.url)" class="u-url unset">
             <time
               :datetime="htmlDateString(entry.data.date)"
