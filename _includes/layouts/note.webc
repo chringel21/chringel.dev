@@ -12,25 +12,25 @@ layout: "layouts/base.webc"
             :src="metadata.avatar"
             :alt="metadata.author.name"
             width="48"
-            class="rounded-full h-12 w-12 mr-2"
+            class="u-photo rounded-full h-12 w-12 mr-2"
             formats="webp"
           />
           <strong @text="metadata.author.name" class="p-name"></strong>
         </span>
       </a>
       <span class="mx-1">•</span>
-      <a :href="url(page.url)" class="unset">
+      <a :href="url(page.url)" class="u-url unset">
         <time
           :datetime="htmlDateString(page.date)"
           @text="readableDate(page.date)"
-          class="text-text-muted"
+          class="dt-published text-text-muted"
         ></time>
       </a>
     </div>
     <div class="p-4">
       <h1 webc:if="title" @text="title"></h1>
       <note-type :@entry="frontmatter"></note-type>
-      <p @html="content" class="e-content"></p>
+      <div @html="content" class="e-content"></div>
     </div>
     <div class="p-4 bg-primary-yellow bg-opacity-20">
       <webmentions-base :@relative-target="page.url"></webmentions-base>

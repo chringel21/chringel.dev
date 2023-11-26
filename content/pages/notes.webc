@@ -31,25 +31,25 @@ layout: "layouts/base.webc"
                 :src="metadata.avatar"
                 :alt="metadata.author.name"
                 width="48"
-                class="rounded-full h-12 w-12 mr-2"
+                class="u-photo rounded-full h-12 w-12 mr-2"
                 formats="webp"
               />
               <strong @text="metadata.author.name" class="p-name"></strong>
             </span>
           </a>
           <span class="mx-1">•</span>
-          <a :href="url(entry.url)" class="unset">
+          <a :href="url(entry.url)" class="u-url unset">
             <time
               :datetime="htmlDateString(entry.data.date)"
               @text="readableDate(entry.data.date)"
-              class="text-text-muted"
+              class="dt-published text-text-muted"
             ></time>
           </a>
         </div>
         <div class="p-4">
           <h2 webc:if="entry.data.title" @text="entry.data.title"></h2>
           <note-type :@entry="entry.data"></note-type>
-          <p @html="entry.content" class="e-content"></p>
+          <div @html="entry.content" class="e-content"></div>
         </div>
         <div
           webc:if="!hideWebmentions"
