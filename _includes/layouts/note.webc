@@ -5,19 +5,20 @@ layout: "layouts/base.webc"
 <section class="border rounded-sm border-border-code max-w-2xl mx-auto">
   <article class="h-entry">
     <div class="flex flex-wrap gap-1 items-center p-4 text-sm">
-      <p rel="author" class="flex flex-wrap gap-2 items-center h-card p-author">
+      <p class="flex flex-wrap gap-2 items-center h-card p-author">
         <img
+          class="rounded-full h-12 w-12 u-photo"
           webc:is="eleventy-image"
           :src="metadata.avatar"
           :alt="metadata.author.name"
           width="48"
-          class="rounded-full h-12 w-12 u-photo"
           formats="webp"
         />
         <a
+          class="unset font-bold p-name u-url"
+          rel="author"
           :href="url('/about')"
           @text="metadata.author.name"
-          class="unset font-bold p-name u-url"
         >
         </a>
       </p>
@@ -31,7 +32,7 @@ layout: "layouts/base.webc"
       </a>
     </div>
     <div class="p-4">
-      <h1 webc:if="title" @text="title"></h1>
+      <h1 webc:if="title" @text="title" class="p-name"></h1>
       <note-type :@entry="frontmatter"></note-type>
       <div @html="content" class="e-content"></div>
     </div>
