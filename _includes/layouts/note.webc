@@ -15,7 +15,7 @@ layout: "layouts/base.webc"
             width="48"
             formats="webp"
           />
-          <strong class="p-name u-url" @text="metadata.author.name"> </strong>
+          <strong class="p-name" @text="metadata.author.name"> </strong>
         </span>
       </p>
       <span>•</span>
