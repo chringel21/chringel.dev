@@ -1,5 +1,5 @@
-const qs = require("querystring");
-const { DateTime } = require("luxon");
+import qs from "querystring";
+import { DateTime } from "luxon";
 
 const API_FILE_TARGET =
   "https://api.github.com/repos/chringel21/chringel.dev/contents/content/notes/";
@@ -18,7 +18,7 @@ const sanitize = (str) => {
   return str.trim();
 };
 
-getFrontmatter = (yaml) => {
+const getFrontmatter = (yaml) => {
   let frontmatter = [];
   frontmatter.push("---");
   Object.keys(yaml).map((key) => {
@@ -30,18 +30,26 @@ getFrontmatter = (yaml) => {
   return frontmatter.join("\n");
 };
 
-getFileContent = ({ title, url, text, interaction }) => {
-  const date = DateTime.fromJSDate(jsDateObj, {
+const getFileContent = ({
+  title,
+  url,
+  text,
+  interaction,
+  publish_to_mastodon,
+}) => {
+  const date = DateTime.fromJSDate(new Date(), {
     zone: "Europe/Berlin",
   }).toISO();
-  const frontmatter = getFrontmatter({
+  const dataObj = {
     author: "Christian Engel",
     type: "note",
     date: `${date}`,
     description: "Just a note",
     title: `"${sanitize(title)}"`,
-    [interaction]: `"${url}"`,
-  });
+  };
+  if (interaction !== "") dataObj[interaction] = `"${url}"`;
+  if (publish_to_mastodon) dataObj.bridgy = `\n  - mastodon`;
+  const frontmatter = getFrontmatter(dataObj);
 
   let content = frontmatter;
   if (text) {
@@ -53,7 +61,7 @@ getFileContent = ({ title, url, text, interaction }) => {
   return qs.unescape(encodeURIComponent(content));
 };
 
-getFileName = () => {
+const getFileName = () => {
   const date = DateTime.utc();
   const year = date.year;
   const month = date.month < 10 ? `0${date.month}` : date.month;
@@ -63,7 +71,7 @@ getFileName = () => {
   return `${year}/${month}/${day}/${hour}${minute}.md`;
 };
 
-postFile = async (data) => {
+const postFile = async (data) => {
   const { token } = data;
   const fileName = getFileName();
   const fileContent = getFileContent(data);
@@ -90,7 +98,7 @@ postFile = async (data) => {
   return await fetch(url, options);
 };
 
-handleResponse = (response) => {
+const handleResponse = (response) => {
   if (response.ok) {
     return new Response("Note published", { status: 200 });
   }

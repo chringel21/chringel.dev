@@ -108,6 +108,16 @@ excludeFromSitemap: true
               ></textarea>
             </label>
           </li>
+          <li class="col-span-1 justify-center text-right">
+            <label class="inline-flex items-center">
+              <input
+                type="checkbox"
+                name="publish_to_mastodon"
+                id="share_publish_to_mastodon"
+              />
+              <span class="ml-2">Publish to Mastodon?</span>
+            </label>
+          </li>
         </ul>
         <details class="col-span-2">
           <summary>Auth</summary>
