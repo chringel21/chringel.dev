@@ -1,4 +1,4 @@
-sendWebmentions = async (domain, config) => {
+const sendWebmentions = async (domain, config) => {
   const url = `${config.endpoint}/webmention/${domain}/${config.token}`;
 
   // this is an async call and will return 202 to say "started sending them out".
