@@ -51,7 +51,7 @@ layout: "layouts/base.webc"
           <h2
             webc:if="entry.data.title"
             @text="entry.data.title"
-            class="p-name"
+            class="p-name font-bold"
           ></h2>
           <note-type :@entry="entry.data"></note-type>
           <div @html="entry.content" class="e-content"></div>

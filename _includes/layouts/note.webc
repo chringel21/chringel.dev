@@ -28,9 +28,15 @@ layout: "layouts/base.webc"
       </a>
     </div>
     <div class="p-4">
-      <h1 webc:if="title" @text="title" class="p-name"></h1>
+      <h1 webc:if="title" @text="title" class="font-bold p-name"></h1>
       <note-type :@entry="frontmatter"></note-type>
       <div @html="content" class="e-content"></div>
+      <div webc:if="bridgy" class="hidden">
+        <a
+          webc:for="target of bridgy"
+          :href="'https://brid.gy/publish/' + target"
+        ></a>
+      </div>
     </div>
     <div class="p-4 bg-primary-yellow bg-opacity-20">
       <webmentions-base :@relative-target="page.url"></webmentions-base>
