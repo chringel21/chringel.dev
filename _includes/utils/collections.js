@@ -7,21 +7,21 @@ module.exports = {
   },
   allFeed: (collectionApi) => {
     return collectionApi
-      .getAllSorted()
+      .getFilteredByGlob("./content/{blog|notes}/**/*")
       .reverse()
-      .filter((item) => item.data.type === "post" || item.data.type === "note");
+      .filter((item) => !!item.data.permalink);
   },
   allPostsReverse: (collectionApi) => {
     return collectionApi
-      .getAllSorted()
+      .getFilteredByGlob("./content/blog/**/*")
       .reverse()
-      .filter((item) => item.data.type === "post");
+      .filter((item) => !!item.data.permalink);
   },
   allNotesReverse: (collectionApi) => {
     return collectionApi
-      .getAllSorted()
+      .getFilteredByGlob("./content/notes/**/*")
       .reverse()
-      .filter((item) => item.data.type === "note");
+      .filter((item) => !!item.data.permalink);
   },
   postsBySeries: (collectionApi) => {
     let series;
