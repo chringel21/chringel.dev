@@ -29,7 +29,9 @@ layout: "layouts/base.webc"
     </div>
     <div class="p-4">
       <h1 webc:if="title" @text="title" class="font-bold p-name"></h1>
-      <note-type :@entry="frontmatter"></note-type>
+      <note-type
+        :@entry="({reply: reply, like: like, repost: repost, quote: quote})"
+      ></note-type>
       <div @html="content" class="e-content"></div>
       <div webc:if="bridgy" class="hidden">
         <a

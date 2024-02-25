@@ -11,7 +11,6 @@ module.exports = {
     return `/${year}/${month}/${day}/${data.page.fileSlug}/`;
   },
   eleventyComputed: {
-    frontmatter: (data) => data,
     webmentionsByPage: (data) => {
       const wmByPage = data.webmentions.filter(
         (wm) => wm.relativeTarget === data.page.url

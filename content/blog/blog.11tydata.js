@@ -16,7 +16,6 @@ module.exports = {
     return `/${year}/${month}/${slugifiedTitle}/`;
   },
   eleventyComputed: {
-    frontmatter: (data) => data,
     coverImage: (data) => {
       if (data.cover && data.cover.src) {
         if (data.cover.src.includes("http")) {
