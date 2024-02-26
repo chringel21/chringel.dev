@@ -15,7 +15,7 @@ tags:
   - Google Maps
   - Vector tiles
   - Mapbox GL
-  - MapLibre GL
+  - Maplibre GL
   - OpenLayers
   - OpenStreetMap
   - OSM

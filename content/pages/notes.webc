@@ -68,13 +68,13 @@ layout: "layouts/base.webc"
             :@relative-target="entry.url"
             webc:else
           ></webmentions-base>
-          <!-- TODO Add tags -->
-          <!--<a
-          webc:for="value of entry.data.tags"
-          :href="'/tags/' + slugify(value)"
-          @text="value"
-          class="tag pr-1"
-        ></a>-->
+          <a
+            webc:for="value of entry.data.tags"
+            webc:if="value !== 'notes'"
+            :href="'/tags/' + slugify(value)"
+            @text="value"
+            class="tag pr-1"
+          ></a>
         </div>
       </article>
     </li>

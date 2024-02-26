@@ -17,7 +17,7 @@ tags:
   - Self-hosted
   - Open source
   - Python
-  - Javascript
+  - JavaScript
   - Ubersapce
 series:
   - Blogging with Hugo
@@ -45,31 +45,35 @@ Create one for your blog at `layouts/partials/comments.html`. For this theme, I 
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```html
-{{ if and .Site.DisqusShortname (index .Params "comments" | default "true") (not .Site.IsServer) }}
-<section class="comments">
-	{{ template "_internal/disqus.html" . }}
-</section>
-{{/* Add support for ISSO comment system */}}
-{{ else if .Site.Params.isso.enabled }}
-  <script
-      data-isso="{{ .Site.Params.isso.data }}"
-      data-isso-id="{{ .Site.Params.isso.id}}"
-      data-isso-css="{{ .Site.Params.isso.css }}"
-      data-isso-lang="{{ .Site.Params.isso.lang }}"
-      data-isso-reply-to-self="{{ .Site.Params.isso.replyToSelf }}"
-      data-isso-require-author="{{ .Site.Params.isso.requireAuthor }}"
-      data-isso-require-email="{{ .Site.Params.isso.requireEmail }}"
-      data-isso-avatar="{{ .Site.Params.isso.avatar }}"
-      data-isso-avatar-bg="{{ .Site.Params.isso.avatarBg }}"
-      src="{{ .Site.Params.isso.jsLocation }}">
-  </script>
-  <noscript>Please enable JavaScript to view the comments powered by <a href="https://posativ.org/isso/">Isso</a>.</noscript>
-  <div>
-    <section id="isso-thread"></section>
-  </div>
+{{ if and .Site.DisqusShortname (index .Params "comments" | default "true") (not
+.Site.IsServer) }}
+<section class="comments">{{ template "_internal/disqus.html" . }}</section>
+{{/* Add support for ISSO comment system */}} {{ else if
+.Site.Params.isso.enabled }}
+<script
+  data-isso="{{ .Site.Params.isso.data }}"
+  data-isso-id="{{ .Site.Params.isso.id}}"
+  data-isso-css="{{ .Site.Params.isso.css }}"
+  data-isso-lang="{{ .Site.Params.isso.lang }}"
+  data-isso-reply-to-self="{{ .Site.Params.isso.replyToSelf }}"
+  data-isso-require-author="{{ .Site.Params.isso.requireAuthor }}"
+  data-isso-require-email="{{ .Site.Params.isso.requireEmail }}"
+  data-isso-avatar="{{ .Site.Params.isso.avatar }}"
+  data-isso-avatar-bg="{{ .Site.Params.isso.avatarBg }}"
+  src="{{ .Site.Params.isso.jsLocation }}"
+></script>
+<noscript
+  >Please enable JavaScript to view the comments powered by
+  <a href="https://posativ.org/isso/">Isso</a>.</noscript
+>
+<div>
+  <section id="isso-thread"></section>
+</div>
 {{ end }}
 ```
+
 {% endraw %}
 
 This will check if the config paramter `DisqusShortname` is set. If it is, it will render the internal, standard partial for Disqus comments.

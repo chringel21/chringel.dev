@@ -42,13 +42,13 @@ layout: "layouts/base.webc"
     </div>
     <div class="p-4 bg-primary-yellow bg-opacity-20">
       <webmentions-base :@relative-target="page.url"></webmentions-base>
-      <!-- TODO Add tags -->
-      <!--<a
-      webc:for="value of entry.data.tags"
-      :href="'/tags/' + slugify(value)"
-      @text="value"
-      class="tag pr-1"
-    ></a>-->
+      <a
+        webc:for="value of tags"
+        webc:if="value !== 'notes'"
+        :href="'/tags/' + slugify(value)"
+        @text="value"
+        class="tag pr-1"
+      ></a>
     </div>
   </article>
 </section>

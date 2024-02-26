@@ -1,4 +1,5 @@
 const slugify = require("slugify");
+const url = require("../../_data/metadata").url;
 
 module.exports = {
   tags: ["posts"],
@@ -34,7 +35,7 @@ module.exports = {
         (wm) => wm.relativeTarget === data.page.url
       );
       const groupedWm = wmByPage.reduce((r, a) => {
-        if (!a.source.includes("https://chringel.dev/")) {
+        if (!a.source.includes(url)) {
           if (
             a.content !== "" &&
             (a.type === "reply" || a.type === "mention")

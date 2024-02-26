@@ -12,9 +12,9 @@ categories:
   - Spatial Stuff
 tags:
   - Network analysis
-  - graphhopper
-  - node.js
-  - maplibre-gl
+  - Graphhopper
+  - Node.js
+  - Maplibre GL
   - isochrones
   - turf.js
 description: I prototyped a network analysis app using Graphhopper, Node.js and Maplibre GL
