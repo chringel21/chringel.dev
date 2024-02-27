@@ -138,7 +138,7 @@ module.exports = (eleventyConfig) => {
 
     markdownTemplateEngine: "njk",
 
-    htmlTemplateEngine: "webc",
+    htmlTemplateEngine: "html",
 
     dir: {
       input: "content",

@@ -1,0 +1,31 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images/uploads"
+collections:
+  - name: blog
+    label: Blog
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}/{{slug}}/index.md"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - {
+          label: Author,
+          name: author,
+          widget: string,
+          default: "Christian Engel",
+        }
+      - { label: Type, name: type, widget: string, default: "post" }
+      - { label: Date, name: date, widget: datetime }
+      - { label: "Cover Image", name: cover, widget: image, media_folder: "./" }
+      - {
+          label: Categories,
+          name: categories,
+          widget: list,
+          default: ["Coding"],
+          allow_add: true,
+        }
+      - { label: Tags, name: tags, widget: list, allow_add: true }
+      - { label: Description, name: description, widget: text }
