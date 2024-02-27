@@ -8,7 +8,7 @@ collections:
     label: Blog
     folder: "content/blog"
     create: true
-    slug: "{{year}}/{{slug}}/index.md"
+    slug: "{{year}}/{{slug}}/index"
     fields:
       - { label: Title, name: title, widget: string }
       - {
@@ -19,7 +19,12 @@ collections:
         }
       - { label: Type, name: type, widget: string, default: "post" }
       - { label: Date, name: date, widget: datetime }
-      - { label: "Cover Image", name: cover, widget: image, media_folder: "./" }
+      - label: "Cover Image"
+        name: cover
+        widget: object
+        fields:
+          - { label: Source, name: src, widget: image, media_folder: "./" }
+          - { label: Caption, name: caption, widget: string }
       - {
           label: Categories,
           name: categories,
