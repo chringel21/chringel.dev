@@ -1,6 +1,11 @@
 [dev]
 targetPort = 3_000
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+  Access-Control-Allow-Origin = "http://localhost:3000"
+
 [[plugins]]
 package = "netlify-plugin-cache"
 
