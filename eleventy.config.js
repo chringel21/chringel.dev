@@ -76,6 +76,7 @@ module.exports = (eleventyConfig) => {
     "./static/browserconfig.xml": "/browserconfig.xml",
     "./static/robots.txt": "/robots.txt",
     "./admin": "/admin",
+    "./static/admin.css": "/admin.css",
   });
 
   // markdown-it
