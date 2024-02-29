@@ -22,12 +22,8 @@ collections:
         }
       - { label: Type, name: type, widget: string, default: "post" }
       - { label: Date, name: date, widget: datetime }
-      - label: "Cover Image"
-        name: cover
-        widget: object
-        fields:
-          - { label: Source, name: src, widget: image, media_folder: "./" }
-          - { label: Caption, name: caption, widget: string }
+      - { label: Cover Source, name: cover, widget: image, media_folder: "./" }
+      - { label: Caption, name: caption, widget: markdown }
       - {
           label: Categories,
           name: categories,
