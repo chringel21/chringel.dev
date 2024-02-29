@@ -19,7 +19,8 @@ collections:
         }
       - { label: Type, name: type, widget: string, default: "post" }
       - { label: Date, name: date, widget: datetime }
-      - { label: "Cover Image", name: cover, widget: image, media_folder: "./" }
+      - { label: Cover Source, name: cover, widget: image, media_folder: "./" }
+      - { label: Caption, name: caption, widget: markdown }
       - {
           label: Categories,
           name: categories,

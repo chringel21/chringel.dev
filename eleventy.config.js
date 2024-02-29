@@ -62,7 +62,6 @@ module.exports = (eleventyConfig) => {
   });
 
   // Passthrough
-  eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
   eleventyConfig.addPassthroughCopy({
     "./public/fonts": "/fonts",
     "./public/img": "/img",
@@ -132,6 +131,13 @@ module.exports = (eleventyConfig) => {
     });
 
   eleventyConfig.setLibrary("md", markdownLib);
+
+  eleventyConfig.on("eleventy.beforeWatch", (changedFiles) => {
+    if (!changedFiles.some((filePath) => filePath.includes("./_layouts"))) {
+      console.log("🤠 Component files updated -- coercing layout reload.");
+      exec("find _layouts/*.webc -type f -exec touch {} +");
+    }
+  });
 
   return {
     templateFormats: ["md", "njk", "html", "webc", "11ty.js"],
