@@ -27,9 +27,11 @@ This site uses a self-hosted alternative to _Google Analytics_ called [umami](ht
 
 ## Leaving a comment
 
-This site uses a self-hosted alternative to _Disqus_ called [Isso](https://isso-comments.de/).
+~~This site uses a self-hosted alternative to _Disqus_ called [Isso](https://isso-comments.de/).~~
 
-When you choose to write a comment, you are **not required to enter any personal information**. You can at **any time request the removal** of one or all comments associated with your personal data.
+~~When you choose to write a comment, you are **not required to enter any personal information**. You can at **any time request the removal** of one or all comments associated with your personal data.~~
+
+Ever since moving to **Eleventy** and creating a new theme ([read about it](/blog/2023/10/migrating-from-hugo-to-eleventy-11ty/)) I decided to remove comments. Over a period of nearly two years I didn't receive a single comment, so why bother.
 
 ## Sending a Webmention
 
