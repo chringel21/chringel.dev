@@ -4,9 +4,8 @@ author: Christian Engel
 type: post
 date: 2023-02-20T09:49:29+01:00
 lastmod: 2023-03-03T08:03:00+01:00
-cover:
-  src: feature.png
-  caption: "Isochrone reachability calculated using Graphhopper"
+image: feature.png
+caption: "Isochrone reachability calculated using Graphhopper"
 categories:
   - Coding
   - Spatial Stuff

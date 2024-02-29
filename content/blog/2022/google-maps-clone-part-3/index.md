@@ -3,9 +3,8 @@ title: "Creating a Google Maps Client - Part 3 - Directions To Go"
 author: Christian Engel
 type: post
 date: 2022-08-14T14:39:34
-cover:
-  src: feature.jpg
-  caption: A routing backend will tell you where to go
+image: feature.jpg
+caption: A routing backend will tell you where to go
 categories:
   - Coding
   - Tutorials

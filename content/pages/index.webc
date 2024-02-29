@@ -35,7 +35,7 @@ eleventyNavigation:
       >
         <eleventy-image
           :src="entry.data.coverImage"
-          :alt="entry.data.cover.caption"
+          :alt="entry.data.caption"
           sizes="10vw"
           class="post-item-image"
         ></eleventy-image>

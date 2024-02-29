@@ -3,9 +3,8 @@ title: "Installing GDAL on Uberspace 7"
 author: Christian Engel
 type: post
 date: 2023-01-27T09:07:45+01:00
-cover:
-  src: feature.png
-  caption: "GDAL on Uberspace 7"
+image: feature.png
+caption: "GDAL on Uberspace 7"
 categories:
   - Tutorials
   - Spatial Stuff

@@ -30,8 +30,8 @@ eleventyImport:
       <guid>{{ absolutePostUrl }}</guid>
       <description>
         <![CDATA[
-        {% if post.data.cover %}
-          {% image post.data.coverImage, post.data.cover.caption, [50vw] %}
+        {% if post.data.image %}
+          {% image post.data.coverImage, post.data.caption, [50vw] %}
         {% endif %}
         {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
         {% if post.data.reply %}

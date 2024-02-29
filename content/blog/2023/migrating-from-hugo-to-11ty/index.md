@@ -4,9 +4,8 @@ author: Christian Engel
 type: post
 date: 2023-10-23T09:49:29+01:00
 lastmod: 2023-10-23T09:49:29+01:00
-cover:
-  src: feature.png
-  caption: "**Leaving Hugo for 11ty** (Original: *Joshua Reynolds*, David Garrick Between Tragedy and Comedy, 1761 - [Wikipedia](https://en.wikipedia.org/wiki/David_Garrick_Between_Tragedy_and_Comedy))"
+image: feature.png
+caption: "**Leaving Hugo for 11ty** (Original: *Joshua Reynolds*, David Garrick Between Tragedy and Comedy, 1761 - [Wikipedia](https://en.wikipedia.org/wiki/David_Garrick_Between_Tragedy_and_Comedy))"
 categories:
   - Coding
 tags:

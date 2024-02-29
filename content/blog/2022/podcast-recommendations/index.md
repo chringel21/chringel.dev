@@ -3,9 +3,8 @@ title: "Podcast Recommendations"
 author: Christian Engel
 type: post
 date: 2022-10-18T09:52:13+02:00
-cover:
-  src: feature.jpg
-  caption: Strolling around
+image: feature.jpg
+caption: Strolling around
 categories:
   - Thoughts
 tags:

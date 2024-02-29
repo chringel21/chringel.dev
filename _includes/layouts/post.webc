@@ -25,12 +25,12 @@ layout: "layouts/base.webc"
         <div>
           <eleventy-image
             :src="coverImage"
-            :alt="cover.caption"
+            :alt="caption"
             sizes="60vw"
             class="rounded-md"
           ></eleventy-image>
           <figcaption
-            @html="md(cover.caption)"
+            @html="md(caption)"
             class="text-sm text-text-muted self-start pt-2 ml-2"
           ></figcaption>
         </div>

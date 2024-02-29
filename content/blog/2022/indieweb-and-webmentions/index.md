@@ -3,9 +3,8 @@ title: "Indiewebify me! And don't forget my webmentions!"
 author: Christian Engel
 type: post
 date: 2022-07-22
-cover:
-  src: feature.png
-  caption: Looks like a nice new seat pattern for the Berlin public transport agency ([BVG](https://www.rbb24.de/panorama/beitrag/2022/07/berlin-bvg-neues-muste-sitze.html))
+image: feature.png
+caption: Looks like a nice new seat pattern for the Berlin public transport agency ([BVG](https://www.rbb24.de/panorama/beitrag/2022/07/berlin-bvg-neues-muste-sitze.html))
 categories:
   - Coding
   - Report

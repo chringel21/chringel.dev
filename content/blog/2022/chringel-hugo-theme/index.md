@@ -3,9 +3,8 @@ title: "Chringel Hugo Theme"
 author: Christian Engel
 type: post
 date: 2022-02-28
-cover:
-  src: feature-chringel-hugo-theme.png
-  caption: chringel - A custom Hugo theme
+image: feature-chringel-hugo-theme.png
+caption: chringel - A custom Hugo theme
 categories:
   - Coding
   - Design

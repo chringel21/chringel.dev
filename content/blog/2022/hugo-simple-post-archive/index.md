@@ -3,9 +3,8 @@ title: "Hugo Simple Post Archive"
 author: Christian Engel
 type: post
 date: 2022-09-02T07:38:34+02:00
-cover:
-  src: feature.jpg
-  caption: A simple post archive with Hugo ([Image](https://wikipedia20.pubpub.org/pub/d26b3c1u))
+image: feature.jpg
+caption: A simple post archive with Hugo ([Image](https://wikipedia20.pubpub.org/pub/d26b3c1u))
 categories:
   - Tutorials
   - Coding
@@ -68,6 +67,7 @@ myTheme
 Since the section page is declared as `type: archive`, it will pick up the template file located in the `archive` folder. Here's the bare bones layout. I removed all custom styles to make it clearer.
 
 {% raw %}
+
 <!-- prettier-ignore -->
 ```go
 {{ define "main" }}
@@ -109,6 +109,7 @@ Since the section page is declared as `type: archive`, it will pick up the templ
   {{ end }}
 {{ end }}
 ```
+
 {% endraw %}
 
 That's it! The gist is: group all pages by year, and then iterate over these page but only render actual blog posts. You can check out the result at my [archive](/archive).

@@ -4,9 +4,8 @@ author: Christian Engel
 type: post
 date: 2022-06-20
 lastmod: 2022-07-15
-cover:
-  src: feature.png
-  caption: Vector tiles with different styles
+image: feature.png
+caption: Vector tiles with different styles
 categories:
   - Coding
   - Tutorials

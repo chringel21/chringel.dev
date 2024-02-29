@@ -3,9 +3,8 @@ title: "umami - A Google Analytics Alternative For Hugo"
 author: Christian Engel
 type: post
 date: 2022-04-28
-cover:
-  src: feature-umami.jpg
-  caption: Free and privacy focused analytics for Hugo. [Source](https://umami.is/)
+image: feature-umami.jpg
+caption: Free and privacy focused analytics for Hugo. [Source](https://umami.is/)
 categories:
   - Coding
   - Tutorials

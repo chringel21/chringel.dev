@@ -3,9 +3,8 @@ title: "Run Doom on MacOS"
 author: Christian Engel
 type: post
 date: 2022-05-11
-cover:
-  src: feature-doom-on-macos.png
-  caption: Running Doom on MacOS is not that hard!
+image: feature-doom-on-macos.png
+caption: Running Doom on MacOS is not that hard!
 categories:
   - Gaming
 tags:

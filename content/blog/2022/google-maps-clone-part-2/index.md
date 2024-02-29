@@ -3,9 +3,8 @@ title: "Creating a Google Maps Clone - Part 2 - Geocoding or 'Where's that place
 author: Christian Engel
 type: post
 date: 2022-07-15
-cover:
-  src: feature.png
-  caption: Let's find all the places - use a geocoding service!
+image: feature.png
+caption: Let's find all the places - use a geocoding service!
 categories:
   - Coding
   - Tutorials

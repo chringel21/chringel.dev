@@ -3,9 +3,8 @@ title: Musings of a Developer Dad
 author: Christian Engel
 type: post
 date: 2022-09-13T17:42:19+02:00
-cover:
-  src: feature.jpg
-  caption: I am developer dad (Image by [Markus Spiske](https://unsplash.com/@markusspiske))
+image: feature.jpg
+caption: I am developer dad (Image by [Markus Spiske](https://unsplash.com/@markusspiske))
 categories:
   - Thoughts
 tags:

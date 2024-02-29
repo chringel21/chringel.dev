@@ -3,9 +3,8 @@ title: "Automatically Deploy a Hugo Website to a Remote Host Using Github Action
 author: Christian Engel
 type: post
 date: 2022-05-02
-cover:
-  src: feature-hugo-deployment.png
-  caption: \"I love it when a plan comes together" - Every DevOps engineer, ever.
+image: feature-hugo-deployment.png
+caption: \"I love it when a plan comes together" - Every DevOps engineer, ever.
 categories:
   - Coding
   - Tutorials

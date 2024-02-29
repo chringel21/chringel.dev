@@ -3,9 +3,8 @@ title: "Back at Work"
 author: Christian
 type: post
 date: 2022-11-21T13:24:04+01:00
-cover:
-  src: feature.jpg
-  caption: "Back to the hamster wheel (Image: [Matt Bero](https://unsplash.com/photos/wMXetxdXeZM))"
+image: feature.jpg
+caption: "Back to the hamster wheel (Image: [Matt Bero](https://unsplash.com/photos/wMXetxdXeZM))"
 categories:
   - Thoughts
 tags:

@@ -18,13 +18,13 @@ module.exports = {
   },
   eleventyComputed: {
     coverImage: (data) => {
-      if (data.cover && data.cover.src) {
-        if (data.cover.src.includes("http")) {
-          return data.cover.src;
+      if (data.image) {
+        if (data.image.includes("http")) {
+          return data.image;
         } else {
           const newFilePathStem = data.page.filePathStem.replace(
             "index",
-            data.cover.src
+            data.image
           );
           return `./content${newFilePathStem}`;
         }

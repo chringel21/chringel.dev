@@ -3,9 +3,8 @@ title: "Random Cover Image"
 author: Christian Engel
 type: post
 date: 2022-11-29T14:10:33+01:00
-cover:
-  src: https://images.unsplash.com/photo-1494173962596-0ff16c1b6a81?ixid=MnwzODQzMzl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk3MzEyMDc&ixlib=rb-4.0.3&w=1500&h=750&crop=focalpoint&fit=crop
-  caption: "Gray speaker on table near brown wooden pto (Photo by [Gabriel Beaudry](https://unsplash.com/@gbeaudry?utm_source=chringel.dev%20blog&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=chringel.dev%20blog&utm_medium=referral))"
+image: https://images.unsplash.com/photo-1494173962596-0ff16c1b6a81?ixid=MnwzODQzMzl8MHwxfHJhbmRvbXx8fHx8fHx8fDE2Njk3MzEyMDc&ixlib=rb-4.0.3&w=1500&h=750&crop=focalpoint&fit=crop
+caption: "Gray speaker on table near brown wooden pto (Photo by [Gabriel Beaudry](https://unsplash.com/@gbeaudry?utm_source=chringel.dev%20blog&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=chringel.dev%20blog&utm_medium=referral))"
 categories:
   - Coding
   - Tutorials
@@ -50,6 +49,7 @@ But you can also use it with Hugo's default [image parameter](https://gohugo.io/
 ## Full code
 
 {% raw %}
+
 ```go
 {{- $imageUrl := "" -}}
 {{- $author := "" -}}
@@ -71,6 +71,7 @@ But you can also use it with Hugo's default [image parameter](https://gohugo.io/
   {{ $altDescription = . | humanize}}
 {{- end -}}
 ```
+
 {% endraw %}
 
 ### Step by step explanation
@@ -78,12 +79,14 @@ But you can also use it with Hugo's default [image parameter](https://gohugo.io/
 First, we define four variables `$imageUrl`, `$author`, `$authorUrl` and `$altDescription`.
 
 {% raw %}
+
 ```go
 {{- $imageUrl := "" -}}
 {{- $author := "" -}}
 {{- $authorUrl := "" -}}
 {{- $altDescription := "" -}}
 ```
+
 {% endraw %}
 
 [Unsplash's guideline for attribution](https://help.unsplash.com/en/articles/2511315-guideline-attribution) says, you need to properly attribute the image's author coming from Unsplash. That's why we need the author's name and a link to their profile. For the image caption, we would like to use the image's description.
@@ -91,11 +94,13 @@ First, we define four variables `$imageUrl`, `$author`, `$authorUrl` and `$altDe
 Next, we authorize against Unsplash's API and make a request to the [`random`](https://unsplash.com/documentation#get-a-random-photo) endpoint.
 
 {% raw %}
+
 ```go
 {{- $unsplashAccessToken := getenv "HUGO_UNSPLASH_ACCESS_TOKEN" -}}
 {{- $authorization := $unsplashAccessToken | printf "%s %s" "Client-ID" -}}
 {{- $data := getJSON "https://api.unsplash.com/photos/random/?orientation=landscape" (dict "Authorization" $authorization) -}}
 ```
+
 {% endraw %}
 
 When creating a developer account, you'll receive your `Access` and `Secret` keys. **Never share either of them publicly!** I would recommend exporting your `access key` as an environment variable, i.e. `HUGO_UNSPLASH_ACCESS_TOKEN`. The next line builds the value for the authorization header, required for accessing the API. The last line sends a request and stores the response in the `$data` variable.
@@ -103,6 +108,7 @@ When creating a developer account, you'll receive your `Access` and `Secret` key
 The last step is just assigning variables based on the JSON response object.
 
 {% raw %}
+
 ```go
 {{- with $data.urls -}}
   {{- $imageUrl = .raw -}}
@@ -115,17 +121,19 @@ The last step is just assigning variables based on the JSON response object.
   {{ $altDescription = . | humanize}}
 {{- end -}}
 ```
+
 {% endraw %}
 
 Now, we can use the variables in our front matter, i.e.:
 
 <!-- prettier-ignore -->
 {% raw %}
+
 ```
-cover:
-  src: {{ $imageUrl }}
-  caption: "{{ $altDescription }} (Photo by [{{ $author }}]({{ $authorUrl }}?utm_source=app_name&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=app_name&utm_medium=referral))"
+cover: {{ $imageUrl }}
+caption: "{{ $altDescription }} (Photo by [{{ $author }}]({{ $authorUrl }}?utm_source=app_name&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=app_name&utm_medium=referral))"
 ```
+
 {% endraw %}
 
 ## Alternative use in a Shortcode
@@ -133,6 +141,7 @@ cover:
 You could also use this snippet as a [Shortcode](https://gohugo.io/content-management/shortcodes/#what-a-shortcode-is) to generate an image based off a search term. The [`random`](https://unsplash.com/documentation#get-a-random-photo) endpoint mentioned above allows a `query` parameter, which you can pass search terms.
 
 {% raw %}
+
 ```go
 // layout/shortcodes/random-image.html
 
@@ -169,12 +178,15 @@ You could also use this snippet as a [Shortcode](https://gohugo.io/content-manag
     <p>{{ $altDescription }} (Photo by <a href="{{ $authorUrl }}?utm_source=app_name&utm_medium=referral">{{ $author }}</a> on <a href="https://unsplash.com/?utm_source=app_name&utm_medium=referral">Unsplash</a>)</p>
   </figcaption>
 ```
+
 {% endraw %}
 
 Use the shortcode like this:
 
 {% raw %}
+
 ```
 {{</* random-image "sunset" */>}}
 ```
+
 {% endraw %}

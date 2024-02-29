@@ -4,9 +4,8 @@ author: Christian Engel
 type: post
 date: 2023-11-10T09:10:57.709+01:00
 lastmod: 2023-11-10T09:10:57.709+01:00
-cover:
-  src: feature.png
-  caption: Lets compress some JS! Original image by [pikist.com](https://www.pikist.com/free-photo-innth/de).
+image: feature.png
+caption: Lets compress some JS! Original image by [pikist.com](https://www.pikist.com/free-photo-innth/de).
 categories:
   - Coding
 tags:
