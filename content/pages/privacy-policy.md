@@ -41,4 +41,4 @@ By supporting Webmentions on your website, **you explicitly signal your wish for
 
 This site collects relatively little personal data, none even if you choose only to consume and have no interactions. But you may at any time demand information on all your stored personal data, their correction and their deletion. Please send me a message.
 
-<p webc:is="encode-email" @address="Y29udGFjdEBjaHJpbmdlbC5kZXYK" @message="Show email address"></p>
+<p webc:is="encode-email" @address="WTI5dWRHRmpkRUJqYUhKcGJtZGxiQzVrWlhZSwo=" @message="Send me an email"></p>

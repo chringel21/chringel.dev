@@ -17,11 +17,11 @@ Potsdam
 
 ## Kontakt
 
-<p webc:is="encode-email" @address="Y29udGFjdEBjaHJpbmdlbC5kZXYK" @message="Email-Adresse anzeigen"></p>
+<p webc:is="encode-email" @address="WTI5dWRHRmpkRUJqYUhKcGJtZGxiQzVrWlhZSwo=" @message="Email senden"></p>
 
 ## Datenschutz
 
-Die Zielgruppe der auf dieser Seite verfassten Inhalte ist ein Englisch sprechendes Fachpublikum. Die Datenschutzerklärung gem. DSGVO ist daher in Englisch verfasst und unter [Privacy Protection](/privacy-policy) abrufbar.
+Die Zielgruppe der auf dieser Seite verfassten Inhalte ist ein Englisch sprechendes Fachpublikum. Die Datenschutzerklärung gem. DSGVO ist daher in Englisch verfasst und unter [Privacy Policy](/privacy-policy) abrufbar.
 
 ## Haftungsausschluss (Disclaimer)
 
