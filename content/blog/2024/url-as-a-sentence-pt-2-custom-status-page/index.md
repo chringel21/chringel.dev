@@ -12,8 +12,8 @@ description: With this post I would like to respond to Adam Newbold's take on th
 tags:
   - 11ty
   - serverless
-# syndication:
-#   mastodon: https://...
+syndication:
+  mastodon: https://fosstodon.org/@chringel/112695728645309415
 ---
 
 Earlier this year (has it really been _that_ long since I came across that post?) I read about a fascinating concept: a [URL as a sentence](https://notes.neatnik.net/2024/02/url-as-a-sentence) proposed by [Adam Newbold](https://adam.omg.lol/). What if a url, comprised of (sub)domain and path, would be a valid, informative sentence? I was really intrigued by the idea of owning a website that would automatically, only by looking at its url, convey information.
