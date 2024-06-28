@@ -23,6 +23,7 @@ layout: "layouts/base.webc"
           ></span>
         </div>
         <div>
+        <div webc:if="coverImage">
           <eleventy-image
             :src="coverImage"
             :alt="caption"

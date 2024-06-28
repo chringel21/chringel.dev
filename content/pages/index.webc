@@ -30,7 +30,7 @@ eleventyNavigation:
     >
       <div
         webc:for="(entry, index) of collections.allPostsReverse"
-        webc:if="index < 8"
+        webc:if="index < 8 && entry.data.image"
         class="post-item"
       >
         <eleventy-image
