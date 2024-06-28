@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
-    "dev:11ty": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --port 3000",
+    "dev:11ty": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --port 3000 --incremental",
     "dev:css": "tailwindcss -i public/css/index.css -o _site/css/index.css --watch --postcss",
     "build:11ty": "ELEVENTY_ENV=production npx @11ty/eleventy",
     "build:css": "tailwindcss -i public/css/index.css -o _site/css/index.css --postcss --minify",
