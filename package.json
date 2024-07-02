@@ -2,6 +2,7 @@
   "name": "chringel.dev",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "start": "npm-run-all -p dev:*",
     "build": "run-s build:*",
@@ -31,10 +32,10 @@
   },
   "homepage": "https://chringel.dev",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "3.0.0-alpha.14",
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-fetch": "^4.0.0",
     "@11ty/eleventy-img": "^3.1.0",
@@ -42,14 +43,14 @@
     "@11ty/eleventy-plugin-bundle": "^1.0.4",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
-    "@11ty/eleventy-plugin-webc": "^0.10.1",
+    "@11ty/eleventy-plugin-webc": "^0.11.2",
     "@11ty/is-land": "^4.0.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",
     "dayjs": "^1.11.10",
     "dotenv": "^16.0.3",
-    "eleventy-plugin-svg-sprite": "^2.3.0",
+    "eleventy-plugin-svg-sprite": "^2.4.2",
     "esbuild": "0.19.5",
     "got": "^11.8.5",
     "ionicons": "^7.1.0",
