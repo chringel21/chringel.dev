@@ -1,20 +1,23 @@
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-const pluginBundle = require("@11ty/eleventy-plugin-bundle");
-const eleventyNavigation = require("@11ty/eleventy-navigation");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginWebc = require("@11ty/eleventy-plugin-webc");
-const svgSprite = require("eleventy-plugin-svg-sprite");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const markdownItEleventyImg = require("markdown-it-eleventy-img");
-const { minify } = require("terser");
-const path = require("path");
+import { EleventyRenderPlugin } from "@11ty/eleventy";
+import pluginBundle from "@11ty/eleventy-plugin-bundle";
+import eleventyNavigation from "@11ty/eleventy-navigation";
+import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import pluginWebc from "@11ty/eleventy-plugin-webc";
+import svgSprite from "eleventy-plugin-svg-sprite";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import markdownIt from "markdown-it";
+import markdownItAnchor from "markdown-it-anchor";
+import markdownItEleventyImg from "markdown-it-eleventy-img";
+import { minify } from "terser";
+import path from "path";
 
-const filters = require("./_includes/utils/filters.js");
-const collections = require("./_includes/utils/collections.js");
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 
-module.exports = (eleventyConfig) => {
+import filters from "./_includes/utils/filters.cjs";
+import collections from "./_includes/utils/collections.cjs";
+
+export default async function (eleventyConfig) {
   // Watch targets
   eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
 
@@ -49,7 +52,7 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPlugin(pluginRss);
 
   // App plugins
-  eleventyConfig.addPlugin(require("./eleventy.config.images.js"));
+  eleventyConfig.addPlugin(require("./eleventy.config.images.cjs"));
 
   // Filters
   Object.keys(filters).forEach((filterName) => {
@@ -134,15 +137,8 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.setLibrary("md", markdownLib);
 
-  eleventyConfig.on("eleventy.beforeWatch", (changedFiles) => {
-    if (!changedFiles.some((filePath) => filePath.includes("./_layouts"))) {
-      console.log("🤠 Component files updated -- coercing layout reload.");
-      exec("find _layouts/*.webc -type f -exec touch {} +");
-    }
-  });
-
   return {
-    templateFormats: ["md", "njk", "html", "webc", "11ty.js"],
+    templateFormats: ["md", "njk", "html", "webc", "11ty.cjs"],
 
     markdownTemplateEngine: "njk",
 
@@ -155,4 +151,4 @@ module.exports = (eleventyConfig) => {
       includes: "../_includes",
     },
   };
-};
+}
