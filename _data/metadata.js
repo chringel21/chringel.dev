@@ -1,6 +1,4 @@
-const path = require("path");
-
-module.exports = {
+export default {
   title: "chringel.dev",
   url: "https://chringel.dev",
   language: "en",
@@ -11,5 +9,5 @@ module.exports = {
     email: "ch-engel@posteo.de",
     url: "https://chringel.dev/about/",
   },
-  avatar: path.join(path.dirname(__dirname), "content/avatar.png"),
+  avatar: new URL("../content/avatar.png", import.meta.url).pathname,
 };
