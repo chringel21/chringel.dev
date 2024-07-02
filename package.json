@@ -51,7 +51,7 @@
     "dayjs": "^1.11.10",
     "dotenv": "^16.0.3",
     "eleventy-plugin-svg-sprite": "^2.4.2",
-    "esbuild": "0.19.5",
+    "esbuild": "^0.19.5",
     "got": "^11.8.5",
     "ionicons": "^7.1.0",
     "luxon": "^3.3.0",
