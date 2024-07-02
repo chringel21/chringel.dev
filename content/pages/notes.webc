@@ -29,12 +29,12 @@ layout: "layouts/base.webc"
               <img
                 class="rounded-full u-photo"
                 webc:is="eleventy-image"
-                :src="metadata.avatar"
-                :alt="metadata.author.name"
+                :src="$data.metadata.avatar"
+                :alt="$data.metadata.author.name"
                 width="48"
                 formats="webp"
               />
-              <strong class="p-name u-url" @text="metadata.author.name">
+              <strong class="p-name u-url" @text="$data.metadata.author.name">
               </strong>
             </span>
           </p>
@@ -54,7 +54,7 @@ layout: "layouts/base.webc"
             class="p-name font-bold"
           ></h2>
           <note-type :@entry="entry.data"></note-type>
-          <div @html="entry.content" class="e-content"></div>
+          <div @html="entry.computedContent" class="e-content"></div>
         </div>
         <div
           webc:if="!hideWebmentions"

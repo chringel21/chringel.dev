@@ -3,7 +3,10 @@
   <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
   <nav class="nav">
     <ul class="menu">
-      <li class="" webc:for="entry of eleventyNavigation(collections.all)">
+      <li
+        class=""
+        webc:for="entry of eleventyNavigation($data.collections.all)"
+      >
         <nav-link @prop="entry" @prop="page"></nav-link>
       </li>
     </ul>

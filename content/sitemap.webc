@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
 >
   <url webc:for="(key, value) in collections.all">
-    <loc @text="metadata.url + value.url"></loc>
+    <loc @text="$data.metadata.url + value.url"></loc>
     <lastmod @text="htmlDateString(value.date)"></lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

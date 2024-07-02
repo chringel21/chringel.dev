@@ -1,4 +1,5 @@
 <script webc:type="js">
+  const metadata = $data.metadata;
   const image = cover ? coverImage : metadata.avatar;
   const imagePermalink = new URL(imageUrl(image), metadata.url).toString();
   const canonical = new URL(page.url, metadata.url);

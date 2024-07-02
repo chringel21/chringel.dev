@@ -1,4 +1,4 @@
 <script webc:type="js">
-  const canonical = new URL(page.url, metadata.url);
+  const canonical = new URL(page.url, $data.metadata.url);
   `<link rel="canonical" href="${canonical.toString()}">`;
 </script>

@@ -31,13 +31,16 @@ excludeFromSitemap: true
               <span class="flex items-center">
                 <img
                   webc:is="eleventy-image"
-                  :src="metadata.avatar"
-                  :alt="metadata.author.name"
+                  :src="$data.metadata.avatar"
+                  :alt="$data.metadata.author.name"
                   width="48"
                   class="rounded-full h-12 w-12 mr-2"
                   formats="webp"
                 />
-                <strong @text="metadata.author.name" class="p-name"></strong>
+                <strong
+                  @text="$data.metadata.author.name"
+                  class="p-name"
+                ></strong>
               </span>
             </div>
             <span class="mx-1">•</span>

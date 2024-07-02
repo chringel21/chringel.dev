@@ -1,4 +1,5 @@
 <script webc:type="js">
+  const metadata = $data.metadata;
   let text = metadata.title;
 
   if (title && metadata.author.name) {

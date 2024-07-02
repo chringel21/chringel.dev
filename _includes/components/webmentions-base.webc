@@ -1,4 +1,4 @@
-<template webc:nokeep webc:if="webmentionsByPage">
+<template webc:nokeep webc:if="$data.webmentionsByPage">
   <h2 class="text-xl font-bold mb-4">
     <span class="title-underline">Webmentions </span>
   </h2>
@@ -8,7 +8,7 @@
       <a href="https://indieweb.org/Webmention">webmention?</a>
     </p>
     <form
-      :action="indieweb.webmentionUrl + indieweb.webmentionEndpoint"
+      :action="$data.indieweb.webmentionUrl + $data.indieweb.webmentionEndpoint"
       method="post"
     >
       <label for="form-webmention-source" class="mb-2 mr-2">URL</label>
@@ -31,14 +31,14 @@
   </div>
 
   <div
-    webc:if="webmentionsByPage.likes"
+    webc:if="$data.webmentionsByPage.likes"
     class="flex flex-wrap items-center mb-8"
   >
     <h3 class="text-lg font-bold w-24">
-      <span @text="webmentionsByPage.likes.length"></span>
+      <span @text="$data.webmentionsByPage.likes.length"></span>
       Likes
     </h3>
-    <template webc:nokeep webc:for="wm of webmentionsByPage.likes">
+    <template webc:nokeep webc:for="wm of $data.webmentionsByPage.likes">
       <a
         :href="wm.url"
         rel="author"
@@ -48,7 +48,7 @@
         <div class="relative">
           <img
             loading="lazy"
-            :src="indieweb.webmentionUrl + wm.author.picture"
+            :src="$data.indieweb.webmentionUrl + wm.author.picture"
             :alt="wm.author.picture"
             class="rounded-full w-10 h-10 border border-border-code left"
           />
@@ -59,14 +59,14 @@
   </div>
 
   <div
-    webc:if="webmentionsByPage.reposts"
+    webc:if="$data.webmentionsByPage.reposts"
     class="flex flex-wrap items-center mb-8"
   >
     <h3 class="text-lg font-bold w-24">
-      <span @text="webmentionsByPage.reposts.length"></span>
+      <span @text="$data.webmentionsByPage.reposts.length"></span>
       Reposts
     </h3>
-    <template webc:nokeep webc:for="wm of webmentionsByPage.reposts">
+    <template webc:nokeep webc:for="wm of $data.webmentionsByPage.reposts">
       <a
         :href="wm.url"
         rel="author"
@@ -76,7 +76,7 @@
         <div class="relative">
           <img
             loading="lazy"
-            :src="indieweb.webmentionUrl + wm.author.picture"
+            :src="$data.indieweb.webmentionUrl + wm.author.picture"
             :alt="wm.author.picture"
             class="rounded-full w-10 h-10 border border-border-code left"
           />
@@ -86,14 +86,14 @@
     </template>
   </div>
 
-  <div webc:if="webmentionsByPage.replies">
+  <div webc:if="$data.webmentionsByPage.replies">
     <details>
       <summary
         class="text-lg font-bold"
-        @text="webmentionsByPage.replies.length + ' Responses'"
+        @text="$data.webmentionsByPage.replies.length + ' Responses'"
       ></summary>
       <ol class="unset">
-        <li webc:for="wm of webmentionsByPage.replies">
+        <li webc:for="wm of $data.webmentionsByPage.replies">
           <article class="flex flex-col relative pl-12 py-4 u-comment h-cite">
             <div class="flex flex-wrap items-baseline">
               <a
@@ -103,7 +103,7 @@
               >
                 <img
                   loading="lazy"
-                  :src="indieweb.webmentionUrl + wm.author.picture"
+                  :src="$data.indieweb.webmentionUrl + wm.author.picture"
                   :alt="wm.author.picture"
                   class="rounded-full w-10 h-10 absolute left-0 border border-border-code"
                 />
