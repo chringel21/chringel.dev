@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   authorizationEndpoint: "https://indieauth.com/auth",
   tokenEndpoint: "https://tokens.indieauth.com/token",
   webmentionUrl: "https://jam.chringel.dev",
@@ -6,6 +6,6 @@ module.exports = {
   webmentionPingbackEndpoint: "/pingback",
   microformats: {
     pNote:
-      "Hi, I’m Christian Engel, software engineer by profession, blogger, photographer and open-source enthusiast by passion.",
+      "Hi, I'm Christian Engel, software engineer by profession, blogger, photographer and open-source enthusiast by passion.",
   },
 };

@@ -1,7 +1,7 @@
-const { getCategoryKeys } = require("./functions.cjs");
-const slugify = require("slugify");
+import { getCategoryKeys } from "./functions.js";
+import slugify from "slugify";
 
-module.exports = {
+export default {
   allReverse: (collectionApi) => {
     return collectionApi.getAllSorted().reverse();
   },

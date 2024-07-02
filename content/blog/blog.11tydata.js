@@ -1,7 +1,7 @@
-const slugify = require("slugify");
-const url = require("../../_data/metadata").url;
+import slugify from "slugify";
+import metadata from "../../_data/metadata.js";
 
-module.exports = {
+export default {
   tags: ["posts"],
   layout: "layouts/post.webc",
   permalink: (data) => {
@@ -35,7 +35,7 @@ module.exports = {
         (wm) => wm.relativeTarget === data.page.url
       );
       const groupedWm = wmByPage.reduce((r, a) => {
-        if (!a.source.includes(url)) {
+        if (!a.source.includes(metadata.url)) {
           if (
             a.content !== "" &&
             (a.type === "reply" || a.type === "mention")

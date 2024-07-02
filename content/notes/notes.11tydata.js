@@ -1,6 +1,6 @@
-const url = require("../../_data/metadata").url;
+import metadata from "../../_data/metadata.js";
 
-module.exports = {
+export default {
   tags: ["notes"],
   layout: "layouts/note.webc",
   permalink: (data) => {
@@ -13,6 +13,7 @@ module.exports = {
     return `/${year}/${month}/${day}/${data.page.fileSlug}/`;
   },
   eleventyComputed: {
+    computedContent: (data) => data.content,
     title: (data) => {
       return `Note from ${data.page.date.toDateString()}`;
     },
@@ -21,7 +22,7 @@ module.exports = {
         (wm) => wm.relativeTarget === data.page.url
       );
       const groupedWm = wmByPage.reduce((r, a) => {
-        if (!a.source.includes(url)) {
+        if (!a.source.includes(metadata.url)) {
           if (
             a.content !== "" &&
             (a.type === "reply" || a.type === "mention")

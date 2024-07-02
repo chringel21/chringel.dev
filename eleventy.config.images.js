@@ -1,7 +1,6 @@
-const Image = require("@11ty/eleventy-img");
-const { eleventyImagePlugin } = require("@11ty/eleventy-img");
+import Image, { eleventyImagePlugin } from "@11ty/eleventy-img";
 
-module.exports = (eleventyConfig) => {
+export default (eleventyConfig) => {
   eleventyConfig.addPlugin(eleventyImagePlugin, {
     // Set global default options
     formats: ["avif", "webp", "auto"],

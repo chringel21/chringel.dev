@@ -14,8 +14,9 @@ import path from "path";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-import filters from "./_includes/utils/filters.cjs";
-import collections from "./_includes/utils/collections.cjs";
+import imagePlugin from "./eleventy.config.images.js";
+import filters from "./_includes/utils/filters.js";
+import collections from "./_includes/utils/collections.js";
 
 export default async function (eleventyConfig) {
   // Watch targets
@@ -52,7 +53,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
 
   // App plugins
-  eleventyConfig.addPlugin(require("./eleventy.config.images.cjs"));
+  eleventyConfig.addPlugin(imagePlugin);
 
   // Filters
   Object.keys(filters).forEach((filterName) => {
@@ -138,7 +139,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLib);
 
   return {
-    templateFormats: ["md", "njk", "html", "webc", "11ty.cjs"],
+    templateFormats: ["md", "njk", "html", "webc", "11ty.js"],
 
     markdownTemplateEngine: "njk",
 

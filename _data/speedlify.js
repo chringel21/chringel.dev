@@ -1,6 +1,6 @@
-const EleventyFetch = require("@11ty/eleventy-fetch");
+import EleventyFetch from "@11ty/eleventy-fetch";
 
-module.exports = async function () {
+export default async function () {
   let url = "https://speedlify.chringel.dev/api/urls.json";
   let json = await EleventyFetch(url, {
     duration: "1w",
@@ -8,4 +8,4 @@ module.exports = async function () {
   });
 
   return json;
-};
+}

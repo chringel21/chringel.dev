@@ -1,8 +1,8 @@
-const { DateTime } = require("luxon");
-const markdownIt = require("markdown-it");
-const fs = require("fs");
+import { DateTime } from "luxon";
+import markdownIt from "markdown-it";
+import fs from "fs";
 
-module.exports = {
+export default {
   fromISOToReadable: (dateObj) => {
     return DateTime.fromISO(dateObj).toFormat("LLLL dd, yyyy");
   },
