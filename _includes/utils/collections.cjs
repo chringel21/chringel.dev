@@ -1,4 +1,4 @@
-const { getCategoryKeys } = require("./functions.js");
+const { getCategoryKeys } = require("./functions.cjs");
 const slugify = require("slugify");
 
 module.exports = {
