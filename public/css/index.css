@@ -70,6 +70,8 @@
     font-family: theme("fontFamily.body");
     background-color: theme("colors.bg.body");
     color: theme("colors.text.body");
+    background-image: url("/img/background.svg");
+    background-size: 20% 20%;
     /* base font-size 1px larger for better visibility */
     font-size: 1.125em;
     line-height: 1.85;
