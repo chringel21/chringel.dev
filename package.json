@@ -64,6 +64,7 @@
     "prettier": "^2.8.6",
     "speedlify-score": "^3.0.0",
     "tailwindcss": "^3.2.7",
-    "terser": "^5.22.0"
+    "terser": "^5.22.0",
+    "typescript": "^5.5.3"
   }
 }
