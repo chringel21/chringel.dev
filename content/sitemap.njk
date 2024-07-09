@@ -1,0 +1,22 @@
+---
+permalink: /sitemap.json
+---
+[
+  {% for entry in collections.all %}
+  {
+    "title": "{{ entry.data.title | safe }}",
+    "url": "{{ entry.url | url }}",
+    "slug": "{{ entry.date | slugify }}"
+    {% if entry.data.tags %}
+    ,"tags": 
+      [
+        {% for tag in entry.data.tags %}
+        "{{ tag }}"
+        {% if loop.last == false %},{% endif %}
+        {% endfor %}
+      ]
+    {% endif %}
+  }
+  {% if loop.last == false %},{% endif %} 
+  {% endfor %}
+]
