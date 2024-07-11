@@ -110,7 +110,8 @@ async function loadFonts(origin: string) {
 }
 
 async function getPageFromSitemap(slug: string, origin: string) {
-  const siteMapDataResponse = await fetch("/sitemap.json");
+  console.log(origin);
+  const siteMapDataResponse = await fetch(origin + "/sitemap.json");
   const siteMapData = await siteMapDataResponse.json();
   return siteMapData.find((entry: any) => entry.slug === slug);
 }
