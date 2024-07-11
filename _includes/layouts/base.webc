@@ -4,6 +4,8 @@
     <title webc:is="meta-title" webc:nokeep></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="author" :content="metadata.author.name" />
     <meta
       name="description"
       @attributes="({ content: description ||
@@ -11,11 +13,41 @@
     />
     <meta name="generator" :content="eleventy.generator" />
     <meta name="theme-color" content="#ffffff" />
-    <meta webc:is="meta-social" webc:nokeep :page="page" />
-    <meta webc:is="meta-favicons" webc:nokeep />
+
+    <!-- Social -->
+    <meta property="og:title" :content="title || metadata.title" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" :content="metadata.title" />
+    <meta
+      property="og:description"
+      :content="description || metadata.description"
+    />
+    <meta
+      property="og:image"
+      :content="new URL(
+      `/og-image/${slugify(page.fileSlug)}`,
+      metadata.url
+    ).toString()"
+    />
+    <meta property="og:url" :content="new URL(page.url, metadata.url)" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      :content="new URL(
+      `/og-image/${slugify(page.fileSlug)}`,
+      metadata.url
+    ).toString()"
+    />
+
+    <meta
+      property="article:published_time"
+      :content="htmlDateString(
+      page.date
+      )"
+    />
     <meta webc:is="indieweb-endpoints" webc:nokeep />
     <meta name="robots" content="index,follow" />
-    <link webc:is="link-canonical" webc:nokeep />
+    <link webc:is="link-canonical" webc:nokeep :page="page" />
     <link
       rel="preload"
       href="/fonts/space-grotesk-v13-latin-regular.woff2"
