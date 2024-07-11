@@ -11,7 +11,7 @@
     />
     <meta name="generator" :content="eleventy.generator" />
     <meta name="theme-color" content="#ffffff" />
-    <meta webc:is="meta-social" webc:nokeep />
+    <meta webc:is="meta-social" webc:nokeep :page="page" />
     <meta webc:is="meta-favicons" webc:nokeep />
     <meta webc:is="indieweb-endpoints" webc:nokeep />
     <meta name="robots" content="index,follow" />
