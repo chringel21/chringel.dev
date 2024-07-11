@@ -1,7 +1,16 @@
 import type { Config, Context } from "@netlify/edge-functions";
 import { ImageResponse } from "https://deno.land/x/og_edge@0.0.6/mod.ts";
 import React from "https://esm.sh/react@18.2.0";
-import { Logo } from "./assets/Logo.tsx";
+import { Logos } from "./assets/Logos.tsx";
+
+const LOGOS = [
+  "11ty",
+  "hugo",
+  "indieweb",
+  "javascript",
+  "node.js",
+  "uberspace",
+];
 
 const FONTS = [
   {
@@ -24,6 +33,8 @@ const STYLES = {
     height: "100%",
     display: "flex",
     flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "space-around",
     fontFamily: "Space Grotesk",
     backgroundImage:
       "linear-gradient(to bottom left, rgba(138, 230, 251, 1), rgba(255, 222, 105, 1))",
@@ -42,10 +53,6 @@ const STYLES = {
     color: "transparent",
     fontWeight: 700,
     textAlign: "center",
-    marginTop: "160px",
-    marginBottom: "160px",
-    marginLeft: "auto",
-    marginRight: "auto",
     backgroundImage:
       "linear-gradient(90deg, rgb(0, 124, 240), rgb(0, 223, 216), rgb(121, 40, 202), rgb(255, 0, 128), rgb(255, 77, 77), rgb(249, 203, 40))",
     backgroundClip: "text",
@@ -54,10 +61,6 @@ const STYLES = {
   logos: {
     display: "flex",
     justifyContent: "center",
-  },
-  feat: {
-    fontSize: "30px",
-    fontWeight: 700,
   },
   emoji: {
     fontSize: "200px",
@@ -125,9 +128,7 @@ export default async (request: Request, context: Context) => {
         <div style={STYLES.bg}></div>
         <h1 style={STYLES.h1}>{page.title}</h1>
         <div style={STYLES.logos}>
-          {page.tags?.map((tag: string) => (
-            <Logo logo={tag.toLowerCase()}></Logo>
-          ))}
+          {page.tags && <Logos tags={page.tags} availableLogos={LOGOS}></Logos>}
         </div>
         <span style={STYLES.emoji}>🤔</span>
         <a style={STYLES.link}>
