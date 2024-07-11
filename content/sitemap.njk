@@ -6,7 +6,7 @@ permalink: /sitemap.json
   {
     "title": "{{ entry.data.title | safe }}",
     "url": "{{ entry.url | url }}",
-    "slug": "{{ entry.date | slugify }}"
+    "slug": "{{ entry.fileSlug | slugify }}"
     {% if entry.data.tags %}
     ,"tags": 
       [
